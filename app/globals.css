@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Vision Zero Connect — Design Tokens
+  Source of truth: docs/colour_scheme.jpg (mapped below).
+  These tokens are exposed to Tailwind v4 via @theme, so they generate
+  utilities like `bg-teal`, `text-ink`, `border-grey`, `rounded-card`, etc.
+*/
+@theme {
+  /* --- Brand colors (solid) --- */
+  --color-ink: #191a19; /* near-black, primary dark / text */
+  --color-grey: #d9d9d9; /* light grey, borders & dividers */
+  --color-white: #ffffff;
+  --color-teal: #045858; /* brand teal, primary accent */
+  --color-sage: #8fb2b2; /* muted teal, secondary */
+  --color-navy: #0f1827; /* dark navy, deep backgrounds */
+  --color-lime: #89d957; /* lime accent (gradient start) */
+  --color-lime-soft: #c9e265; /* lime accent (gradient end) */
+  --color-mint: #f9fff5; /* soft section tint */
+  --color-deep: #2c4b56; /* dark slate-teal — footer surface (from design) */
+
+  /* --- Semantic --- */
+  --color-background: #ffffff;
+  --color-foreground: #191a19;
+
+  /* --- Typography --- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Display type scale (extends Tailwind's default text-* scale) */
+  --text-display-sm: 2.25rem; /* 36px */
+  --text-display-sm--line-height: 1.15;
+  --text-display: 3rem; /* 48px */
+  --text-display--line-height: 1.08;
+  --text-display-lg: 3.75rem; /* 60px */
+  --text-display-lg--line-height: 1.04;
+  --text-display-xl: 4.5rem; /* 72px */
+  --text-display-xl--line-height: 1.02;
+
+  /* --- Radii --- */
+  --radius-card: 1rem; /* 16px — product/sector/insight cards */
+  --radius-pill: 9999px; /* buttons / chips */
+
+  /* --- Spacing rhythm (section padding helpers) --- */
+  --spacing-section: 6rem; /* 96px vertical section rhythm */
+  --spacing-section-sm: 4rem; /* 64px on mobile */
+
+  /* --- Animations --- */
+  --animate-header-in: header-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-menu-in: menu-in 0.22s ease-out both;
+  --animate-fade-in-down: fade-in-down 0.4s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.7s ease-out both;
+  --animate-hero-image: hero-image-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes header-in {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translateX(48px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Brand gradients (background) --- */
+@utility bg-grad-dark {
+  background-image: linear-gradient(90deg, #191a19 0%, #045858 100%);
+}
+/* Hero: teal gradient with a darker vignette top-right (behind the monitor),
+   matching the design reference. */
+@utility bg-hero {
+  background-color: #06504e;
+  background-image:
+    radial-gradient(110% 120% at 78% 16%, rgba(3, 18, 18, 0.55) 0%, rgba(3, 18, 18, 0) 55%),
+    linear-gradient(120deg, #0a3a39 0%, #06514f 48%, #03605d 100%);
+}
+@utility bg-grad-lime {
+  background-image: linear-gradient(90deg, #89d957 0%, #c9e265 100%);
+}
+@utility bg-grad-mint {
+  background-image: linear-gradient(90deg, #f9fff5 0%, #afcfd1 100%);
+}
+
+/* --- Brand gradients (clipped to text, for <GradientText />) --- */
+@utility text-grad-lime {
+  background-image: linear-gradient(90deg, #89d957 0%, #c9e265 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility text-grad-teal {
+  background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset for the sticky header (h-20 = 5rem) on hash navigation */
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
 }
