@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
@@ -22,8 +23,15 @@ const NAV_LINKS = [
  * Animates in on load; collapses to a toggle menu on small screens.
  */
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Route links (e.g. "/about") light up on their page; in-page anchors ("#…")
+  // never count as the active route.
+  const isActive = (href: string) =>
+    href.startsWith("/") &&
+    (pathname === href || pathname.startsWith(`${href}/`));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -56,19 +64,29 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-            >
-              {link.label}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 rounded-full bg-lime transition-transform duration-300 ease-out group-hover:scale-x-100"
-              />
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+                  active ? "text-white" : "text-white/80",
+                )}
+              >
+                {link.label}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "absolute inset-x-0 bottom-0 h-0.5 origin-left rounded-full bg-lime transition-transform duration-300 ease-out group-hover:scale-x-100",
+                    active ? "scale-x-100" : "scale-x-0",
+                  )}
+                />
+              </Link>
+            );
+          })}
           <Button href="#contact" variant="ghost">
             Contact Us
           </Button>
@@ -94,16 +112,25 @@ export function Header() {
           className="animate-menu-in border-t border-white/10 bg-ink/95 text-white backdrop-blur-md lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide text-white/85 transition-colors hover:bg-white/10 hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide transition-colors hover:bg-white/10 hover:text-white",
+                    active
+                      ? "bg-white/10 text-white"
+                      : "text-white/85",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Button
               href="#contact"
               variant="primary"
