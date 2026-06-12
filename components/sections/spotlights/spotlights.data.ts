@@ -4,7 +4,8 @@ import type { SpotlightContent } from "./Spotlight";
 
 export const ESSENTIALS: SpotlightContent = {
   id: "essentials",
-  background: "white",
+  background: "grey",
+  z: "z-40",
   eyebrow: "Introducing Essentials",
   logo: {
     src: "/assets/home/logos/product-essentials-teal.png",
@@ -22,12 +23,14 @@ export const ESSENTIALS: SpotlightContent = {
     alt: "Essentials ESG reporting dashboard",
     width: 1920,
     height: 1080,
+    bleed: true,
   },
 };
 
 export const ESSENTIALS_PLUS: SpotlightContent = {
   id: "essentials-plus",
   background: "dark",
+  z: "z-30",
   reverse: true,
   logo: {
     src: "/assets/home/logos/product-essentials-plus.png",
@@ -45,16 +48,18 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
     variant: "primary",
   },
   image: {
-    src: "/assets/home/hero-dashboard.png",
+    src: "/assets/home/spotlight-essentials.png",
     alt: "Essentials+ operational intelligence dashboard",
-    width: 1080,
+    width: 1920,
     height: 1080,
+    bleed: true,
   },
 };
 
 export const PORTFOLIO_ONE: SpotlightContent = {
   id: "portfolio-one",
   background: "white",
+  z: "z-20",
   eyebrow: "Go Beyond Essentials with Portfolio One",
   logo: {
     src: "/assets/home/logos/product-portfolio-one-teal.png",
@@ -77,12 +82,14 @@ export const PORTFOLIO_ONE: SpotlightContent = {
     alt: "Portfolio One building performance dashboard",
     width: 1920,
     height: 1080,
+    bleed: true,
   },
 };
 
 export const VZ_CONSULT: SpotlightContent = {
   id: "vz-consult",
   background: "dark",
+  z: "z-10",
   reverse: true,
   logo: {
     src: "/assets/home/logos/product-vzc-consult.png",
@@ -104,5 +111,6 @@ export const VZ_CONSULT: SpotlightContent = {
     alt: "Vision Zero Consult advisory specialists",
     width: 800,
     height: 1000,
+    className: "mx-auto w-full max-w-sm",
   },
 };

@@ -3,10 +3,8 @@ import {
   Hero,
   USP,
   ProductsSection,
-  EssentialsSection,
-  EssentialsPlusSection,
-  PortfolioOneSection,
-  VZConsultSection,
+  EssentialsDuo,
+  PortfolioDuo,
   WhyVZC,
   SectorsSection,
   Partners,
@@ -27,10 +25,8 @@ export default function HomePage() {
         <Hero />
         <USP />
         <ProductsSection />
-        <EssentialsSection />
-        <EssentialsPlusSection />
-        <PortfolioOneSection />
-        <VZConsultSection />
+        <EssentialsDuo />
+        <PortfolioDuo />
         <WhyVZC />
         <SectorsSection />
         <Partners />

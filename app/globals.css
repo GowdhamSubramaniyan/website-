@@ -156,6 +156,9 @@
     scroll-behavior: smooth;
     /* offset for the sticky header (h-20 = 5rem) on hash navigation */
     scroll-padding-top: 5rem;
+    /* clip horizontal bleed (e.g. spotlight dashboards) without a scrollbar,
+       while still allowing sections to overflow vertically (overlap) */
+    overflow-x: clip;
   }
   body {
     background: var(--color-background);

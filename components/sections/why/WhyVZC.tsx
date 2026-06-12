@@ -1,6 +1,7 @@
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { VALUE_PROPS } from "./why.data";
 
 function CheckIcon() {
@@ -24,24 +25,28 @@ function CheckIcon() {
 export function WhyVZC() {
   return (
     <SectionWrapper background="white">
-      <SectionHeading
-        align="center"
-        headline={
-          <span className="text-teal">
-            Why Organisations Work With Vision Zero Connect
-          </span>
-        }
-        className="mx-auto"
-      />
+      <Reveal>
+        <SectionHeading
+          align="center"
+          headline={
+            <span className="text-teal">
+              Why Organisations Work With Vision Zero Connect
+            </span>
+          }
+          className="mx-auto"
+        />
+      </Reveal>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {VALUE_PROPS.map((value) => (
-          <Card key={value.title} variant="teal" className="gap-4">
-            <CheckIcon />
-            <h3 className="text-lg font-bold text-lime">{value.title}</h3>
-            <p className="text-sm leading-relaxed text-white/85">
-              {value.description}
-            </p>
-          </Card>
+        {VALUE_PROPS.map((value, i) => (
+          <Reveal key={value.title} delay={i * 120} className="flex">
+            <Card variant="teal" className="h-full w-full gap-4">
+              <CheckIcon />
+              <h3 className="text-lg font-bold text-lime">{value.title}</h3>
+              <p className="text-sm leading-relaxed text-white/85">
+                {value.description}
+              </p>
+            </Card>
+          </Reveal>
         ))}
       </div>
     </SectionWrapper>

@@ -2,12 +2,7 @@ export { Hero } from "./Hero";
 export { USP } from "./USP";
 export { ProductsSection } from "./products/ProductsSection";
 export { ProductCard } from "./products/ProductCard";
-export {
-  EssentialsSection,
-  EssentialsPlusSection,
-  PortfolioOneSection,
-  VZConsultSection,
-} from "./spotlights";
+export { EssentialsDuo, PortfolioDuo } from "./spotlights";
 export { WhyVZC } from "./why/WhyVZC";
 export { SectorsSection } from "./sectors/SectorsSection";
 export { SectorCard } from "./sectors/SectorCard";
