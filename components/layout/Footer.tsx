@@ -27,7 +27,7 @@ const SOCIALS = [
 /** Global site footer — newsletter, social, link columns, brand + legal row. */
 export function Footer() {
   return (
-    <footer className="bg-deep text-white">
+    <footer className="bg-navy text-white">
       <Container className="py-14">
         {/* Newsletter + social */}
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
@@ -50,7 +50,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="grid h-10 w-10 place-items-center rounded-full bg-teal text-white transition-colors hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-deep"
+                    className="grid h-10 w-10 place-items-center rounded-full bg-teal text-white transition-colors hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                   >
                     <Icon />
                   </a>
@@ -94,7 +94,7 @@ function FooterGroup({
           <li key={link.href}>
             <Link
               href={link.href}
-              className="rounded-sm text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-deep"
+              className="rounded-sm text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               {link.label}
             </Link>

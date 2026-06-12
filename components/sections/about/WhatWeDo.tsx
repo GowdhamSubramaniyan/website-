@@ -55,13 +55,13 @@ function Chevron({ open }: { open: boolean }) {
 /**
  * What We Do — the integrated ecosystem built around the NAVIGATE intelligence
  * engine. A product accordion on the left (first item open by default) and a
- * media/video panel on the right, on a deep-teal band.
+ * media/video panel on the right, on a [#036261]-teal band.
  */
 export function WhatWeDo() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="bg-[#2c5856] py-16 text-white md:py-24">
+    <section className="bg-[#036261] py-16 text-white md:py-24">
       <Container>
         <h2 className="text-center text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
           <span className="block">Four Products.</span>
@@ -90,7 +90,7 @@ export function WhatWeDo() {
                     type="button"
                     onClick={() => setOpenIndex(open ? -1 : i)}
                     aria-expanded={open}
-                    className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#2c5856]"
+                    className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#036261]"
                   >
                     <span className="text-2xl font-semibold">{product.name}</span>
                     <Chevron open={open} />

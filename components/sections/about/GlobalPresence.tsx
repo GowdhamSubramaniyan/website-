@@ -2,14 +2,13 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
-// Map pins for the real footprint (footprint.data: UK, US, Malta, Hong Kong,
-// Australia), positioned as % of the world-map image.
+// Map pins, positioned as % of the world-map image to mirror the design
+// (UK, Northern Europe, Hong Kong, Australia).
 const PINS = [
-  { label: "United States", left: "23%", top: "41%" },
-  { label: "United Kingdom", left: "47.5%", top: "36%" },
-  { label: "Malta", left: "53.5%", top: "46%" },
-  { label: "Hong Kong", left: "80%", top: "52%" },
-  { label: "Australia", left: "86%", top: "81%" },
+  { label: "United Kingdom", left: "46.5%", top: "35%" },
+  { label: "Northern Europe", left: "52%", top: "28%" },
+  { label: "Hong Kong", left: "78.5%", top: "52%" },
+  { label: "Australia", left: "86%", top: "80%" },
 ];
 
 function MapPin() {
@@ -55,8 +54,11 @@ export function GlobalPresence() {
           <Reveal delay={120}>
             <div className="grid grid-cols-2 gap-5">
               <div className="rounded-2xl bg-[#a7c4c2] p-7">
-                <p className="text-5xl font-bold text-ink">10+</p>
-                <p className="mt-2 text-base font-medium text-ink/80">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-base font-medium text-ink/80">From 10+ to</span>
+                  <span className="text-5xl font-bold leading-none text-ink">25+</span>
+                </div>
+                <p className="mt-3 text-base font-medium text-ink/80">
                   in-house industry experts
                 </p>
               </div>
