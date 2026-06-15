@@ -7,7 +7,6 @@ import {
   OurApproach,
   Leadership,
   GlobalPresence,
-  Partners,
   AboutCTA,
 } from "@/components/sections/about";
 
@@ -34,7 +33,6 @@ export default function AboutPage() {
         <OurApproach />
         <Leadership />
         <GlobalPresence />
-        <Partners />
         <AboutCTA />
       </main>
       <Footer />

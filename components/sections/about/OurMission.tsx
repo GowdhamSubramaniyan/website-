@@ -41,13 +41,13 @@ function PlayCircleIcon() {
 }
 
 /**
- * Our Mission — a white card on a deep-teal band. The mission statement and a
+ * Our Mission — a white card on a [#036261]-teal band. The mission statement and a
  * "see our products" CTA on the left; the four outcome cards in a 2×2 grid on
  * the right. Copy verbatim from the About doc.
  */
 export function OurMission() {
   return (
-    <section className="bg-[#2c5856] py-16 md:py-24">
+    <section className="bg-[#036261] py-16 md:py-24">
       <Container>
         <div className="rounded-[2rem] bg-white p-8 shadow-xl md:p-12 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">

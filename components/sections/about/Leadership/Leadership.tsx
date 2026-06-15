@@ -54,7 +54,7 @@ function PhotoCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative aspect-[4/5] overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#2c5856]"
+      className="group relative aspect-[4/5] overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#036261]"
       aria-label={`View ${member.name}, ${member.role}`}
     >
       {member.photo ? (
@@ -80,7 +80,7 @@ function Arrow({ dir, onClick }: { dir: "prev" | "next"; onClick: () => void }) 
       type="button"
       onClick={onClick}
       aria-label={dir === "prev" ? "Previous" : "Next"}
-      className="grid h-12 w-12 place-items-center rounded-full bg-[#4f817d] text-white transition-colors hover:bg-[#5d918d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#2c5856]"
+      className="grid h-12 w-12 place-items-center rounded-full bg-[#4f817d] text-white transition-colors hover:bg-[#5d918d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#036261]"
     >
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
         <path
@@ -96,7 +96,7 @@ function Arrow({ dir, onClick }: { dir: "prev" | "next"; onClick: () => void }) 
 }
 
 /**
- * Leadership / Team — a carousel on a deep-teal band. The active member shows a
+ * Leadership / Team — a carousel on a [#036261]-teal band. The active member shows a
  * lime detail card; the rest show as headshot cards. Arrows rotate the active
  * member. Copy from the About doc; profiles are placeholders (see data file).
  */
@@ -110,7 +110,7 @@ export function Leadership() {
   const next = () => setActive((i) => (i + 1) % n);
 
   return (
-    <section className="bg-[#2c5856] py-16 text-white md:py-24">
+    <section className="bg-[#036261] py-16 text-white md:py-24">
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
