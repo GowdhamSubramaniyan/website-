@@ -51,6 +51,8 @@
   --animate-fade-in-down: fade-in-down 0.4s ease-out both;
   --animate-fade-in-up: fade-in-up 0.7s ease-out both;
   --animate-hero-image: hero-image-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-hero-dash: hero-dash-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
 @keyframes header-in {
@@ -108,6 +110,29 @@
   }
 }
 
+/* Gentle vertical float (e.g. the monitoring building). */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Portfolio One hero dashboard: fades + slides in while keeping its 3D tilt. */
+@keyframes hero-dash-in {
+  from {
+    opacity: 0;
+    transform: perspective(2600px) rotateY(-9deg) translateX(70px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(2600px) rotateY(-9deg) translateX(0) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -132,6 +157,18 @@
 }
 @utility bg-grad-lime {
   background-image: linear-gradient(90deg, #89d957 0%, #c9e265 100%);
+}
+/* Portfolio One hero: dark indigo (top-left) → navy → green (bottom-right),
+   sampled from the design reference. */
+@utility bg-portfolio-hero {
+  background-color: #14202c;
+  background-image:
+    radial-gradient(115% 130% at 100% 104%, rgba(29, 90, 75, 0.95) 0%, rgba(29, 90, 75, 0) 52%),
+    linear-gradient(135deg, #201f39 0%, #15232f 46%, #0f2a30 100%);
+}
+/* Teal → sage pill gradient (Portfolio One primary CTA). */
+@utility bg-grad-teal {
+  background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
 }
 @utility bg-grad-mint {
   background-image: linear-gradient(90deg, #f9fff5 0%, #afcfd1 100%);
