@@ -1,0 +1,11 @@
+export { EssentialsHero } from "./EssentialsHero";
+export { VideoWalkthrough } from "./VideoWalkthrough";
+export { SmarterWay } from "./SmarterWay";
+export { DontGetCaught } from "./DontGetCaught";
+export { SMEChallenges } from "./SMEChallenges";
+export { Frameworks } from "./Frameworks";
+export { Pricing } from "./Pricing";
+export { Sectors } from "./Sectors";
+export { Features } from "./Features/Features";
+export { Insights } from "./Insights";
+export { ContactSupport } from "./ContactSupport";

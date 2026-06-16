@@ -14,7 +14,7 @@ export function OurApproach() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
           <Reveal>
-            <div className="overflow-hidden rounded-3xl shadow-xl">
+            <div className="overflow-hidden rounded-3xl">
               <Image
                 src="/assets/about/built-operations.png"
                 alt="A Vision Zero Connect team member at work"

@@ -29,7 +29,7 @@ export function AboutCTA() {
 
           {/* Image */}
           <Reveal delay={120}>
-            <div className="overflow-hidden rounded-3xl shadow-xl lg:ml-auto">
+            <div className="overflow-hidden rounded-3xl lg:ml-auto">
               <Image
                 src="/assets/about/cta.png"
                 alt="The Vision Zero Connect team reviewing data together"

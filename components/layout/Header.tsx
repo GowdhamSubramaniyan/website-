@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
@@ -17,12 +18,20 @@ const NAV_LINKS = [
   { label: "Partners", href: "#partners" },
 ] as const;
 
+type HeaderProps = {
+  /**
+   * Brand shown at top-left. "vzc" (default) renders the Vision Zero Connect
+   * logo; "essentials" renders the Essentials wordmark for the Essentials page.
+   */
+  brand?: "vzc" | "essentials";
+};
+
 /**
  * Global site header. Transparent over the hero, then fades to a brand-dark
  * translucent bar on scroll (white text throughout — never a plain white bar).
  * Animates in on load; collapses to a toggle menu on small screens.
  */
-export function Header() {
+export function Header({ brand = "vzc" }: HeaderProps = {}) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,7 +69,7 @@ export function Header() {
       )}
     >
       <Container className="flex h-20 items-center justify-between">
-        <Logo tone="white" />
+        {brand === "essentials" ? <EssentialsWordmark /> : <Logo tone="white" />}
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
@@ -143,6 +152,26 @@ export function Header() {
         </div>
       )}
     </header>
+  );
+}
+
+/** Essentials wordmark — the official white "essentials" logo (over dark hero). */
+function EssentialsWordmark() {
+  return (
+    <Link
+      href="/essentials"
+      aria-label="Essentials — home"
+      className="group inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+    >
+      <Image
+        src="/assets/essentials/logo-essentials.png"
+        alt="Essentials"
+        width={3146}
+        height={1021}
+        preload
+        className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+      />
+    </Link>
   );
 }
 

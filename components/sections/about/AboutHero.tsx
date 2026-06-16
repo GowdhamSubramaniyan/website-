@@ -55,7 +55,7 @@ export function AboutHero() {
 
           {/* Team photo */}
           <div className="animate-fade-in-up [animation-delay:200ms]">
-            <div className="overflow-hidden rounded-3xl shadow-xl lg:ml-auto">
+            <div className="overflow-hidden rounded-3xl lg:ml-auto">
               <Image
                 src="/assets/about/hero.png"
                 alt="The Vision Zero Connect team in a meeting"
