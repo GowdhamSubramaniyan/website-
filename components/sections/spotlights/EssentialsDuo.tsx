@@ -20,7 +20,7 @@ export function EssentialsDuo() {
         className="absolute inset-0 -z-10 hidden lg:flex lg:flex-col"
       >
         <div className="bg-grey lg:h-[48rem]" />
-        <div className="bg-grad-dark flex-1" />
+        <div className="bg-grad-teal-band flex-1" />
       </div>
 
       {/* --- Essentials (grey) --- */}
@@ -41,7 +41,7 @@ export function EssentialsDuo() {
         </Reveal>
 
         <Reveal className="relative z-10 mt-8 lg:w-[42%]">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-teal sm:text-4xl md:text-display-sm">
+          <h2 className="text-grad-deep text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
             {ESSENTIALS.heading}
           </h2>
           <div className="mt-5 space-y-4 text-base leading-relaxed text-ink/80 sm:text-lg">
@@ -88,7 +88,7 @@ export function EssentialsDuo() {
       </Container>
 
       {/* --- Essentials+ (dark) --- */}
-      <Container className="bg-grad-dark relative py-section-sm md:py-section lg:min-h-[54rem] lg:bg-none">
+      <Container className="bg-grad-teal-band relative py-section-sm md:py-section lg:min-h-[54rem] lg:bg-none">
         <span id="essentials-plus" className="absolute -top-20" aria-hidden />
         <Reveal>
           <div className="flex items-center">

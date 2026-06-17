@@ -14,9 +14,13 @@ type UspBlockProps = {
   image: UspImage;
   /** Place the image on the left (text on the right). */
   reverse?: boolean;
+  /** Crop a landscape source into a portrait frame. */
+  portrait?: boolean;
+  /** Render the image as a 16:9 video thumbnail with a play button. */
+  video?: boolean;
 };
 
-function UspBlock({ headline, paragraphs, cta, image, reverse }: UspBlockProps) {
+function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }: UspBlockProps) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <Reveal className={cn(reverse && "lg:order-2")}>
@@ -36,14 +40,41 @@ function UspBlock({ headline, paragraphs, cta, image, reverse }: UspBlockProps) 
       </Reveal>
 
       <Reveal delay={150} className={cn(reverse && "lg:order-1")}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="h-full w-full rounded-2xl object-cover shadow-2xl"
-        />
+        {video ? (
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="aspect-video w-full object-cover"
+            />
+            <button
+              type="button"
+              aria-label="Play overview video"
+              className="group absolute inset-0 grid place-items-center focus-visible:outline-none"
+            >
+              <span className="grid h-16 w-16 place-items-center rounded-full border-2 border-white bg-black/20 backdrop-blur-sm transition-transform duration-200 group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-lime">
+                <svg viewBox="0 0 32 32" className="h-7 w-7" aria-hidden="true">
+                  <path d="M12 9v14l11-7z" fill="#fff" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        ) : (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={cn(
+              "w-full rounded-2xl object-cover shadow-2xl",
+              portrait ? "aspect-[4/5] h-auto" : "h-full",
+            )}
+          />
+        )}
       </Reveal>
     </div>
   );
@@ -55,6 +86,7 @@ export function USP() {
     <SectionWrapper background="ink">
       <div className="space-y-20 md:space-y-28">
         <UspBlock
+          video
           headline={
             <span className="text-lime">
               Trusted by Organisations Preparing for What&apos;s Next
@@ -67,19 +99,22 @@ export function USP() {
           ]}
           cta={{ label: "Explore the Ecosystem", href: "#products" }}
           image={{
-            src: "/assets/home/usp-collaboration.png",
-            alt: "Colleagues reviewing operational data together",
-            width: 800,
-            height: 1000,
+            src: "/assets/home/usp-video.png",
+            alt: "Watch the Vision Zero Connect overview",
+            width: 1920,
+            height: 1080,
           }}
         />
 
         <UspBlock
           reverse
+          portrait
           headline={
             <>
-              Most Platforms Stop at Reporting.{" "}
-              <span className="text-lime">
+              <span className="block text-xl font-bold text-white sm:text-2xl">
+                Most Platforms Stop at Reporting.
+              </span>
+              <span className="mt-3 block text-lime">
                 Vision Zero Connect Goes All the Way to Return.
               </span>
             </>

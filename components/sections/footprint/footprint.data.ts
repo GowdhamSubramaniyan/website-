@@ -60,4 +60,10 @@ export const LOCATIONS: Location[] = [
     title: "Malta",
     note: "New office coming soon.",
   },
+  {
+    name: "United States",
+    detail: "Expansion Underway",
+    pos: { top: "40%", left: "22%" },
+    note: "US market expansion underway.",
+  },
 ];

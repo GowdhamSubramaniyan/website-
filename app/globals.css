@@ -145,7 +145,7 @@
 
 /* --- Brand gradients (background) --- */
 @utility bg-grad-dark {
-  background-image: linear-gradient(90deg, #191a19 0%, #045858 100%);
+  background-image: linear-gradient(90deg, #045858 0%, #191a19 100%);
 }
 /* Hero: teal gradient with a darker vignette top-right (behind the monitor),
    matching the design reference. */
@@ -170,6 +170,7 @@
 @utility bg-grad-teal {
   background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
 }
+<<<<<<< HEAD
 /* Essentials hero: bright cyan glow (top-center) over a left→right blend of
    dark teal → teal-green → dark blue-gray (exact colours from the design). */
 @utility bg-essentials-hero {
@@ -177,6 +178,12 @@
   background-image:
     radial-gradient(52% 44% at 50% -4%, rgba(10, 168, 181, 0.9) 0%, rgba(10, 168, 181, 0) 62%),
     linear-gradient(90deg, #2d6a72 0%, #3c6f5e 50%, #2c4650 100%);
+=======
+/* Teal-dominant band (Essentials+ spotlight) — teal glow upper-left fading to
+   deep teal at the edges; no harsh black. */
+@utility bg-grad-teal-band {
+  background-image: radial-gradient(130% 140% at 25% 30%, #0d6b61 0%, #0c3a34 52%, #082a25 100%);
+>>>>>>> f20a0a7fd90f0fa72538a05c0f78d05a09d299e9
 }
 @utility bg-grad-mint {
   background-image: linear-gradient(90deg, #f9fff5 0%, #afcfd1 100%);
@@ -191,6 +198,13 @@
 }
 @utility text-grad-teal {
   background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Deep teal → near-black, for dark headings on light surfaces. */
+@utility text-grad-deep {
+  background-image: linear-gradient(160deg, #2c5e5a 0%, #0c1f23 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

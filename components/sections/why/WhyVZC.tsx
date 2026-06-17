@@ -6,13 +6,13 @@ import { VALUE_PROPS } from "./why.data";
 
 function CheckIcon() {
   return (
-    <span className="grid h-10 w-10 place-items-center rounded-full bg-lime">
+    <span className="grid h-10 w-10 place-items-center rounded-full bg-[#3fa657] ring-2 ring-white">
       <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
         <path
           d="M5 12.5l4 4 10-10"
           fill="none"
-          stroke="#191a19"
-          strokeWidth="2.5"
+          stroke="#ffffff"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
