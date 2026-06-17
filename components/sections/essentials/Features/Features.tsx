@@ -11,7 +11,7 @@ import { FEATURES } from "./features.data";
  */
 export function Features() {
   return (
-    <section id="features" className="bg-[#4c7f78] py-16 text-white md:py-24">
+    <section id="features" className="bg-[#0c8f84] py-16 text-white md:py-24">
       <Container>
         <Reveal>
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-lime sm:text-4xl md:text-5xl">
@@ -36,7 +36,7 @@ export function Features() {
         <div className="mt-10 text-right">
           <Link
             href="#pricing"
-            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-white underline-offset-4 transition-colors hover:text-lime hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#4c7f78]"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-white underline-offset-4 transition-colors hover:text-lime hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c8f84]"
           >
             Get started now &rsaquo;
           </Link>

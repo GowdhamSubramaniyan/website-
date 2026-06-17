@@ -49,7 +49,7 @@ export function OurMission() {
   return (
     <section className="bg-[#036261] py-16 md:py-24">
       <Container>
-        <div className="rounded-[2rem] bg-white p-8 shadow-xl md:p-12 lg:p-16">
+        <div className="rounded-[2rem] bg-[linear-gradient(135deg,#f4faf6_0%,#d6e9e2_50%,#a9cabf_100%)] p-8 shadow-xl md:p-12 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Mission */}
             <div className="flex flex-col">

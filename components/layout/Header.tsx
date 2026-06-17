@@ -21,9 +21,10 @@ const NAV_LINKS = [
 type HeaderProps = {
   /**
    * Brand shown at top-left. "vzc" (default) renders the Vision Zero Connect
-   * logo; "essentials" renders the Essentials wordmark for the Essentials page.
+   * logo; "essentials" renders the Essentials wordmark; "portfolio-one" renders
+   * the Portfolio One wordmark — each for its respective product page.
    */
-  brand?: "vzc" | "essentials";
+  brand?: "vzc" | "essentials" | "portfolio-one";
 };
 
 /**
@@ -69,7 +70,13 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
       )}
     >
       <Container className="flex h-20 items-center justify-between">
-        {brand === "essentials" ? <EssentialsWordmark /> : <Logo tone="white" />}
+        {brand === "essentials" ? (
+          <EssentialsWordmark />
+        ) : brand === "portfolio-one" ? (
+          <PortfolioOneWordmark />
+        ) : (
+          <Logo tone="white" />
+        )}
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
@@ -168,6 +175,26 @@ function EssentialsWordmark() {
         alt="Essentials"
         width={3146}
         height={1021}
+        preload
+        className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+      />
+    </Link>
+  );
+}
+
+/** Portfolio One wordmark — white "PORTFOLIO" + teal "ONE" (over dark hero). */
+function PortfolioOneWordmark() {
+  return (
+    <Link
+      href="/portfolio-one"
+      aria-label="Portfolio One — home"
+      className="group inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+    >
+      <Image
+        src="/assets/home/logos/product-portfolio-one.png"
+        alt="Portfolio One"
+        width={4019}
+        height={1250}
         preload
         className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
       />

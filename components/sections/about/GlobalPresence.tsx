@@ -1,28 +1,11 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-
-// Map pins, positioned as % of the world-map image to mirror the design
-// (UK, Northern Europe, Hong Kong, Australia).
-const PINS = [
-  { label: "United Kingdom", left: "46.5%", top: "35%" },
-  { label: "Northern Europe", left: "52%", top: "28%" },
-  { label: "Hong Kong", left: "78.5%", top: "52%" },
-  { label: "Australia", left: "86%", top: "80%" },
-];
-
-function MapPin() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-7 w-7 drop-shadow" fill="#0f1827" aria-hidden="true">
-      <path d="M12 2a7 7 0 0 0-7 7c0 4.6 6.1 12.2 6.36 12.52a.82.82 0 0 0 1.28 0C12.9 21.2 19 13.6 19 9a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
-    </svg>
-  );
-}
+import { OfficeLocations } from "@/components/sections/footprint/OfficeLocations";
 
 /**
  * Global Presence — solid-teal headline and the doc's footprint copy on the
- * left, headline stats on the right, and a world map with location pins below.
- * Soft mint background, mirroring the rest of the light sections.
+ * left, headline stats (bento) on the right, and the shared office-locations
+ * tabs + detail + map below. Soft mint background.
  */
 export function GlobalPresence() {
   return (
@@ -77,27 +60,10 @@ export function GlobalPresence() {
           </Reveal>
         </div>
 
-        {/* World map */}
-        <div className="relative mx-auto mt-14 w-full max-w-5xl">
-          <Image
-            src="/assets/home/global-map.png"
-            alt="World map showing Vision Zero Connect locations"
-            width={1920}
-            height={1080}
-            sizes="100vw"
-            className="h-auto w-full object-contain"
-          />
-          {PINS.map((pin) => (
-            <span
-              key={pin.label}
-              className="absolute -translate-x-1/2 -translate-y-full"
-              style={{ left: pin.left, top: pin.top }}
-              aria-label={pin.label}
-            >
-              <MapPin />
-            </span>
-          ))}
-        </div>
+        {/* Office locations — shared tabs + detail + live map */}
+        <Reveal className="mt-14">
+          <OfficeLocations />
+        </Reveal>
       </Container>
     </section>
   );

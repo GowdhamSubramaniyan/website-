@@ -170,6 +170,14 @@
 @utility bg-grad-teal {
   background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
 }
+/* Essentials hero: bright cyan glow (top-center) over a left→right blend of
+   dark teal → teal-green → dark blue-gray (exact colours from the design). */
+@utility bg-essentials-hero {
+  background-color: #3c6f5e;
+  background-image:
+    radial-gradient(52% 44% at 50% -4%, rgba(10, 168, 181, 0.9) 0%, rgba(10, 168, 181, 0) 62%),
+    linear-gradient(90deg, #2d6a72 0%, #3c6f5e 50%, #2c4650 100%);
+}
 @utility bg-grad-mint {
   background-image: linear-gradient(90deg, #f9fff5 0%, #afcfd1 100%);
 }

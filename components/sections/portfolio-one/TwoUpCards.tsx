@@ -4,8 +4,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { twoUp } from "./portfolio-one.data";
 
 /**
- * Two paired feature cards on a light band. Each card layers a teal gradient
- * over its photo, with a lime title and white body on top. Stacks on mobile.
+ * Two paired feature cards on a light band. Each card layers a uniform teal
+ * wash over its photo, with a lime title and white body on top. Stacks on mobile.
  */
 export function TwoUpCards() {
   return (
@@ -22,10 +22,7 @@ export function TwoUpCards() {
                 sizes="(min-width: 768px) 40rem, 100vw"
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <span
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-teal via-teal/85 to-teal/40"
-              />
+              <span aria-hidden className="absolute inset-0 bg-teal/85" />
               <div className="relative z-10">
                 <h3 className="text-balance text-2xl font-bold leading-tight text-lime sm:text-3xl">
                   {card.title}

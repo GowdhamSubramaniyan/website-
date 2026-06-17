@@ -26,7 +26,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden bg-[#163b38] py-20 text-white md:py-28"
+      className="relative overflow-hidden bg-[#0c8f84] py-20 text-white md:py-28"
     >
       {/* subtle perspective grid */}
       <div

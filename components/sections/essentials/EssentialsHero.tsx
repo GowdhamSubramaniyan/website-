@@ -3,64 +3,73 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
 /**
- * Essentials hero (Prompt 1) — teal radial backdrop with a bright top spotlight,
- * matching the Canva draft. Eyebrow + lime headline + intro and the two CTAs on
- * the left (a muted sage pill + a play link); the pre-angled dashboard PNG
- * bleeds off the right edge on large screens. Top padding clears the fixed
- * header.
+ * Essentials hero — teal radial backdrop (bright teal spotlight up top fading to
+ * dark teal at the edges, sampled from the Canva draft). Eyebrow + lime headline
+ * + intro and the two CTAs sit on the left ~half; the pre-angled dashboard PNG
+ * bleeds off the right edge of the screen on large screens (stacks below the
+ * copy on mobile). Top padding clears the fixed header.
  */
 export function EssentialsHero() {
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(120%_120%_at_54%_-8%,#74a89e_0%,#34594f_46%,#13302c_100%)] text-white">
-      <Container className="relative z-10 pb-16 pt-32 md:pb-24 md:pt-40">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Copy */}
-          <div>
-            <span className="animate-fade-in-up block text-base font-semibold text-white">
-              Essentials by Vision Zero Connect
-            </span>
-            <h1 className="animate-fade-in-up mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-lime [animation-delay:120ms] sm:text-5xl md:text-6xl">
-              AI-Powered ESG &amp; Operational Reporting Built for SMEs
-            </h1>
-            <p className="animate-fade-in-up mt-8 max-w-xl text-base leading-relaxed text-white/85 [animation-delay:240ms]">
-              Essentials helps SMEs generate professional ESG and operational
-              reporting aligned to growing lender, procurement, investor, and
-              customer expectations — without expensive consultants or manual
-              reporting processes.
-            </p>
-            <div className="animate-fade-in-up mt-10 flex flex-wrap items-center gap-6 [animation-delay:360ms]">
-              <Link
-                href="#pricing"
-                className="inline-flex items-center justify-center rounded-pill bg-[#6e8f87] px-7 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-sm transition-colors duration-200 hover:bg-[#5d7c74] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              >
-                Get Started Now at €700
-              </Link>
-              <Link
-                href="#video"
-                className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              >
-                <PlayCircleIcon />
-                See Essentials in Action
-              </Link>
-            </div>
+    <section className="relative z-10 bg-essentials-hero text-white lg:min-h-[42rem]">
+      <Container className="relative z-10 pb-16 pt-32 md:pb-24 md:pt-44">
+        <div className="lg:w-[44%]">
+          <span className="animate-fade-in-up block text-sm font-semibold text-white">
+            Essentials by Vision Zero Connect
+          </span>
+          <h1 className="animate-fade-in-up mt-4 text-3xl font-bold leading-[1.08] tracking-tight text-lime [animation-delay:120ms] sm:text-4xl md:text-5xl">
+            AI-Powered ESG &amp; Operational Reporting Built for SMEs
+          </h1>
+          <p className="animate-fade-in-up mt-5 max-w-md text-sm leading-relaxed text-white/85 [animation-delay:240ms] sm:text-base">
+            Essentials helps SMEs generate professional ESG and operational
+            reporting aligned to growing lender, procurement, investor, and
+            customer expectations — without expensive consultants or manual
+            reporting processes.
+          </p>
+          <div className="animate-fade-in-up mt-8 flex items-center gap-6 [animation-delay:360ms]">
+            <Link
+              href="#pricing"
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-pill bg-teal px-7 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-sm transition-colors duration-200 hover:bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              Get Started Now at €700
+            </Link>
+            <Link
+              href="#video"
+              className="group inline-flex shrink-0 items-center gap-3 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              <PlayCircleIcon />
+              See Essentials in Action
+            </Link>
           </div>
 
-          {/* Product dashboard — pre-angled transparent PNG, bleeds off the right */}
-          <div className="animate-fade-in-up [animation-delay:200ms]">
-            <div className="lg:w-[128%] lg:-mr-16 xl:-mr-28">
-              <Image
-                src="/assets/essentials/hero.png"
-                alt="Essentials ESG reporting dashboard"
-                width={1920}
-                height={1080}
-                sizes="(min-width: 1024px) 48rem, 90vw"
-                className="h-auto w-full drop-shadow-2xl"
-                preload
-              />
-            </div>
+          {/* Dashboard — stacked below copy on mobile/tablet */}
+          <div className="animate-fade-in-up mt-12 [animation-delay:200ms] lg:hidden">
+            <Image
+              src="/assets/essentials/hero.png"
+              alt="Essentials ESG reporting dashboard"
+              width={1920}
+              height={1080}
+              sizes="100vw"
+              className="h-auto w-full drop-shadow-2xl"
+              preload
+            />
           </div>
         </div>
       </Container>
+
+      {/* Dashboard — pre-angled PNG bleeding off the right edge AND down into the
+          "See How Essentials Works" section below (the bleed effect). */}
+      <div className="pointer-events-none absolute left-[48%] top-[66%] hidden w-[82vw] -translate-y-1/2 lg:block xl:w-[84vw]">
+        <Image
+          src="/assets/essentials/hero.png"
+          alt=""
+          width={1920}
+          height={1080}
+          sizes="58vw"
+          className="animate-hero-image h-auto w-full max-w-none drop-shadow-2xl"
+          preload
+        />
+      </div>
     </section>
   );
 }

@@ -9,18 +9,18 @@ import { Reveal } from "@/components/ui/Reveal";
  */
 export function VideoWalkthrough() {
   return (
-    <section id="video" className="relative overflow-hidden bg-[#3f6f66] py-16 text-white md:py-24">
-      {/* faint world-map texture */}
+    <section id="video" className="relative overflow-hidden bg-[#0c8f84] py-16 text-white md:py-24">
+      {/* faint semi-globe behind the content */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 flex items-end justify-center opacity-[0.06]"
+        className="pointer-events-none absolute inset-x-0 top-[10%] flex justify-center opacity-[0.16]"
       >
         <Image
           src="/assets/essentials/world-map.png"
           alt=""
           width={1920}
           height={1080}
-          className="w-full max-w-5xl"
+          className="w-[125%] max-w-none"
         />
       </div>
 
@@ -35,7 +35,7 @@ export function VideoWalkthrough() {
           {/* Video */}
           <Reveal>
             <div className="overflow-hidden rounded-2xl border-[6px] border-white shadow-xl">
-              <div className="relative">
+              <div className="relative aspect-video">
                 <Image
                   src="/assets/essentials/video-thumb.png"
                   alt="Watch how Essentials works"

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function PortfolioOnePage() {
   return (
     <>
-      <Header />
+      <Header brand="portfolio-one" />
       <main id="main">
         <PortfolioHero />
         <OverviewBlock />

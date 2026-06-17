@@ -31,8 +31,8 @@ export default function AboutPage() {
         <OurMission />
         <WhatWeDo />
         <OurApproach />
-        <Leadership />
         <GlobalPresence />
+        <Leadership />
         <AboutCTA />
       </main>
       <Footer />
