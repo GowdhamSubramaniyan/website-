@@ -97,7 +97,7 @@ export function GlobalFootprint() {
           </button>
         ))}
 
-        <div className="mx-auto mt-8 max-w-md lg:absolute lg:left-[4%] lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
+        <div className="mx-auto mt-8 max-w-md lg:absolute lg:bottom-[3%] lg:left-[2%] lg:mt-0">
           <article className="rounded-2xl border border-grey bg-white/95 p-6 shadow-xl backdrop-blur-sm sm:p-7">
             <div className="flex items-center gap-3">
               <Image src={PIN} alt="" width={400} height={400} className="h-9 w-auto" />

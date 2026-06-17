@@ -10,7 +10,11 @@ import { PRODUCTS } from "./products.data";
  */
 export function ProductsSection() {
   return (
-    <SectionWrapper id="products" background="dark">
+    <SectionWrapper
+      id="products"
+      background="ink"
+      className="[background-image:radial-gradient(115%_130%_at_18%_42%,#0a5e57_0%,#0a2825_46%,#040f0e_100%)]"
+    >
       <Reveal className="max-w-3xl">
         <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-display-sm">
           Four Products. One Intelligence Engine.

@@ -145,7 +145,7 @@
 
 /* --- Brand gradients (background) --- */
 @utility bg-grad-dark {
-  background-image: linear-gradient(90deg, #191a19 0%, #045858 100%);
+  background-image: linear-gradient(90deg, #045858 0%, #191a19 100%);
 }
 /* Hero: teal gradient with a darker vignette top-right (behind the monitor),
    matching the design reference. */
@@ -170,6 +170,11 @@
 @utility bg-grad-teal {
   background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
 }
+/* Teal-dominant band (Essentials+ spotlight) — teal glow upper-left fading to
+   deep teal at the edges; no harsh black. */
+@utility bg-grad-teal-band {
+  background-image: radial-gradient(130% 140% at 25% 30%, #0d6b61 0%, #0c3a34 52%, #082a25 100%);
+}
 @utility bg-grad-mint {
   background-image: linear-gradient(90deg, #f9fff5 0%, #afcfd1 100%);
 }
@@ -183,6 +188,13 @@
 }
 @utility text-grad-teal {
   background-image: linear-gradient(90deg, #045858 0%, #8fb2b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Deep teal → near-black, for dark headings on light surfaces. */
+@utility text-grad-deep {
+  background-image: linear-gradient(160deg, #2c5e5a 0%, #0c1f23 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

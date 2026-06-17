@@ -10,7 +10,10 @@ import type { Product } from "./products.data";
  */
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Card variant="dark" className="h-full w-full gap-5">
+    <Card
+      variant="dark"
+      className="h-full w-full gap-5 [background-image:linear-gradient(180deg,#050f0e_0%,#0e413d_100%)]"
+    >
       <div className="flex min-h-14 items-center">
         <Image
           src={product.logo.src}

@@ -11,7 +11,7 @@ export const ESSENTIALS: SpotlightContent = {
     src: "/assets/home/logos/product-essentials-teal.png",
     width: 3146,
     height: 1021,
-    className: "h-9 sm:h-10",
+    className: "h-11 sm:h-14",
   },
   heading: "AI-Powered ESG & Operational Reporting Built for SMEs",
   paragraphs: [
@@ -67,7 +67,7 @@ export const PORTFOLIO_ONE: SpotlightContent = {
     height: 1250,
     className: "h-8 sm:h-9",
   },
-  heading: "Building performance intelligence for real asset portfolios.",
+  heading: "Enhanced Building Performance Through Operational Intelligence",
   paragraphs: [
     "Portfolio One transforms building and operational data into measurable commercial outcomes.",
     "From live utility monitoring and performance visibility to operational optimisation and ESG readiness, Portfolio One helps organisations reduce costs, improve asset performance, and make smarter portfolio decisions at scale.",

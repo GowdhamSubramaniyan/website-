@@ -13,12 +13,13 @@ export function Hero() {
     <section className="relative overflow-hidden bg-hero text-white lg:min-h-[42rem]">
       <Container className="relative z-10 pb-20 pt-32 md:pb-28 md:pt-44">
         <div className="lg:w-[50%]">
-          <span className="animate-fade-in-up block text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+          <span className="animate-fade-in-up block text-base font-semibold tracking-wide text-[#35c4a3]">
             Operational Intelligence for Real Assets
           </span>
           <h1 className="animate-fade-in-up mt-4 text-balance text-display-sm font-semibold tracking-tight [animation-delay:120ms] sm:text-display md:text-display-lg">
-            Real Asset Intelligence for a{" "}
-            <GradientText variant="lime">More Demanding Economy</GradientText>
+            <GradientText variant="lime">
+              Real Asset Intelligence for a More Demanding Economy
+            </GradientText>
           </h1>
           <div className="animate-fade-in-up mt-6 max-w-xl space-y-4 text-base leading-relaxed text-white/80 [animation-delay:240ms] sm:text-lg">
             <p>
