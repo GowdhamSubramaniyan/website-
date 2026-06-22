@@ -180,7 +180,7 @@ export function ContactSupport() {
                 <li className="flex items-start gap-3">
                   <Dot />
                   <span className="font-semibold text-ink">
-                    Europe | UK | Australia | Hong Kong
+                    UK | Australia | Hong Kong | Malta | USA
                   </span>
                 </li>
               </ul>
