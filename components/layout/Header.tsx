@@ -21,10 +21,17 @@ const NAV_LINKS = [
 type HeaderProps = {
   /**
    * Brand shown at top-left. "vzc" (default) renders the Vision Zero Connect
-   * logo; "essentials" renders the Essentials wordmark; "portfolio-one" renders
-   * the Portfolio One wordmark — each for its respective product page.
+   * logo; "essentials" / "essentials-plus" render the Essentials wordmarks;
+   * "portfolio-one" renders the Portfolio One wordmark — each for its respective
+   * product page.
    */
-  brand?: "vzc" | "essentials" | "portfolio-one";
+  brand?: "vzc" | "essentials" | "essentials-plus" | "portfolio-one";
+  /**
+   * "light" makes the transparent (unscrolled) header use dark text + logo for
+   * light heroes; it flips back to white once the solid dark bar appears on
+   * scroll. Defaults to "dark".
+   */
+  theme?: "dark" | "light";
 };
 
 /**
@@ -32,7 +39,7 @@ type HeaderProps = {
  * translucent bar on scroll (white text throughout — never a plain white bar).
  * Animates in on load; collapses to a toggle menu on small screens.
  */
-export function Header({ brand = "vzc" }: HeaderProps = {}) {
+export function Header({ brand = "vzc", theme = "dark" }: HeaderProps = {}) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,11 +66,14 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
   }, [menuOpen]);
 
   const solid = scrolled || menuOpen;
+  // Dark text/logo only while the header is transparent over a light hero.
+  const onLight = theme === "light" && !solid;
 
   return (
     <header
       className={cn(
-        "animate-header-in fixed inset-x-0 top-0 z-50 text-white transition-all duration-300 ease-out",
+        "animate-header-in fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out",
+        onLight ? "text-ink" : "text-white",
         solid
           ? "border-b border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
@@ -72,10 +82,12 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
       <Container className="flex h-20 items-center justify-between">
         {brand === "essentials" ? (
           <EssentialsWordmark />
+        ) : brand === "essentials-plus" ? (
+          <EssentialsPlusWordmark onLight={onLight} />
         ) : brand === "portfolio-one" ? (
           <PortfolioOneWordmark />
         ) : (
-          <Logo tone="white" />
+          <Logo tone={onLight ? "color" : "white"} />
         )}
 
         {/* Desktop nav */}
@@ -88,8 +100,17 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-                  active ? "text-white" : "text-white/80",
+                  "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+                  onLight
+                    ? "focus-visible:ring-ink hover:text-ink"
+                    : "focus-visible:ring-white hover:text-white",
+                  active
+                    ? onLight
+                      ? "text-ink"
+                      : "text-white"
+                    : onLight
+                      ? "text-ink/70"
+                      : "text-white/80",
                 )}
               >
                 {link.label}
@@ -178,6 +199,43 @@ function EssentialsWordmark() {
         preload
         className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
       />
+    </Link>
+  );
+}
+
+/**
+ * Essentials+ wordmark — the white "essentials+" logo over a dark hero; over a
+ * light hero (onLight) it composes the teal "essentials" wordmark + a teal "+".
+ */
+function EssentialsPlusWordmark({ onLight }: { onLight: boolean }) {
+  return (
+    <Link
+      href="/essentials-plus"
+      aria-label="Essentials+ — home"
+      className="group inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:ring-current"
+    >
+      {onLight ? (
+        <span className="inline-flex items-center gap-1.5">
+          <Image
+            src="/assets/home/logos/product-essentials-teal.png"
+            alt="Essentials+"
+            width={3146}
+            height={1021}
+            preload
+            className="h-8 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-9"
+          />
+          <span className="text-2xl font-bold leading-none text-teal sm:text-3xl">+</span>
+        </span>
+      ) : (
+        <Image
+          src="/assets/home/logos/product-essentials-plus.png"
+          alt="Essentials+"
+          width={4325}
+          height={1250}
+          preload
+          className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+        />
+      )}
     </Link>
   );
 }
