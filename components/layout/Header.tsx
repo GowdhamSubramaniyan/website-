@@ -12,9 +12,9 @@ import { Logo } from "./Logo";
 // Navigation matches the design (zipteam.my.canva.site … home page).
 const NAV_LINKS = [
   { label: "Solutions", href: "#products" },
-  { label: "Who We Serve", href: "#sectors" },
+  { label: "Who We Serve", href: "/who-we-serve" },
   { label: "About Us", href: "/about" },
-  { label: "Insights", href: "#insights" },
+  { label: "Insights", href: "/insights" },
   { label: "Partners", href: "#partners" },
 ] as const;
 

@@ -31,7 +31,7 @@ export function Logo({ className, href = "/", tone = "color" }: LogoProps) {
         height={367}
         preload
         className={cn(
-          "h-11 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.04]",
+          "h-14 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.04] sm:h-16",
           tone === "white" && "brightness-0 invert",
         )}
       />
