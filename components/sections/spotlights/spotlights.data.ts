@@ -19,7 +19,7 @@ export const ESSENTIALS: SpotlightContent = {
   ],
   cta: {
     label: "See Essentials in Action",
-    href: "https://essentials.visionzeroconnect.com/",
+    href: "/essentials",
     variant: "primary",
   },
   image: {
@@ -48,7 +48,7 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
   ],
   cta: {
     label: "See Essentials+ in Action",
-    href: "https://essentials.visionzeroconnect.com/",
+    href: "/essentials-plus",
     variant: "primary",
   },
   image: {
@@ -78,7 +78,7 @@ export const PORTFOLIO_ONE: SpotlightContent = {
   ],
   cta: {
     label: "Explore Portfolio One",
-    href: "https://portfolio.visionzeroconnect.com/",
+    href: "/portfolio-one",
     variant: "dark",
   },
   image: {

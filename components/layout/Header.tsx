@@ -12,33 +12,41 @@ import { Logo } from "./Logo";
 // Navigation matches the design (zipteam.my.canva.site … home page).
 const NAV_LINKS = [
   { label: "Solutions", href: "#products" },
-  { label: "Who We Serve", href: "#sectors" },
-  // About page is hidden for now — shown in the nav but inert (no scroll/navigation).
-  { label: "About Us", href: "#" },
-  { label: "Insights", href: "#insights" },
-  { label: "Partners", href: "#partners" },
+  { label: "Who We Serve", href: "/who-we-serve" },
+  { label: "About Us", href: "/about" },
+  { label: "Insights", href: "/insights" },
+  { label: "Awards", href: "/awards" },
+  { label: "Partners", href: "/partners" },
 ] as const;
 
 type HeaderProps = {
   /**
    * Brand shown at top-left. "vzc" (default) renders the Vision Zero Connect
-   * logo; "essentials" renders the Essentials wordmark; "portfolio-one" renders
-   * the Portfolio One wordmark — each for its respective product page.
+   * logo; "essentials" / "essentials-plus" render the Essentials wordmarks;
+   * "portfolio-one" renders the Portfolio One wordmark; "vz-consult" renders the
+   * Consult wordmark — each for its respective product page.
    */
-  brand?: "vzc" | "essentials" | "portfolio-one" | "vz-consult";
+  brand?:
+    | "vzc"
+    | "essentials"
+    | "essentials-plus"
+    | "portfolio-one"
+    | "vz-consult";
   /**
-   * Use the light treatment (dark text + dark logo, white bar on scroll) for
-   * pages with a light hero. Implied for the VZC Consult page.
+   * "light" makes the transparent (unscrolled) header use dark text + logo for
+   * light heroes; it flips back to white once the solid dark bar appears on
+   * scroll. The VZC Consult page implies "light". Defaults to "dark".
    */
-  light?: boolean;
+  theme?: "dark" | "light";
 };
 
 /**
  * Global site header. Transparent over the hero, then fades to a brand-dark
- * translucent bar on scroll (white text throughout — never a plain white bar).
- * Animates in on load; collapses to a toggle menu on small screens.
+ * translucent bar on scroll. Light-hero pages use dark text/logo while
+ * transparent (and flip to white once the dark bar appears). Animates in on
+ * load; collapses to a toggle menu on small screens.
  */
-export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps = {}) {
+export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,33 +73,34 @@ export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps 
   }, [menuOpen]);
 
   const solid = scrolled || menuOpen;
-  // Light hero pages (VZC Consult, Awards, …) use dark text/logo and a light
-  // bar on scroll rather than the white-on-dark default.
-  const light = lightProp || brand === "vz-consult";
+  // The VZC Consult page has a light hero, so it defaults to the light theme.
+  const effectiveTheme = theme ?? (brand === "vz-consult" ? "light" : "dark");
+  // Dark text/logo only while the header is transparent over a light hero.
+  const onLight = effectiveTheme === "light" && !solid;
 
   return (
     <header
       className={cn(
         "animate-header-in fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out",
-        light ? "text-ink" : "text-white",
+        onLight ? "text-ink" : "text-white",
         solid
-          ? light
-            ? "border-b border-grey bg-white/90 shadow-lg shadow-black/5 backdrop-blur-md"
-            : "border-b border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-md"
+          ? "border-b border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
     >
       <Container className="flex h-24 items-center justify-between">
         {brand === "essentials" ? (
           <EssentialsWordmark />
+        ) : brand === "essentials-plus" ? (
+          <EssentialsPlusWordmark onLight={onLight} />
         ) : brand === "portfolio-one" ? (
           <PortfolioOneWordmark />
         ) : brand === "vz-consult" ? (
           <ConsultWordmark />
         ) : (
           <Logo
-            tone={light ? "color" : "white"}
-            imageClassName={cn("h-16 sm:h-20", light && "brightness-0")}
+            tone={onLight ? "color" : "white"}
+            imageClassName="h-16 sm:h-20"
           />
         )}
 
@@ -103,14 +112,19 @@ export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps 
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={link.href === "#" ? (e) => e.preventDefault() : undefined}
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-                  light ? "focus-visible:ring-teal" : "focus-visible:ring-white",
+                  onLight
+                    ? "focus-visible:ring-ink hover:text-ink"
+                    : "focus-visible:ring-white hover:text-white",
                   active
-                    ? light ? "text-ink" : "text-white"
-                    : light ? "text-ink/70 hover:text-ink" : "text-white/80 hover:text-white",
+                    ? onLight
+                      ? "text-ink"
+                      : "text-white"
+                    : onLight
+                      ? "text-ink/70"
+                      : "text-white/80",
                 )}
               >
                 {link.label}
@@ -134,7 +148,7 @@ export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps 
           type="button"
           className={cn(
             "inline-flex items-center justify-center rounded-md p-2 transition-transform duration-200 hover:scale-110 active:scale-95 lg:hidden focus-visible:outline-none focus-visible:ring-2",
-            light ? "focus-visible:ring-teal" : "focus-visible:ring-white",
+            onLight ? "focus-visible:ring-ink" : "focus-visible:ring-white",
           )}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
@@ -145,14 +159,11 @@ export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps 
         </button>
       </Container>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu panel — only shown while the solid dark bar is active */}
       {menuOpen && (
         <div
           id="mobile-menu"
-          className={cn(
-            "animate-menu-in border-t backdrop-blur-md lg:hidden",
-            light ? "border-grey bg-white/95 text-ink" : "border-white/10 bg-ink/95 text-white",
-          )}
+          className="animate-menu-in border-t border-white/10 bg-ink/95 text-white backdrop-blur-md lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => {
@@ -161,17 +172,11 @@ export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps 
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => {
-                    if (link.href === "#") e.preventDefault();
-                    setMenuOpen(false);
-                  }}
+                  onClick={() => setMenuOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide transition-colors",
-                    light ? "hover:bg-ink/5 hover:text-ink" : "hover:bg-white/10 hover:text-white",
-                    active
-                      ? light ? "bg-ink/10 text-ink" : "bg-white/10 text-white"
-                      : light ? "text-ink/80" : "text-white/85",
+                    "rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide transition-colors hover:bg-white/10 hover:text-white",
+                    active ? "bg-white/10 text-white" : "text-white/85",
                   )}
                 >
                   {link.label}
@@ -209,6 +214,43 @@ function EssentialsWordmark() {
         preload
         className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
       />
+    </Link>
+  );
+}
+
+/**
+ * Essentials+ wordmark — the white "essentials+" logo over a dark hero; over a
+ * light hero (onLight) it composes the teal "essentials" wordmark + a teal "+".
+ */
+function EssentialsPlusWordmark({ onLight }: { onLight: boolean }) {
+  return (
+    <Link
+      href="/essentials-plus"
+      aria-label="Essentials+ — home"
+      className="group inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:ring-current"
+    >
+      {onLight ? (
+        <span className="inline-flex items-center gap-1.5">
+          <Image
+            src="/assets/home/logos/product-essentials-teal.png"
+            alt="Essentials+"
+            width={3146}
+            height={1021}
+            preload
+            className="h-8 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-9"
+          />
+          <span className="text-2xl font-bold leading-none text-teal sm:text-3xl">+</span>
+        </span>
+      ) : (
+        <Image
+          src="/assets/home/logos/product-essentials-plus.png"
+          alt="Essentials+"
+          width={4325}
+          height={1250}
+          preload
+          className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+        />
+      )}
     </Link>
   );
 }

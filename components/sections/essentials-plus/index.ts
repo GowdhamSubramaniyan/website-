@@ -1,0 +1,12 @@
+export { EssentialsPlusHero } from "./EssentialsPlusHero";
+export { WhyEssentialsPlus } from "./WhyEssentialsPlus";
+export { VideoWalkthrough } from "./VideoWalkthrough";
+export { SmarterWay } from "./SmarterWay";
+export { MoveBeyond } from "./MoveBeyond";
+export { Features } from "./Features/Features";
+export { BuiltForGrowing } from "./BuiltForGrowing";
+export { Frameworks } from "./Frameworks";
+export { Pricing } from "./Pricing";
+export { Sectors } from "./Sectors";
+export { Insights } from "./Insights";
+export { ContactSupport } from "./ContactSupport";

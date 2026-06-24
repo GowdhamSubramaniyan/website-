@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function AwardsPage() {
   return (
     <>
-      <Header light />
+      <Header theme="light" />
       <main id="main">
         <AwardsHero />
         <AwardSpotlights />

@@ -35,10 +35,7 @@ export function GlobalPresence() {
           <Reveal delay={120}>
             <div className="grid grid-cols-2 gap-5">
               <div className="rounded-2xl bg-[#a7c4c2] p-7">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-base font-medium text-ink/80">From 10+ to</span>
-                  <span className="text-5xl font-bold leading-none text-ink">25+</span>
-                </div>
+                <span className="text-5xl font-bold leading-none text-ink">25+</span>
                 <p className="mt-3 text-base font-medium text-ink/80">
                   in-house industry experts
                 </p>
@@ -47,12 +44,6 @@ export function GlobalPresence() {
                 <p className="text-base font-medium text-ink/80">Offices in</p>
                 <p className="text-5xl font-bold text-ink">5</p>
                 <p className="mt-2 text-base font-medium text-ink/80">countries</p>
-              </div>
-              <div className="col-span-2 flex items-baseline gap-4 rounded-2xl bg-[#a7c4c2] p-7">
-                <span className="text-5xl font-bold text-ink">US</span>
-                <span className="text-lg font-semibold text-ink/80">
-                  market expansion underway
-                </span>
               </div>
             </div>
           </Reveal>

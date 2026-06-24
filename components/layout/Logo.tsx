@@ -11,7 +11,7 @@ type LogoProps = {
    * "white" renders it monochrome white (for dark surfaces / over-hero).
    */
   tone?: "color" | "white";
-  /** Height utility for the logo image (default "h-11"). */
+  /** Height utility for the logo image (default "h-14 sm:h-16"). */
   imageClassName?: string;
 };
 
@@ -20,7 +20,7 @@ export function Logo({
   className,
   href = "/",
   tone = "color",
-  imageClassName = "h-11",
+  imageClassName = "h-14 sm:h-16",
 }: LogoProps) {
   return (
     <Link

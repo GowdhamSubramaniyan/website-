@@ -11,10 +11,11 @@ const FRAMEWORKS = [
   { name: "Corporate Sustainability Reporting Directive", logo: "/assets/essentials/frameworks/csrd.png" },
   { name: "Streamlined Energy & Carbon Reporting", logo: "/assets/essentials/frameworks/secr.png" },
   { name: "UK Sustainability Reporting Standards", logo: "/assets/essentials/frameworks/uk-srs.png" },
-  { name: "Securities and Exchange Commission (Philippines)", logo: "/assets/essentials/frameworks/sec-ph.png" },
-  { name: "Environmental Protection Agency", logo: "/assets/essentials/frameworks/epa.png" },
+  { name: "Partnership for Carbon Accounting Financials", logo: "/assets/essentials/frameworks/pcaf.png" },
+  { name: "Greenhouse Gas Protocol", logo: "/assets/essentials/frameworks/ghg-protocol.png" },
   { name: "Task Force on Climate-related Financial Disclosures", logo: "/assets/essentials/frameworks/tcfd.png" },
-  { name: "National Greenhouse and Energy Reporting", logo: "/assets/essentials/frameworks/nger.png" },
+  { name: "Hong Kong Exchanges and Clearing", logo: "/assets/essentials/frameworks/hkex.png" },
+  { name: "International Sustainability Standards Board", logo: "/assets/essentials/frameworks/issb.png" },
   { name: "Australian Sustainability Reporting Standards", logo: "/assets/essentials/frameworks/asrs.png" },
 ];
 

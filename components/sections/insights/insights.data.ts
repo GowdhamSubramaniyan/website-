@@ -11,21 +11,21 @@ export const INSIGHTS: Insight[] = [
     title: "Awards",
     description:
       "Global award recognitions, industry achievements, and innovation milestones across ESG and building performance technology.",
-    href: "/awards",
+    href: "/insights#news",
     image: "/assets/home/insight-awards.png",
   },
   {
     title: "Insights",
     description:
       "ESG insights, sustainability perspectives, regulatory updates, and industry intelligence shaping the future of real assets.",
-    href: "/insights",
+    href: "/insights#featured",
     image: "/assets/home/insight-insights.png",
   },
   {
     title: "News",
     description:
       "Company announcements, partnerships, product developments, media features, and business updates from Vision Zero Connect.",
-    href: "/news",
+    href: "/insights#news",
     image: "/assets/home/insight-news.png",
   },
 ];

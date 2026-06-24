@@ -7,9 +7,10 @@ import { NewsletterForm } from "./NewsletterForm";
 
 // Footer link columns — matches the design (Our Solutions / Resources / Legal).
 const SOLUTIONS = [
-  { label: "Essentials / Essentials +", href: "#essentials" },
-  { label: "Portfolio One", href: "#portfolio-one" },
-  { label: "VZC Consult", href: "#vz-consult" },
+  { label: "Essentials", href: "/essentials" },
+  { label: "Essentials+", href: "/essentials-plus" },
+  { label: "Portfolio One", href: "/portfolio-one" },
+  { label: "VZC Consult", href: "/vz-consult" },
 ];
 
 const RESOURCES = [

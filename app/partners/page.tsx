@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function PartnersPage() {
   return (
     <>
-      <Header light />
+      <Header theme="light" />
       <main id="main">
         <PartnerHero />
         <PartnerNetwork />
