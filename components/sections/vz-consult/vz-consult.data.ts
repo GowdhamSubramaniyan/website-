@@ -27,7 +27,7 @@ export const hero = {
     "VZC Consult works with organisations navigating growing operational, reporting, and sustainability pressures across real assets and property portfolios. From disclosure readiness and data strategy through to operational performance planning and transition pathways, we help businesses move from fragmented information to clear, commercially aligned action.",
   cta: { label: "Talk to Our Team", href: "#contact" } as Cta,
   image: {
-    src: "/assets/vz-consult/hero.png",
+    src: "/assets/vz-consult/1.png",
     alt: "A VZC Consult advisor working on a laptop",
   } as ImageRef,
 };
@@ -37,10 +37,10 @@ export const trusted = {
   headline: "Trusted Advisory for Property and Operational Performance",
   paragraphs: [
     "Organisations today are expected to manage increasing demands around operational performance, emissions visibility, asset efficiency, and stakeholder reporting.",
-    "VZC Consult provides specialist guidance to help businesses respond with clarity, structure, and confidence. Our team supports property owners, asset managers, and organisations seeking practical pathways toward stronger operational outcomes and future readiness.",
+    "VZC Consult provides specialist guidance to help businesses respond with clarity, structure, and confidence. Our team supports property owners, operators, asset managers, and organisations seeking practical pathways toward stronger operational outcomes and future readiness.",
   ],
   image: {
-    src: "/assets/vz-consult/trusted.png",
+    src: "/assets/vz-consult/2.png",
     alt: "A commercial high-rise building",
   } as ImageRef,
 };
@@ -49,7 +49,7 @@ export const trusted = {
 export const help = {
   heading: "What We Help With",
   image: {
-    src: "/assets/vz-consult/help.png",
+    src: "/assets/vz-consult/3.png",
     alt: "A VZC Consult strategy session",
   } as ImageRef,
 };
@@ -113,7 +113,7 @@ export const tech = {
   closing:
     "Creating a connected approach between strategy, technology, and operational performance.",
   image: {
-    src: "/assets/vz-consult/tech.png",
+    src: "/assets/vz-consult/2.png",
     alt: "Commercial buildings at dusk",
   } as ImageRef,
 };
@@ -140,7 +140,7 @@ export const approach = {
     "Rather than producing static reports that sit on a shelf, VZC Consult focuses on helping organisations build clearer operational frameworks, improve data confidence, and support better long-term asset performance.",
   ],
   image: {
-    src: "/assets/vz-consult/approach.png",
+    src: "/assets/vz-consult/4.png",
     alt: "A VZC Consult team celebrating a result",
   } as ImageRef,
 };
@@ -165,7 +165,7 @@ export const closing = {
     "Whether you're responding to stakeholder expectations, preparing for disclosure requirements, or improving building performance visibility, VZC Consult can help your organisation move forward with confidence.",
   cta: { label: "Talk to Our Team", href: "#contact" } as Cta,
   image: {
-    src: "/assets/vz-consult/cta.png",
+    src: "/assets/vz-consult/6.png",
     alt: "A VZC Consult advisory team reviewing data on a laptop",
   } as ImageRef,
 };

@@ -135,8 +135,9 @@ export function EssentialsDuo() {
           </div>
         </Reveal>
 
-        {/* Desktop dashboard — full dashboard bled far left so the metric tiles show */}
-        <div className="pointer-events-none absolute right-[42%] top-[4rem] hidden w-[104%] lg:block xl:w-[94%]">
+        {/* Desktop dashboard — full dashboard bled far left so the metric tiles show.
+            Pushed down so it clears the (larger) logo above it. */}
+        <div className="pointer-events-none absolute right-[42%] top-[9rem] hidden w-[104%] lg:block xl:w-[94%]">
           <Image
             src={ESSENTIALS_PLUS.image.src}
             alt=""

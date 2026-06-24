@@ -147,13 +147,10 @@
 @utility bg-grad-dark {
   background-image: linear-gradient(90deg, #045858 0%, #191a19 100%);
 }
-/* Hero: teal gradient with a darker vignette top-right (behind the monitor),
-   matching the design reference. */
+/* Hero: matches the Products section background (deep teal → near-black radial). */
 @utility bg-hero {
-  background-color: #06504e;
-  background-image:
-    radial-gradient(110% 120% at 78% 16%, rgba(3, 18, 18, 0.55) 0%, rgba(3, 18, 18, 0) 55%),
-    linear-gradient(120deg, #0a3a39 0%, #06514f 48%, #03605d 100%);
+  background-color: #040f0e;
+  background-image: radial-gradient(115% 130% at 18% 42%, #0a5e57 0%, #0a2825 46%, #040f0e 100%);
 }
 @utility bg-grad-lime {
   background-image: linear-gradient(90deg, #89d957 0%, #c9e265 100%);

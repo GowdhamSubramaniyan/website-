@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/cn";
 import { TEAM_MEMBERS, type TeamMember } from "./leadership.data";
 
 function LinkedInIcon() {
@@ -24,14 +28,14 @@ const pill =
 
 function MemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#142634]">
+    <div className="flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#142634] transition-all duration-300 hover:-translate-y-1.5 hover:border-lime/40 hover:shadow-xl hover:shadow-black/30">
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={member.photo}
           alt={member.name}
           fill
-          sizes="(min-width: 1024px) 18rem, (min-width: 640px) 45vw, 90vw"
-          className="object-cover object-top"
+          sizes="(min-width: 1024px) 18rem, (min-width: 640px) 45vw, 80vw"
+          className="object-cover object-top transition-transform duration-500 hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col p-4">
@@ -63,42 +67,76 @@ function MemberCard({ member }: { member: TeamMember }) {
 }
 
 /**
- * Leadership / Team — a responsive grid of headshot cards on a dark navy band
- * with a faint grid texture, matching the existing Vision Zero Connect site.
- * Heading + intro copy from the About doc.
+ * Leadership / Team — a horizontal scroller on a teal band. Four cards per row
+ * on desktop; prev/next buttons page through the rest. Heading + intro copy
+ * from the About doc.
  */
 export function Leadership() {
+  const scroller = useRef<HTMLDivElement>(null);
+
+  const page = (dir: 1 | -1) => {
+    const el = scroller.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth, behavior: "smooth" });
+  };
+
+  const arrow =
+    "grid h-12 w-12 place-items-center rounded-full border border-white/40 text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-teal";
+
   return (
-    <section className="relative overflow-hidden bg-[#0e1f29] py-16 text-white md:py-24">
-      {/* faint grid texture */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:46px_46px]"
-      />
-      <Container className="relative">
-        <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-lime md:text-5xl">
-            Meet the Leadership Team
-          </h2>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-white/85">
-            <p>
-              The Vision Zero Connect senior team brings extensive experience
-              across diverse sectors and global markets.
-            </p>
-            <p>
-              Selected for their exceptional success, each plays an instrumental
-              role in the company&apos;s growth, combining technical innovation
-              &amp; commercial expertise.
-            </p>
+    <section className="overflow-hidden bg-teal py-16 text-white md:py-24">
+      <Container>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-lime md:text-5xl">
+              Meet the Leadership Team
+            </h2>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-white/85">
+              <p>
+                The Vision Zero Connect senior team brings extensive experience
+                across diverse sectors and global markets.
+              </p>
+              <p>
+                Selected for their exceptional success, each plays an instrumental
+                role in the company&apos;s growth, combining technical innovation
+                &amp; commercial expertise.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex shrink-0 gap-3">
+            <button type="button" onClick={() => page(-1)} aria-label="Scroll left" className={arrow}>
+              <ChevronIcon dir="left" />
+            </button>
+            <button type="button" onClick={() => page(1)} aria-label="Scroll right" className={arrow}>
+              <ChevronIcon dir="right" />
+            </button>
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Horizontal scroller — 4 cards per row on desktop */}
+        <div
+          ref={scroller}
+          className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {TEAM_MEMBERS.map((member) => (
-            <MemberCard key={member.name} member={member} />
+            <div
+              key={member.name}
+              className="w-[80%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]"
+            >
+              <MemberCard member={member} />
+            </div>
           ))}
         </div>
       </Container>
     </section>
+  );
+}
+
+function ChevronIcon({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={cn("h-6 w-6", dir === "left" && "rotate-180")} fill="none" aria-hidden="true">
+      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }

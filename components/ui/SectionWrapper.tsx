@@ -2,7 +2,14 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
 
-type SectionBackground = "white" | "mint" | "dark" | "navy" | "ink" | "grey";
+type SectionBackground =
+  | "white"
+  | "mint"
+  | "dark"
+  | "navy"
+  | "ink"
+  | "grey"
+  | "transparent";
 
 type SectionWrapperProps = {
   children: ReactNode;
@@ -22,6 +29,8 @@ const backgrounds: Record<SectionBackground, string> = {
   navy: "bg-navy text-white",
   ink: "bg-ink text-white",
   grey: "bg-grey text-ink",
+  // No background — inherits from a parent (e.g. the shared hero gradient).
+  transparent: "text-white",
 };
 
 /**

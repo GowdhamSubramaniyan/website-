@@ -5,9 +5,6 @@ import { PARTNERS } from "./partners.data";
 
 /** "Global Partner Network" — intro copy + colour partner logos over a dotted map. */
 export function Partners() {
-  const topSix = PARTNERS.slice(0, 6);
-  const last = PARTNERS[PARTNERS.length - 1];
-
   return (
     <SectionWrapper id="partners" background="white">
       <Reveal className="max-w-3xl">
@@ -39,9 +36,9 @@ export function Partners() {
         </div>
 
         {/* Logos */}
-        <Reveal className="relative mx-auto max-w-4xl py-8">
-          <ul className="grid grid-cols-2 items-center gap-x-10 gap-y-14 sm:grid-cols-3">
-            {topSix.map((partner) => (
+        <Reveal className="relative mx-auto max-w-5xl py-8">
+          <ul className="grid grid-cols-2 items-center gap-x-10 gap-y-14 sm:grid-cols-3 lg:grid-cols-4">
+            {PARTNERS.map((partner) => (
               <li key={partner.name} className="flex justify-center">
                 <Image
                   src={partner.logo}
@@ -53,15 +50,6 @@ export function Partners() {
               </li>
             ))}
           </ul>
-          <div className="mt-14 flex justify-center">
-            <Image
-              src={last.logo}
-              alt={last.name}
-              width={250}
-              height={100}
-              className="h-14 w-auto object-contain sm:h-16"
-            />
-          </div>
         </Reveal>
       </div>
     </SectionWrapper>

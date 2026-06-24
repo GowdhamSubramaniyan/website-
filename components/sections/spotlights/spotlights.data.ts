@@ -11,13 +11,17 @@ export const ESSENTIALS: SpotlightContent = {
     src: "/assets/home/logos/product-essentials-teal.png",
     width: 3146,
     height: 1021,
-    className: "h-11 sm:h-14",
+    className: "h-14 sm:h-16",
   },
   heading: "AI-Powered ESG & Operational Reporting Built for SMEs",
   paragraphs: [
     "Essentials helps SMEs generate professional ESG and operational reporting aligned to growing lender, procurement, investor, and customer expectations — without expensive consultants or manual reporting processes.",
   ],
-  cta: { label: "See Essentials in Action", href: "/essentials", variant: "primary" },
+  cta: {
+    label: "See Essentials in Action",
+    href: "https://essentials.visionzeroconnect.com/",
+    variant: "primary",
+  },
   image: {
     src: "/assets/home/spotlight-essentials.png",
     alt: "Essentials ESG reporting dashboard",
@@ -36,7 +40,7 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
     src: "/assets/home/logos/product-essentials-plus.png",
     width: 4325,
     height: 1250,
-    className: "h-9 sm:h-10",
+    className: "h-14 sm:h-16",
   },
   heading: "Advanced ESG & Operational Reporting for Growing Organisations",
   paragraphs: [
@@ -44,7 +48,7 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
   ],
   cta: {
     label: "See Essentials+ in Action",
-    href: "/essentials-plus",
+    href: "https://essentials.visionzeroconnect.com/",
     variant: "primary",
   },
   image: {
@@ -65,7 +69,7 @@ export const PORTFOLIO_ONE: SpotlightContent = {
     src: "/assets/home/logos/product-portfolio-one-teal.png",
     width: 4019,
     height: 1250,
-    className: "h-8 sm:h-9",
+    className: "h-12 sm:h-14",
   },
   heading: "Enhanced Building Performance Through Operational Intelligence",
   paragraphs: [
@@ -74,7 +78,7 @@ export const PORTFOLIO_ONE: SpotlightContent = {
   ],
   cta: {
     label: "Explore Portfolio One",
-    href: "/portfolio-one",
+    href: "https://portfolio.visionzeroconnect.com/",
     variant: "dark",
   },
   image: {
@@ -95,7 +99,7 @@ export const VZ_CONSULT: SpotlightContent = {
     src: "/assets/home/logos/product-vzc-consult.png",
     width: 335,
     height: 183,
-    className: "h-12 sm:h-14",
+    className: "h-16 sm:h-20",
   },
   heading: "Expert-Led Advisory & Program Delivery",
   paragraphs: [
@@ -103,7 +107,7 @@ export const VZ_CONSULT: SpotlightContent = {
   ],
   cta: {
     label: "Explore Advisory Services",
-    href: "/vz-consult",
+    href: "https://visionzeroconsult.com/",
     variant: "primary",
   },
   image: {

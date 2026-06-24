@@ -11,10 +11,17 @@ type LogoProps = {
    * "white" renders it monochrome white (for dark surfaces / over-hero).
    */
   tone?: "color" | "white";
+  /** Height utility for the logo image (default "h-11"). */
+  imageClassName?: string;
 };
 
 /** Vision Zero Connect logo (docs/assets/logos/vzc-logo.png → public/vzc-logo.png). */
-export function Logo({ className, href = "/", tone = "color" }: LogoProps) {
+export function Logo({
+  className,
+  href = "/",
+  tone = "color",
+  imageClassName = "h-11",
+}: LogoProps) {
   return (
     <Link
       href={href}
@@ -31,7 +38,8 @@ export function Logo({ className, href = "/", tone = "color" }: LogoProps) {
         height={367}
         preload
         className={cn(
-          "h-11 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.04]",
+          "w-auto transition-transform duration-300 ease-out group-hover:scale-[1.04]",
+          imageClassName,
           tone === "white" && "brightness-0 invert",
         )}
       />

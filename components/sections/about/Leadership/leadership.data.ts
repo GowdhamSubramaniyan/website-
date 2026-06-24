@@ -7,6 +7,8 @@ export type TeamMember = {
   linkedin?: string;
   /** Email address (rendered as a mailto). Omit to hide the Email button. */
   email?: string;
+  /** Short bio shown on the featured carousel card (falls back to a placeholder). */
+  bio?: string;
 };
 
 /**

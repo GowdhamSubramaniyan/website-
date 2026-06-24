@@ -41,6 +41,7 @@ function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }
 
       <Reveal delay={150} className={cn(reverse && "lg:order-1")}>
         {video ? (
+          // Video placeholder — thumbnail image with a play-button overlay.
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <Image
               src={image.src}
@@ -48,19 +49,19 @@ function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }
               width={image.width}
               height={image.height}
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="aspect-video w-full object-cover"
+              className="aspect-video w-full bg-black object-cover"
             />
-            <button
-              type="button"
-              aria-label="Play overview video"
-              className="group absolute inset-0 grid place-items-center focus-visible:outline-none"
-            >
-              <span className="grid h-16 w-16 place-items-center rounded-full border-2 border-white bg-black/20 backdrop-blur-sm transition-transform duration-200 group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-lime">
-                <svg viewBox="0 0 32 32" className="h-7 w-7" aria-hidden="true">
-                  <path d="M12 9v14l11-7z" fill="#fff" />
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/25">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg ring-1 ring-black/5 sm:h-20 sm:w-20">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="ml-1 h-7 w-7 fill-ink sm:h-9 sm:w-9"
+                >
+                  <path d="M8 5v14l11-7z" />
                 </svg>
               </span>
-            </button>
+            </div>
           </div>
         ) : (
           <Image
@@ -120,8 +121,8 @@ export function USP() {
             </>
           }
           paragraphs={[
-            "Most ESG platforms focus on disclosure. Vision Zero Connect connects reporting with operational performance, asset optimisation, and financial outcomes.",
-            "From emissions visibility and compliance readiness through to energy optimisation, portfolio performance, financing alignment, and long-term asset strategy, VZC helps organisations turn data into measurable business value.",
+            "Most ESG platforms focus on disclosure. Vision Zero Connect integrates reporting with operational performance, asset optimisation, and financial outcomes.",
+            "From emissions visibility and compliance readiness to energy optimisation, portfolio performance, financing alignment, and long-term asset strategy, Vision Zero Connect helps organisations turn data into measurable business value.",
           ]}
           cta={{ label: "Select a Product", href: "#products" }}
           image={{

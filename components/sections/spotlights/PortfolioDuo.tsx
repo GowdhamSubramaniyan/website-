@@ -91,6 +91,7 @@ export function PortfolioDuo() {
       <Container className="bg-grad-dark relative py-section-sm md:py-section lg:min-h-[40rem] lg:bg-none">
         <span id="vz-consult" className="absolute -top-20" aria-hidden />
         <Reveal>
+          {/* Logo aligned to the left */}
           <div className="flex items-center">
             <Image
               src={VZ_CONSULT.logo.src}

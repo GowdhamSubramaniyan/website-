@@ -5,9 +5,7 @@ import {
   ProductsSection,
   EssentialsDuo,
   PortfolioDuo,
-  WhyVZC,
   SectorsSection,
-  Partners,
   InsightsSection,
   ContactSection,
   GlobalFootprint,
@@ -22,14 +20,15 @@ export default function HomePage() {
     <>
       <Header />
       <main id="main">
-        <Hero />
+        {/* Hero + Products share one continuous gradient — no seam between them */}
+        <div className="bg-hero">
+          <Hero />
+          <ProductsSection />
+        </div>
         <USP />
-        <ProductsSection />
         <EssentialsDuo />
         <PortfolioDuo />
-        <WhyVZC />
         <SectorsSection />
-        <Partners />
         <InsightsSection />
         <ContactSection />
         <GlobalFootprint />

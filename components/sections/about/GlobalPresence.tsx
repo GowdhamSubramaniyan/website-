@@ -1,11 +1,9 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { OfficeLocations } from "@/components/sections/footprint/OfficeLocations";
 
 /**
  * Global Presence — solid-teal headline and the doc's footprint copy on the
- * left, headline stats (bento) on the right, and the shared office-locations
- * tabs + detail + map below. Soft mint background.
+ * left, headline stats (bento) on the right. Soft mint background.
  */
 export function GlobalPresence() {
   return (
@@ -47,7 +45,7 @@ export function GlobalPresence() {
               </div>
               <div className="rounded-2xl bg-[#a7c4c2] p-7">
                 <p className="text-base font-medium text-ink/80">Offices in</p>
-                <p className="text-5xl font-bold text-ink">4</p>
+                <p className="text-5xl font-bold text-ink">5</p>
                 <p className="mt-2 text-base font-medium text-ink/80">countries</p>
               </div>
               <div className="col-span-2 flex items-baseline gap-4 rounded-2xl bg-[#a7c4c2] p-7">
@@ -59,11 +57,6 @@ export function GlobalPresence() {
             </div>
           </Reveal>
         </div>
-
-        {/* Office locations — shared tabs + detail + live map */}
-        <Reveal className="mt-14">
-          <OfficeLocations />
-        </Reveal>
       </Container>
     </section>
   );

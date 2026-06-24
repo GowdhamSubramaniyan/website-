@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PARTNERS } from "@/components/sections/partners/partners.data";
 import { Logo } from "./Logo";
 import { NewsletterForm } from "./NewsletterForm";
 
@@ -10,7 +12,10 @@ const SOLUTIONS = [
   { label: "VZC Consult", href: "#vz-consult" },
 ];
 
-const RESOURCES = [{ label: "Knowledge Base", href: "/knowledge-base" }];
+const RESOURCES = [
+  { label: "Awards & Recognitions", href: "/awards" },
+  { label: "Knowledge Base", href: "/knowledge-base" },
+];
 
 const LEGAL = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -29,42 +34,79 @@ export function Footer() {
   return (
     <footer className="bg-navy text-white">
       <Container className="py-14">
-        {/* Newsletter + social */}
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-md">
-            <h3 className="text-lg font-semibold">Subscribe to our newsletter</h3>
-            <p className="mt-2 text-sm text-white/70">
-              Stay updated with the latest insights, product updates, and
-              industry news.
-            </p>
-            <NewsletterForm />
-          </div>
-
+        {/* Two columns: left = footer content, right = global partner network */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* LEFT — newsletter, social, and link columns */}
           <div>
-            <h3 className="text-lg font-semibold">Follow us</h3>
-            <ul className="mt-4 flex items-center gap-3">
-              {SOCIALS.map(({ label, href, icon: Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="grid h-10 w-10 place-items-center rounded-full bg-teal text-white transition-colors hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
-                  >
-                    <Icon />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+            <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+              <div className="max-w-md">
+                <h3 className="text-lg font-semibold">
+                  Subscribe to our newsletter
+                </h3>
+                <p className="mt-2 text-sm text-white/70">
+                  Stay updated with the latest insights, product updates, and
+                  industry news.
+                </p>
+                <NewsletterForm />
+              </div>
 
-        {/* Link columns */}
-        <div className="mt-12 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 sm:grid-cols-3">
-          <FooterGroup title="Our Solutions" links={SOLUTIONS} />
-          <FooterGroup title="Resources" links={RESOURCES} />
-          <FooterGroup title="Legal" links={LEGAL} />
+              <div>
+                <h3 className="text-lg font-semibold">Follow us</h3>
+                <ul className="mt-4 flex items-center gap-3">
+                  {SOCIALS.map(({ label, href, icon: Icon }) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        className="grid h-10 w-10 place-items-center rounded-full bg-teal text-white transition-colors hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                      >
+                        <Icon />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 sm:grid-cols-3">
+              <FooterGroup title="Our Solutions" links={SOLUTIONS} />
+              <FooterGroup title="Resources" links={RESOURCES} />
+              <FooterGroup title="Legal" links={LEGAL} />
+            </div>
+          </div>
+
+          {/* RIGHT — Global Partner Network */}
+          <div
+            id="partners"
+            className="scroll-mt-24 lg:border-l lg:border-white/10 lg:pl-16"
+          >
+            <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Global Partner Network
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              Supporting organisations across Europe, Australia, Asia, the
+              Middle East, and expanding global markets — with operational
+              capability established in Malta and growing international
+              partnerships.
+            </p>
+            <div className="mt-6 rounded-2xl bg-white p-6">
+              <ul className="grid grid-cols-3 items-center gap-x-6 gap-y-8">
+                {PARTNERS.map((partner) => (
+                  <li key={partner.name} className="flex justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={250}
+                      height={100}
+                      className="h-8 w-auto object-contain sm:h-9"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Brand + copyright */}

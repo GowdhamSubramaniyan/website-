@@ -9,4 +9,8 @@ export const PARTNERS: Partner[] = [
   { name: "Roma Green Finance", logo: "/assets/home/partner-roma.png" },
   { name: "Think ESG", logo: "/assets/home/partner-think-esg.png" },
   { name: "Alaya Consulting", logo: "/assets/home/partner-alaya.png" },
+  { name: "GO", logo: "/assets/home/partner-go.png" },
+  { name: "gameON", logo: "/assets/home/partner-gameon.png" },
+  { name: "PULSE — Social Democratic Students", logo: "/assets/home/partner-pulse.png" },
+  { name: "PANTA", logo: "/assets/home/partner-panta.png" },
 ];

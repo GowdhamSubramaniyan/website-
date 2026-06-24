@@ -53,7 +53,7 @@ export function SectionHeading({
         <p
           className={cn(
             "text-pretty text-base leading-relaxed text-current/80 sm:text-lg",
-            centered ? "max-w-2xl" : "max-w-3xl",
+            centered ? "max-w-3xl" : "max-w-4xl",
           )}
         >
           {description}

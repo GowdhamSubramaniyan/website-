@@ -6,7 +6,7 @@ import { INSIGHTS } from "./insights.data";
 /** "Recognitions, Insights, and Developments" — intro + three insight cards. */
 export function InsightsSection() {
   return (
-    <SectionWrapper id="insights" background="dark">
+    <SectionWrapper id="insights" background="white">
       <SectionHeading
         headline="Recognitions, Insights, and Developments"
         description={

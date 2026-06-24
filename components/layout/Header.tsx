@@ -13,7 +13,8 @@ import { Logo } from "./Logo";
 const NAV_LINKS = [
   { label: "Solutions", href: "#products" },
   { label: "Who We Serve", href: "#sectors" },
-  { label: "About Us", href: "/about" },
+  // About page is hidden for now — shown in the nav but inert (no scroll/navigation).
+  { label: "About Us", href: "#" },
   { label: "Insights", href: "#insights" },
   { label: "Partners", href: "#partners" },
 ] as const;
@@ -24,7 +25,12 @@ type HeaderProps = {
    * logo; "essentials" renders the Essentials wordmark; "portfolio-one" renders
    * the Portfolio One wordmark — each for its respective product page.
    */
-  brand?: "vzc" | "essentials" | "portfolio-one";
+  brand?: "vzc" | "essentials" | "portfolio-one" | "vz-consult";
+  /**
+   * Use the light treatment (dark text + dark logo, white bar on scroll) for
+   * pages with a light hero. Implied for the VZC Consult page.
+   */
+  light?: boolean;
 };
 
 /**
@@ -32,7 +38,7 @@ type HeaderProps = {
  * translucent bar on scroll (white text throughout — never a plain white bar).
  * Animates in on load; collapses to a toggle menu on small screens.
  */
-export function Header({ brand = "vzc" }: HeaderProps = {}) {
+export function Header({ brand = "vzc", light: lightProp = false }: HeaderProps = {}) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,23 +65,34 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
   }, [menuOpen]);
 
   const solid = scrolled || menuOpen;
+  // Light hero pages (VZC Consult, Awards, …) use dark text/logo and a light
+  // bar on scroll rather than the white-on-dark default.
+  const light = lightProp || brand === "vz-consult";
 
   return (
     <header
       className={cn(
-        "animate-header-in fixed inset-x-0 top-0 z-50 text-white transition-all duration-300 ease-out",
+        "animate-header-in fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out",
+        light ? "text-ink" : "text-white",
         solid
-          ? "border-b border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-md"
+          ? light
+            ? "border-b border-grey bg-white/90 shadow-lg shadow-black/5 backdrop-blur-md"
+            : "border-b border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-24 items-center justify-between">
         {brand === "essentials" ? (
           <EssentialsWordmark />
         ) : brand === "portfolio-one" ? (
           <PortfolioOneWordmark />
+        ) : brand === "vz-consult" ? (
+          <ConsultWordmark />
         ) : (
-          <Logo tone="white" />
+          <Logo
+            tone={light ? "color" : "white"}
+            imageClassName={cn("h-16 sm:h-20", light && "brightness-0")}
+          />
         )}
 
         {/* Desktop nav */}
@@ -86,10 +103,14 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={link.href === "#" ? (e) => e.preventDefault() : undefined}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-                  active ? "text-white" : "text-white/80",
+                  "group relative rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+                  light ? "focus-visible:ring-teal" : "focus-visible:ring-white",
+                  active
+                    ? light ? "text-ink" : "text-white"
+                    : light ? "text-ink/70 hover:text-ink" : "text-white/80 hover:text-white",
                 )}
               >
                 {link.label}
@@ -111,7 +132,10 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 transition-transform duration-200 hover:scale-110 active:scale-95 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          className={cn(
+            "inline-flex items-center justify-center rounded-md p-2 transition-transform duration-200 hover:scale-110 active:scale-95 lg:hidden focus-visible:outline-none focus-visible:ring-2",
+            light ? "focus-visible:ring-teal" : "focus-visible:ring-white",
+          )}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
@@ -125,7 +149,10 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="animate-menu-in border-t border-white/10 bg-ink/95 text-white backdrop-blur-md lg:hidden"
+          className={cn(
+            "animate-menu-in border-t backdrop-blur-md lg:hidden",
+            light ? "border-grey bg-white/95 text-ink" : "border-white/10 bg-ink/95 text-white",
+          )}
         >
           <Container className="flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => {
@@ -134,13 +161,17 @@ export function Header({ brand = "vzc" }: HeaderProps = {}) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                    if (link.href === "#") e.preventDefault();
+                    setMenuOpen(false);
+                  }}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide transition-colors hover:bg-white/10 hover:text-white",
+                    "rounded-md px-3 py-3 text-base font-medium uppercase tracking-wide transition-colors",
+                    light ? "hover:bg-ink/5 hover:text-ink" : "hover:bg-white/10 hover:text-white",
                     active
-                      ? "bg-white/10 text-white"
-                      : "text-white/85",
+                      ? light ? "bg-ink/10 text-ink" : "bg-white/10 text-white"
+                      : light ? "text-ink/80" : "text-white/85",
                   )}
                 >
                   {link.label}
@@ -197,6 +228,26 @@ function PortfolioOneWordmark() {
         height={1250}
         preload
         className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+      />
+    </Link>
+  );
+}
+
+/** VZC Consult wordmark — the consult logo rendered dark for the light header. */
+function ConsultWordmark() {
+  return (
+    <Link
+      href="/vz-consult"
+      aria-label="VZC Consult — home"
+      className="group inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+    >
+      <Image
+        src="/assets/home/logos/product-vzc-consult.png"
+        alt="VZC Consult"
+        width={335}
+        height={183}
+        preload
+        className="h-12 w-auto brightness-0 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
       />
     </Link>
   );
