@@ -32,12 +32,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { name: "Freddy Barnes", role: "Relationship Development", photo: "/assets/about/team/freddy.png", linkedin: "https://www.linkedin.com/in/frederick-barnes-113585241/", email: "mailto:freddy@visionzeroconnect.com" },
   { name: "Gowshik Subramaniyan", role: "Tech Development", photo: "/assets/about/team/Gowshik.png", linkedin: "https://www.linkedin.com/in/gowshik-subramaniyan/", email: "mailto:gowshik@visionzeroconnect.com" },
   { name: "Gowdham Subramaniyan", role: "Tech Development", photo: "/assets/about/team/Gowdham.png", linkedin: "https://www.linkedin.com/in/gowdham-subramaniyan-076aa630b/", email: "mailto:Gowdham@visionzeroconnect.com" },
-  { name: "Frankie O'Shea", role: "Global Business Support", photo: "/assets/about/team/Frankie.png", linkedin: "https://www.linkedin.com/in/frankie-o-shea-760a73251/", email: "mailto:frankie@visionzeroconnect.com" },
+  { name: "Sam Morgan", role: "Tech Development", photo: "/assets/about/team/sam-morgan-v2.jpg", linkedin: "https://www.linkedin.com/in/samuel-charles-morgan/", email: "mailto:sammorgan@visionzeroconnect.com" },
   { name: "Alice McIntee", role: "Global Business Support", photo: "/assets/about/team/Alice.png", linkedin: "https://www.linkedin.com/in/alice-mcintee-b17b0b325/", email: "mailto:alice@visionzeroconnect.com" },
+  { name: "Frankie O'Shea", role: "Global Business Support", photo: "/assets/about/team/Frankie.png", linkedin: "https://www.linkedin.com/in/frankie-o-shea-760a73251/", email: "mailto:frankie@visionzeroconnect.com" },
   { name: "Nigel Lax", role: "Specialist Board Advisor", photo: "/assets/about/team/nigel.jpg", email: "mailto:nigel@visionzeroconnect.com" },
   { name: "Sam Borg", role: "Specialist Board Advisor", photo: "/assets/about/team/sam.jpg", linkedin: "https://www.linkedin.com/in/samuel-borg-52a64840/", email: "mailto:sam@visionzeroconnect.com" },
   { name: "Will-Syme Nicholson", role: "Specialist Board Advisor", photo: "/assets/about/team/will.jpg", linkedin: "https://www.linkedin.com/in/will-syme-nicholson-a219866a/", email: "mailto:will@visionzeroconsult.com" },
-
-  // --- New additions ---
-  
 ];
