@@ -17,7 +17,7 @@ type AwardSpotlightProps = {
 export function AwardSpotlight({ award }: AwardSpotlightProps) {
   return (
     <section className="bg-white">
-      <Container className="py-section-sm md:py-section">
+      <Container className="py-4 md:py-6">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2rem] bg-[#3c6e64]">
             <div className="grid items-center lg:grid-cols-2">

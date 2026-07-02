@@ -13,6 +13,13 @@ export function EssentialsHero() {
   return (
     <section className="relative z-10 bg-essentials-hero text-white lg:min-h-[42rem]">
       <Container className="relative z-10 pb-16 pt-32 md:pb-24 md:pt-44">
+        <Link
+          href="/"
+          className="animate-fade-in-up mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+        >
+          <span aria-hidden>&larr;</span>
+          Back to Home
+        </Link>
         <div className="lg:w-[44%]">
           <span className="animate-fade-in-up block text-sm font-semibold text-white">
             Essentials by Vision Zero Connect
@@ -33,13 +40,6 @@ export function EssentialsHero() {
             >
               Get Started Now at €700
             </Link>
-            <Link
-              href="#video"
-              className="group inline-flex shrink-0 items-center gap-3 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-            >
-              <PlayCircleIcon />
-              See Essentials in Action
-            </Link>
           </div>
 
           {/* Dashboard — stacked below copy on mobile/tablet */}
@@ -59,30 +59,17 @@ export function EssentialsHero() {
 
       {/* Dashboard — pre-angled PNG bleeding off the right edge AND down into the
           "See How Essentials Works" section below (the bleed effect). */}
-      <div className="pointer-events-none absolute left-[48%] top-[66%] hidden w-[82vw] -translate-y-1/2 lg:block xl:w-[84vw]">
+      <div className="pointer-events-none absolute right-0 top-[66%] hidden w-[800px] -translate-y-1/2 translate-x-[34%] lg:block xl:w-[960px]">
         <Image
           src="/assets/essentials/hero.png"
           alt=""
           width={1920}
           height={1080}
-          sizes="58vw"
-          className="animate-hero-image h-auto w-full max-w-none drop-shadow-2xl"
+          sizes="54vw"
+          className="animate-hero-image h-auto w-full drop-shadow-2xl"
           preload
         />
       </div>
     </section>
-  );
-}
-
-function PlayCircleIcon() {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      className="h-9 w-9 shrink-0 transition-transform duration-200 group-hover:scale-110"
-      aria-hidden="true"
-    >
-      <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M13 10.5v11l9-5.5z" fill="currentColor" />
-    </svg>
   );
 }

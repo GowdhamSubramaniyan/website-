@@ -19,11 +19,11 @@ export const PRODUCTS: Product[] = [
       src: "/assets/home/logos/product-essentials.png",
       width: 3146,
       height: 1021,
-      className: "h-14",
+      className: "h-20",
     },
     description:
       "Fast, affordable ESG and emissions reporting designed for SMEs requiring lender, procurement, or compliance readiness.",
-    cta: { label: "Explore Essentials", href: "https://essentials.visionzeroconnect.com/" },
+    cta: { label: "See Essentials in Action", href: "/essentials#video" },
     flyer: {
       label: "Essentials Flyer",
       items: [
@@ -46,11 +46,11 @@ export const PRODUCTS: Product[] = [
       src: "/assets/home/logos/product-essentials-plus.png",
       width: 4325,
       height: 1250,
-      className: "h-14",
+      className: "h-20",
     },
     description:
       "Expanded operational and emissions intelligence with Scope 3 visibility, transition planning, reduction modelling, and strategic reporting support.",
-    cta: { label: "Explore Essentials +", href: "https://essentials.visionzeroconnect.com/" },
+    cta: { label: "See Essentials+ in Action", href: "/essentials-plus#video" },
     flyer: {
       label: "Essentials+ Flyer",
       items: [
@@ -68,11 +68,11 @@ export const PRODUCTS: Product[] = [
       src: "/assets/home/logos/product-portfolio-one.png",
       width: 4019,
       height: 1250,
-      className: "h-14",
+      className: "h-20",
     },
     description:
       "Enterprise-grade building performance and portfolio intelligence platform designed to optimise operational efficiency, asset performance, and sustainability outcomes across large portfolios.",
-    cta: { label: "Explore Portfolio One", href: "https://portfolio.visionzeroconnect.com/" },
+    cta: { label: "See Portfolio One in Action", href: "/portfolio-one#video" },
     flyer: {
       label: "Portfolio One Flyer",
       items: [
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
       src: "/assets/home/logos/product-vzc-consult.png",
       width: 335,
       height: 183,
-      className: "h-20",
+      className: "h-24",
     },
     description:
       "Strategic advisory services supporting organisations with strategy, implementation, transition planning, and complex reporting requirements.",

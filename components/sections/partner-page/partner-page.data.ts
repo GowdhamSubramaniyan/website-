@@ -50,6 +50,8 @@ export type Partner = {
   name: string;
   logo: string;
   description: string;
+  /** Optional override for the logo height (default `max-h-16`). */
+  logoClassName?: string;
 };
 
 export const network = {
@@ -109,6 +111,7 @@ export const PARTNERS: Partner[] = [
     logo: `${LOGO}/23.png`,
     description:
       "Strategic sustainability and advisory partner supporting operational and transformation initiatives across Asia.",
+    logoClassName: "max-h-20",
   },
   {
     region: "Malta",

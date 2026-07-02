@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 
 /**
  * See How Essentials+ Works (section 3) — a dark navy band with a faint world
@@ -35,26 +36,12 @@ export function VideoWalkthrough() {
           {/* Video */}
           <Reveal>
             <div className="overflow-hidden rounded-2xl shadow-xl">
-              <div className="relative aspect-[5/3]">
-                <Image
-                  src="/assets/essentials/video-thumb.png"
-                  alt="Watch how Essentials+ works"
-                  fill
-                  sizes="(min-width: 1024px) 32rem, 90vw"
-                  className="object-cover"
-                />
-                <button
-                  type="button"
-                  aria-label="Play the Essentials+ walkthrough video"
-                  className="group absolute inset-0 grid place-items-center focus-visible:outline-none"
-                >
-                  <span className="grid h-20 w-20 place-items-center rounded-full border-2 border-white bg-black/20 backdrop-blur-sm transition-transform duration-200 group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-lime">
-                    <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true">
-                      <path d="M12 9v14l11-7z" fill="#fff" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
+              <VideoEmbed
+                youtubeId="aw2erPwC8Ks"
+                poster="/assets/essentials/video-thumb.png"
+                posterAlt="Watch how Essentials+ works"
+                sizes="(min-width: 1024px) 32rem, 90vw"
+              />
             </div>
           </Reveal>
 

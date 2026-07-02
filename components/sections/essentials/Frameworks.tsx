@@ -7,16 +7,21 @@ import { Reveal } from "@/components/ui/Reveal";
  * intro and a responsive grid of the official standard logos.
  */
 const FRAMEWORKS = [
-  { name: "European Sustainability Reporting Standards", logo: "/assets/essentials/frameworks/esrs.png" },
-  { name: "Corporate Sustainability Reporting Directive", logo: "/assets/essentials/frameworks/csrd.png" },
-  { name: "Streamlined Energy & Carbon Reporting", logo: "/assets/essentials/frameworks/secr.png" },
-  { name: "UK Sustainability Reporting Standards", logo: "/assets/essentials/frameworks/uk-srs.png" },
-  { name: "Partnership for Carbon Accounting Financials", logo: "/assets/essentials/frameworks/pcaf.png" },
-  { name: "Greenhouse Gas Protocol", logo: "/assets/essentials/frameworks/ghg-protocol.png" },
-  { name: "Task Force on Climate-related Financial Disclosures", logo: "/assets/essentials/frameworks/tcfd.png" },
-  { name: "Hong Kong Exchanges and Clearing", logo: "/assets/essentials/frameworks/hkex.png" },
-  { name: "International Sustainability Standards Board", logo: "/assets/essentials/frameworks/issb.png" },
-  { name: "Australian Sustainability Reporting Standards", logo: "/assets/essentials/frameworks/asrs.png" },
+  { name: "European Sustainability Reporting Standards", logo: "/assets/essentials-plus/frameworks/esrs.png" },
+  { name: "Corporate Sustainability Reporting Directive", logo: "/assets/essentials-plus/frameworks/csrd.png" },
+  { name: "Streamlined Energy & Carbon Reporting", logo: "/assets/essentials-plus/frameworks/secr.png" },
+  { name: "UK Sustainability Reporting Standards", logo: "/assets/essentials-plus/frameworks/uk-srs.png" },
+  { name: "Partnership for Carbon Accounting Financials", logo: "/assets/essentials-plus/frameworks/pcaf.png" },
+  { name: "Greenhouse Gas Protocol", logo: "/assets/essentials-plus/frameworks/ghg-protocol.png" },
+  { name: "Task Force on Climate-related Financial Disclosures", logo: "/assets/essentials-plus/frameworks/tcfd.png" },
+  { name: "Hong Kong Exchanges and Clearing", logo: "/assets/essentials-plus/frameworks/hkex.png" },
+  { name: "International Sustainability Standards Board", logo: "/assets/essentials-plus/frameworks/issb.png" },
+  { name: "Australian Sustainability Reporting Standards", logo: "/assets/essentials-plus/frameworks/asrs.png" },
+  { name: "Securities and Exchange Commission (Philippines)", logo: "/assets/essentials-plus/frameworks/sec-ph.png" },
+  { name: "US Environmental Protection Agency", logo: "/assets/essentials-plus/frameworks/epa.png" },
+  { name: "Sustainability Disclosure Requirements", logo: "/assets/essentials-plus/frameworks/sdr.png" },
+  { name: "Hong Kong Financial Reporting Standards", logo: "/assets/essentials-plus/frameworks/hkfrs.png" },
+  { name: "UN Sustainable Development Goals", logo: "/assets/essentials-plus/frameworks/sdg.png" },
 ];
 
 export function Frameworks() {

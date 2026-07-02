@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
+import { keepHyphens } from "@/lib/typography";
 import { PORTFOLIO_ONE, VZ_CONSULT } from "./spotlights.data";
 
 /**
@@ -46,7 +47,7 @@ export function PortfolioDuo() {
           </h2>
           <div className="mt-5 space-y-4 text-base leading-relaxed text-ink/80 sm:text-lg">
             {PORTFOLIO_ONE.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p}>{keepHyphens(p)}</p>
             ))}
           </div>
           <div className="mt-8">
@@ -110,7 +111,7 @@ export function PortfolioDuo() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
               {VZ_CONSULT.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
+                <p key={p}>{keepHyphens(p)}</p>
               ))}
             </div>
             <div className="mt-8">

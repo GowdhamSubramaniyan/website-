@@ -13,7 +13,7 @@ export function TwoUpCards() {
       <div className="grid gap-8 md:grid-cols-2">
         {twoUp.map((card, i) => (
           <Reveal key={card.title} delay={i * 120}>
-            <article className="relative flex min-h-[24rem] flex-col justify-end overflow-hidden rounded-3xl p-8 shadow-xl sm:p-10">
+            <article className="relative flex min-h-[24rem] flex-col justify-start overflow-hidden rounded-3xl p-8 shadow-xl sm:p-10">
               <Image
                 src={card.image.src}
                 alt={card.image.alt}

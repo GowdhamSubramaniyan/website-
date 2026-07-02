@@ -73,7 +73,7 @@ export function FeaturedArticles() {
                 <Reveal key={item.id} delay={Math.min(i, 3) * 80}>
                   <Link
                     href={item.link}
-                    className="group flex items-start gap-4 py-5 first:pt-0 focus-visible:outline-none sm:gap-5"
+                    className="group flex items-start gap-4 py-7 first:pt-0 focus-visible:outline-none sm:gap-5"
                   >
                     <div className="relative h-[4.5rem] w-28 shrink-0 overflow-hidden rounded-lg sm:h-24 sm:w-36">
                       <Image

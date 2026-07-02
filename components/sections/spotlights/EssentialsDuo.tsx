@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
+import { keepHyphens } from "@/lib/typography";
 import { ESSENTIALS, ESSENTIALS_PLUS } from "./spotlights.data";
 
 /**
@@ -19,12 +20,12 @@ export function EssentialsDuo() {
         aria-hidden
         className="absolute inset-0 -z-10 hidden lg:flex lg:flex-col"
       >
-        <div className="bg-grey lg:h-[48rem]" />
+        <div className="bg-grey lg:h-[44rem]" />
         <div className="bg-grad-teal-band flex-1" />
       </div>
 
       {/* --- Essentials (grey) --- */}
-      <Container className="relative bg-grey py-section-sm md:py-section lg:min-h-[48rem] lg:bg-transparent">
+      <Container className="relative bg-grey py-section-sm md:py-section lg:min-h-[44rem] lg:bg-transparent">
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span className="text-lg font-bold text-ink sm:text-xl">
@@ -46,7 +47,7 @@ export function EssentialsDuo() {
           </h2>
           <div className="mt-5 space-y-4 text-base leading-relaxed text-ink/80 sm:text-lg">
             {ESSENTIALS.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p}>{keepHyphens(p)}</p>
             ))}
           </div>
           <div className="mt-8">
@@ -75,7 +76,7 @@ export function EssentialsDuo() {
 
         {/* Desktop dashboard — right, large, overlaps down into the dark band.
             Anchored to the panel bottom so the overlap is consistent at any width. */}
-        <div className="pointer-events-none absolute bottom-[-7rem] left-[46%] hidden w-[92%] lg:block xl:w-[84%]">
+        <div className="pointer-events-none absolute bottom-[-7rem] left-[46%] hidden w-[106%] lg:block xl:w-[96%]">
           <Image
             src={ESSENTIALS.image.src}
             alt=""
@@ -88,7 +89,7 @@ export function EssentialsDuo() {
       </Container>
 
       {/* --- Essentials+ (dark) --- */}
-      <Container className="bg-grad-teal-band relative py-section-sm md:py-section lg:min-h-[54rem] lg:bg-none">
+      <Container className="bg-grad-teal-band relative py-section-sm md:py-section lg:min-h-[50rem] lg:bg-none">
         <span id="essentials-plus" className="absolute -top-20" aria-hidden />
         <Reveal>
           <div className="flex items-center">
@@ -108,7 +109,7 @@ export function EssentialsDuo() {
           </h2>
           <div className="mt-5 space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
             {ESSENTIALS_PLUS.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p}>{keepHyphens(p)}</p>
             ))}
           </div>
           <div className="mt-8">
@@ -137,7 +138,7 @@ export function EssentialsDuo() {
 
         {/* Desktop dashboard — full dashboard bled far left so the metric tiles show.
             Pushed down so it clears the (larger) logo above it. */}
-        <div className="pointer-events-none absolute right-[42%] top-[9rem] hidden w-[104%] lg:block xl:w-[94%]">
+        <div className="pointer-events-none absolute right-[50%] top-[11rem] hidden w-[112%] lg:block xl:w-[102%]">
           <Image
             src={ESSENTIALS_PLUS.image.src}
             alt=""

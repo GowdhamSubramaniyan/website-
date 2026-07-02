@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { cn } from "@/lib/cn";
 
 // The integrated product ecosystem, summarised from the About doc (Products
@@ -113,26 +113,13 @@ export function WhatWeDo() {
           </ul>
 
           {/* Media / video */}
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <Image
-              src="/assets/about/products-media.png"
-              alt="Vision Zero Connect product overview"
-              width={1920}
-              height={1080}
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <VideoEmbed
+              youtubeId="c-bXx1f9-wM"
+              poster="/assets/about/products-media.png"
+              posterAlt="Vision Zero Connect product overview"
               sizes="(min-width: 1024px) 32rem, 90vw"
-              className="h-full max-h-[28rem] w-full object-cover"
             />
-            <button
-              type="button"
-              aria-label="Play product overview video"
-              className="group absolute inset-0 grid place-items-center focus-visible:outline-none"
-            >
-              <span className="grid h-20 w-20 place-items-center rounded-full bg-white/90 shadow-lg transition-transform duration-200 group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-lime">
-                <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true">
-                  <path d="M12 9v14l11-7z" fill="#045858" />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </Container>

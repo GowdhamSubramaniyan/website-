@@ -10,19 +10,17 @@ import { PRODUCTS } from "./products.data";
  */
 export function ProductsSection() {
   return (
-    <SectionWrapper id="products" background="transparent">
-      <Reveal className="max-w-4xl">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-display-sm">
-          Four Products. One Intelligence Engine.
+    <SectionWrapper id="products" background="transparent" className="pt-4 md:pt-8">
+      <Reveal>
+        <h2 className="text-xl font-semibold tracking-tight sm:text-2xl md:text-3xl">
+          Four Products. One Intelligence Engine.{" "}
+          <span className="text-lime">Powered by Navigate.</span>
         </h2>
-        <p className="mt-2 text-3xl font-bold tracking-tight text-lime sm:text-4xl md:text-display-sm">
-          Powered by Navigate.
-        </p>
-        <p className="mt-6 text-base leading-relaxed text-white/85 sm:text-lg">
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
           <span className="font-semibold text-white">NAVIGATE</span> is the
           intelligence layer connecting the Vision Zero Connect ecosystem.
         </p>
-        <p className="mt-4 text-base leading-relaxed text-white/75 sm:text-lg">
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg">
           It transforms fragmented operational, utility, sustainability, and
           asset data into actionable intelligence that supports compliance,
           portfolio visibility, operational efficiency, and financial

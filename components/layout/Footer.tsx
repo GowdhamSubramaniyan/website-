@@ -24,10 +24,22 @@ const LEGAL = [
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: LinkedInIcon },
-  { label: "X", href: "https://x.com", icon: XIcon },
-  { label: "Facebook", href: "https://facebook.com", icon: FacebookIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/vision_zeroconnect/",
+    icon: InstagramIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/vision-zero-connect/",
+    icon: LinkedInIcon,
+  },
+  { label: "X", href: "https://x.com/VZ_Connect", icon: XIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61578330950560",
+    icon: FacebookIcon,
+  },
 ];
 
 /** Global site footer — newsletter, social, link columns, brand + legal row. */
@@ -93,7 +105,7 @@ export function Footer() {
               partnerships.
             </p>
             <div className="mt-6 rounded-2xl bg-white p-6">
-              <ul className="grid grid-cols-3 items-center gap-x-6 gap-y-8">
+              <ul className="grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-3">
                 {PARTNERS.map((partner) => (
                   <li key={partner.name} className="flex justify-center">
                     <Image

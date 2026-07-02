@@ -17,6 +17,11 @@ const FRAMEWORKS = [
   { name: "Hong Kong Exchanges and Clearing", logo: "/assets/essentials-plus/frameworks/hkex.png" },
   { name: "International Sustainability Standards Board", logo: "/assets/essentials-plus/frameworks/issb.png" },
   { name: "Australian Sustainability Reporting Standards", logo: "/assets/essentials-plus/frameworks/asrs.png" },
+  { name: "Securities and Exchange Commission (Philippines)", logo: "/assets/essentials-plus/frameworks/sec-ph.png" },
+  { name: "US Environmental Protection Agency", logo: "/assets/essentials-plus/frameworks/epa.png" },
+  { name: "Sustainability Disclosure Requirements", logo: "/assets/essentials-plus/frameworks/sdr.png" },
+  { name: "Hong Kong Financial Reporting Standards", logo: "/assets/essentials-plus/frameworks/hkfrs.png" },
+  { name: "UN Sustainable Development Goals", logo: "/assets/essentials-plus/frameworks/sdg.png" },
 ];
 
 export function Frameworks() {

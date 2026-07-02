@@ -52,9 +52,16 @@ export const hero = {
 export const overview = {
   headline: "Building Performance Management, Reimagined",
   paragraphs: [
-    "Portfolio One is a building and portfolio management platform designed to transform complex operational data into actionable performance insights.",
-    "From live utility tracking and BMS integration to benchmarking, automated alerts, and reporting, Portfolio One gives commercial real estate teams greater visibility and control across their assets.",
-    "Built for operational efficiency, Portfolio One helps organisations reduce energy waste, improve asset performance, and support long-term portfolio optimisation through real-time intelligence and automation.",
+    "Portfolio One transforms complex operational data into actionable performance insights — giving commercial real estate teams greater visibility and control across their assets.",
+  ],
+  listLead: "By centralising operational intelligence across your portfolio, teams can:",
+  items: [
+    "Reduce operational waste and inefficiencies",
+    "Improve response times to building performance issues",
+    "Benchmark assets against industry standards",
+    "Monitor energy and utility performance in real time",
+    "Automate reporting and performance analysis",
+    "Prioritise operational and capital improvements with confidence",
   ],
   image: {
     src: "/assets/portfolio-one/card-reporting.png",

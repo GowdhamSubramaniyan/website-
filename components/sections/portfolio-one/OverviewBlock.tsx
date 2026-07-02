@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { overview } from "./portfolio-one.data";
 
 /**
@@ -11,7 +12,7 @@ import { overview } from "./portfolio-one.data";
  */
 export function OverviewBlock() {
   return (
-    <section className="relative scroll-mt-20 overflow-hidden bg-navy py-section-sm text-white md:py-section">
+    <section id="video" className="relative scroll-mt-28 overflow-hidden bg-navy py-section-sm text-white md:py-section">
       {/* Faint global map backdrop, clipped to a semi-circle dome at the bottom */}
       <div
         aria-hidden
@@ -30,24 +31,13 @@ export function OverviewBlock() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Media panel */}
         <Reveal>
-          <a
-            href="#contact"
-            aria-label="See Portfolio One in action"
-            className="group relative block overflow-hidden rounded-3xl border-2 border-white shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
-          >
-            <Image
-              src={overview.image.src}
-              alt={overview.image.alt}
-              width={1200}
-              height={800}
+          <div className="overflow-hidden rounded-3xl border-2 border-white shadow-xl">
+            <VideoEmbed
+              poster={overview.image.src}
+              posterAlt={overview.image.alt}
               sizes="(min-width: 1024px) 36rem, 100vw"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="absolute inset-0 bg-navy/25 transition-colors group-hover:bg-navy/15" />
-            <span className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[3px] border-white text-white transition-transform duration-200 group-hover:scale-110">
-              <PlayIcon />
-            </span>
-          </a>
+          </div>
         </Reveal>
 
         {/* Copy */}
@@ -60,6 +50,15 @@ export function OverviewBlock() {
               <p key={p}>{p}</p>
             ))}
           </div>
+          <p className="mt-6 font-semibold text-white">{overview.listLead}</p>
+          <ul className="mt-4 grid gap-2.5">
+            {overview.items.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-base text-white/85">
+                <CheckIcon />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
         </div>
       </Container>
@@ -67,10 +66,15 @@ export function OverviewBlock() {
   );
 }
 
-function PlayIcon() {
+function CheckIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-9 w-9 translate-x-0.5">
-      <path d="M6 4.5v11a.75.75 0 0 0 1.14.64l9-5.5a.75.75 0 0 0 0-1.28l-9-5.5A.75.75 0 0 0 6 4.5Z" />
+    <svg
+      viewBox="0 0 20 20"
+      className="mt-0.5 h-5 w-5 shrink-0 text-lime"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M10 1.6a8.4 8.4 0 1 0 0 16.8 8.4 8.4 0 0 0 0-16.8zm3.9 6.2-4.6 4.6a1 1 0 0 1-1.4 0L5.9 10.3a1 1 0 1 1 1.4-1.4l1.3 1.3 3.9-3.9a1 1 0 0 1 1.4 1.4z" />
     </svg>
   );
 }

@@ -4,7 +4,6 @@ import {
   EssentialsPlusHero,
   WhyEssentialsPlus,
   VideoWalkthrough,
-  SmarterWay,
   MoveBeyond,
   Features,
   BuiltForGrowing,
@@ -33,9 +32,8 @@ export default function EssentialsPlusPage() {
       <main id="main">
         <EssentialsPlusHero />
         <WhyEssentialsPlus />
-        <VideoWalkthrough />
-        <SmarterWay />
         <MoveBeyond />
+        <VideoWalkthrough />
         <Features />
         <BuiltForGrowing />
         <Frameworks />

@@ -75,7 +75,7 @@ export function OurMission() {
             </div>
 
             {/* Outcome cards */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
               {VALUES.map((value) => (
                 <div
                   key={value.title}

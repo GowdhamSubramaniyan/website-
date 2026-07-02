@@ -3,7 +3,6 @@ import { Header, Footer } from "@/components/layout";
 import {
   EssentialsHero,
   VideoWalkthrough,
-  SmarterWay,
   DontGetCaught,
   Features,
   SMEChallenges,
@@ -33,9 +32,8 @@ export default function EssentialsPage() {
       <main id="main">
         <EssentialsHero />
         <VideoWalkthrough />
-        <SmarterWay />
-        <DontGetCaught />
         <Features />
+        <DontGetCaught />
         <SMEChallenges />
         <Frameworks />
         <Pricing />

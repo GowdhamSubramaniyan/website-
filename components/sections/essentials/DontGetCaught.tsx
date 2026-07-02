@@ -18,12 +18,15 @@ const SUPPORTS = [
  */
 export function DontGetCaught() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-[#eef1ef] py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Copy */}
           <Reveal>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight text-teal sm:text-4xl md:text-5xl">
+            <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-teal/70">
+              AI-Driven Report Writing
+            </span>
+            <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-teal sm:text-4xl md:text-5xl">
               Don&rsquo;t get caught unprepared.
             </h2>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-ink/80">
@@ -64,6 +67,9 @@ export function DontGetCaught() {
 
           {/* Report preview */}
           <Reveal delay={120}>
+            <p className="mb-4 text-right text-2xl font-bold text-teal sm:text-3xl">
+              Quick &amp; Easy.
+            </p>
             <div className="overflow-hidden rounded-3xl shadow-lg lg:ml-auto">
               <Image
                 src="/assets/essentials/report.png"

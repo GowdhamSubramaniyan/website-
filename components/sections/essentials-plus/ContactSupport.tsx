@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
+import { postJSON } from "@/lib/api";
 
 const COUNTRIES = ["United Kingdom", "Europe", "Australia", "Hong Kong", "United States", "Other"];
 const QUERY_TYPES = [
@@ -28,10 +29,39 @@ const labelClass = "block text-sm font-medium text-ink";
  */
 export function ContactSupport() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    const fd = new FormData(e.currentTarget);
+
+    if (String(fd.get("company_website") ?? "").trim()) {
+      setSent(true);
+      return;
+    }
+
+    setSending(true);
+    setError("");
+    try {
+      await postJSON("/api/contact", {
+        source: "Essentials+ — Talk to the Team",
+        name: `${fd.get("firstName") ?? ""} ${fd.get("lastName") ?? ""}`.trim(),
+        email: String(fd.get("email") ?? ""),
+        message: String(fd.get("message") ?? ""),
+        fields: {
+          Phone: fd.get("phone"),
+          Company: fd.get("company"),
+          Country: fd.get("country"),
+          "Query type": fd.get("queryType"),
+        },
+      });
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -65,6 +95,15 @@ export function ContactSupport() {
               </p>
             ) : (
               <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
+                {/* Honeypot — hidden from users, filled by bots. */}
+                <input
+                  type="text"
+                  name="company_website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className={labelClass} htmlFor="firstName">
@@ -151,11 +190,18 @@ export function ContactSupport() {
 
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+                  disabled={sending}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 disabled:opacity-60"
                 >
-                  Send Message
-                  <SendIcon />
+                  {sending ? "Sending…" : "Send Message"}
+                  {!sending && <SendIcon />}
                 </button>
+
+                {error && (
+                  <p role="alert" className="text-sm text-red-600">
+                    {error}
+                  </p>
+                )}
 
                 <p className="text-xs leading-relaxed text-ink/55">
                   By submitting this form, you agree to our privacy policy.

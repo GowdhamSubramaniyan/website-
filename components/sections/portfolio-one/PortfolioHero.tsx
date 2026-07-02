@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { hero } from "./portfolio-one.data";
@@ -32,6 +33,13 @@ export function PortfolioHero() {
       </div>
 
       <Container className="relative z-10 pb-20 pt-32 md:pb-28 md:pt-44">
+        <Link
+          href="/"
+          className="animate-fade-in-up mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+        >
+          <span aria-hidden>&larr;</span>
+          Back to Home
+        </Link>
         <div className="lg:w-[48%]">
           <span className="animate-fade-in-up block text-base font-bold text-white">
             {hero.eyebrow}
@@ -51,15 +59,6 @@ export function PortfolioHero() {
             >
               {hero.primaryCta.label}
             </Button>
-            <a
-              href={hero.secondaryCta.href}
-              className="group inline-flex items-center gap-3 rounded-pill text-sm font-semibold uppercase tracking-wide text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-            >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/70 transition-colors group-hover:bg-white/10">
-                <PlayIcon />
-              </span>
-              {hero.secondaryCta.label}
-            </a>
           </div>
 
           {/* Dashboard + badge — stacked below copy on mobile/tablet */}
@@ -80,8 +79,8 @@ export function PortfolioHero() {
 
       {/* Dashboard — large, borderless, tilted; bleeds far off the right so only
           its left half stays in view. The badge rides its lower-left corner. */}
-      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[36%] lg:block">
-        <div className="relative w-[82vw] max-w-none xl:w-[76vw]">
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[44%] lg:block">
+        <div className="relative w-[880px] xl:w-[1120px]">
           <Image
             src={hero.dashboard.src}
             alt=""
@@ -109,18 +108,5 @@ function AwardBadge({ className }: { className?: string }) {
       sizes="(min-width: 1024px) 26rem, 88vw"
       className={className}
     />
-  );
-}
-
-function PlayIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      className="h-5 w-5 shrink-0 translate-x-0.5"
-    >
-      <path d="M6 4.5v11a.75.75 0 0 0 1.14.64l9-5.5a.75.75 0 0 0 0-1.28l-9-5.5A.75.75 0 0 0 6 4.5Z" />
-    </svg>
   );
 }

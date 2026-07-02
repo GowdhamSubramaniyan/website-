@@ -4,7 +4,6 @@ import {
   PortfolioHero,
   OverviewBlock,
   IntelligentTools,
-  OperationalVisibility,
   RealTimeMonitoring,
   PerformanceRegister,
   TwoUpCards,
@@ -32,7 +31,6 @@ export default function PortfolioOnePage() {
         <PortfolioHero />
         <OverviewBlock />
         <IntelligentTools />
-        <OperationalVisibility />
         <RealTimeMonitoring />
         <PerformanceRegister />
         <TwoUpCards />

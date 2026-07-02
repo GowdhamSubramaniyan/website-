@@ -28,14 +28,15 @@ export function Pricing() {
       id="pricing"
       className="relative overflow-hidden bg-[#0c8f84] py-20 text-white md:py-28"
     >
-      {/* subtle perspective grid */}
+      {/* perspective grid floor — matches the Essentials+ pricing band, with
+          lighter lines so they read over the teal background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:48px_48px]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 opacity-[0.18] [background-image:linear-gradient(#c4efe2_1px,transparent_1px),linear-gradient(90deg,#c4efe2_1px,transparent_1px)] [background-size:46px_46px] [mask-image:linear-gradient(to_top,#000,transparent)] [transform:perspective(440px)_rotateX(57deg)]"
       />
       <Container className="relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-base font-semibold text-white">
+          <p className="text-lg font-semibold text-white sm:text-xl">
             One Simple Annual Price for Complete ESG Reporting
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-lime sm:text-4xl md:text-5xl">

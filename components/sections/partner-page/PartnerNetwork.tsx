@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { cn } from "@/lib/cn";
 import { network, PARTNERS } from "./partner-page.data";
 
 /**
@@ -35,7 +36,10 @@ export function PartnerNetwork() {
                     width={300}
                     height={120}
                     sizes="(min-width: 1024px) 22rem, 90vw"
-                    className="max-h-16 w-auto object-contain"
+                    className={cn(
+                      "w-auto object-contain",
+                      partner.logoClassName ?? "max-h-16",
+                    )}
                   />
                 </div>
                 <p className="mt-5 text-sm leading-relaxed text-white/85">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
 import {
   ConsultHero,
+  ConsultVideo,
   TrustedAdvisory,
   WhatWeHelpWith,
   BackedByTech,
@@ -28,6 +29,7 @@ export default function VZCConsultPage() {
       <Header brand="vz-consult" />
       <main id="main">
         <ConsultHero />
+        <ConsultVideo />
         <TrustedAdvisory />
         <WhatWeHelpWith />
         <BackedByTech />

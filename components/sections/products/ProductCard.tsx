@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { DownloadDropdown } from "@/components/ui/DownloadDropdown";
 import { cn } from "@/lib/cn";
+import { keepHyphens } from "@/lib/typography";
 import type { Product } from "./products.data";
 
 /**
@@ -15,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
       variant="dark"
       className="h-full w-full gap-5 [background-image:linear-gradient(180deg,#050f0e_0%,#0e413d_100%)]"
     >
-      <div className="flex min-h-20 items-center">
+      <div className="flex min-h-24 items-center">
         <Image
           src={product.logo.src}
           alt={product.name}
@@ -25,7 +26,7 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <p className="flex-1 text-sm leading-relaxed text-white/70 sm:text-base">
-        {product.description}
+        {keepHyphens(product.description)}
       </p>
       <div className="flex flex-wrap items-center gap-3">
         <Button href={product.cta.href} variant="primary" withArrow>

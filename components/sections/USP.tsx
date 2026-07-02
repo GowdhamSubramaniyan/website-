@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { cn } from "@/lib/cn";
+import { keepHyphens } from "@/lib/typography";
 
 type UspImage = { src: string; alt: string; width: number; height: number };
 
@@ -18,9 +20,13 @@ type UspBlockProps = {
   portrait?: boolean;
   /** Render the image as a 16:9 video thumbnail with a play button. */
   video?: boolean;
+  /** Video file played when the thumbnail is clicked (requires `video`). */
+  videoSrc?: string;
+  /** YouTube id played when the thumbnail is clicked (requires `video`). */
+  videoYoutubeId?: string;
 };
 
-function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }: UspBlockProps) {
+function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video, videoSrc, videoYoutubeId }: UspBlockProps) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <Reveal className={cn(reverse && "lg:order-2")}>
@@ -29,7 +35,7 @@ function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }
         </h2>
         <div className="mt-5 space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
           {paragraphs.map((p) => (
-            <p key={p}>{p}</p>
+            <p key={p}>{keepHyphens(p)}</p>
           ))}
         </div>
         <div className="mt-7">
@@ -41,27 +47,14 @@ function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video }
 
       <Reveal delay={150} className={cn(reverse && "lg:order-1")}>
         {video ? (
-          // Video placeholder — thumbnail image with a play-button overlay.
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <VideoEmbed
+              youtubeId={videoYoutubeId}
+              src={videoSrc}
+              poster={image.src}
+              posterAlt={image.alt}
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="aspect-video w-full bg-black object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/25">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg ring-1 ring-black/5 sm:h-20 sm:w-20">
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="ml-1 h-7 w-7 fill-ink sm:h-9 sm:w-9"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </div>
           </div>
         ) : (
           <Image
@@ -88,6 +81,7 @@ export function USP() {
       <div className="space-y-20 md:space-y-28">
         <UspBlock
           video
+          videoYoutubeId="c-bXx1f9-wM"
           headline={
             <span className="text-lime">
               Trusted by Organisations Preparing for What&apos;s Next
@@ -113,10 +107,10 @@ export function USP() {
           headline={
             <>
               <span className="block text-xl font-bold text-white sm:text-2xl">
-                Most Platforms Stop at Reporting.
+                Most platforms stop at reporting,
               </span>
               <span className="mt-3 block text-lime">
-                Vision Zero Connect Goes All the Way to Return.
+                and Vision Zero delivers measurable business value.
               </span>
             </>
           }

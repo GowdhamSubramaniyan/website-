@@ -9,9 +9,17 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { Logo } from "./Logo";
 
+// The four products — shown as the "Our Solutions" dropdown so each links
+// directly to its page (works from any page, unlike the old #products anchor).
+const SOLUTIONS_LINKS = [
+  { label: "Essentials", href: "/essentials" },
+  { label: "Essentials+", href: "/essentials-plus" },
+  { label: "Portfolio One", href: "/portfolio-one" },
+  { label: "VZC Consult", href: "/vz-consult" },
+] as const;
+
 // Navigation matches the design (zipteam.my.canva.site … home page).
 const NAV_LINKS = [
-  { label: "Solutions", href: "#products" },
   { label: "Who We Serve", href: "/who-we-serve" },
   { label: "About Us", href: "/about" },
   { label: "Insights", href: "/insights" },
@@ -88,7 +96,7 @@ export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <Container className="flex h-24 items-center justify-between">
+      <Container className="flex h-28 items-center justify-between">
         {brand === "essentials" ? (
           <EssentialsWordmark />
         ) : brand === "essentials-plus" ? (
@@ -96,16 +104,46 @@ export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
         ) : brand === "portfolio-one" ? (
           <PortfolioOneWordmark />
         ) : brand === "vz-consult" ? (
-          <ConsultWordmark />
+          <ConsultWordmark onLight={onLight} />
         ) : (
           <Logo
             tone={onLight ? "color" : "white"}
-            imageClassName="h-16 sm:h-20"
+            imageClassName="h-20 sm:h-24"
           />
         )}
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          {/* Our Solutions dropdown */}
+          <div className="group relative">
+            <Link
+              href="/#products"
+              aria-haspopup="true"
+              className={cn(
+                "inline-flex items-center gap-1 rounded-sm pb-1 text-sm font-medium uppercase tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+                onLight
+                  ? "text-ink/70 hover:text-ink focus-visible:ring-ink"
+                  : "text-white/80 hover:text-white focus-visible:ring-white",
+              )}
+            >
+              Solutions
+              <ChevronDownIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+            </Link>
+            {/* pt-3 forms an invisible hover bridge to the panel */}
+            <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="w-56 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-xl shadow-black/30 backdrop-blur-md">
+                {SOLUTIONS_LINKS.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="block rounded-lg px-4 py-2.5 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:bg-white/10 focus-visible:text-white"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           {NAV_LINKS.map((link) => {
             const active = isActive(link.href);
             return (
@@ -166,6 +204,21 @@ export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
           className="animate-menu-in border-t border-white/10 bg-ink/95 text-white backdrop-blur-md lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
+            {/* Our Solutions group */}
+            <span className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-white/50">
+              Our Solutions
+            </span>
+            {SOLUTIONS_LINKS.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-md px-5 py-2.5 text-base font-medium uppercase tracking-wide text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {s.label}
+              </Link>
+            ))}
+            <span className="mt-2 border-t border-white/10" aria-hidden />
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
               return (
@@ -212,7 +265,7 @@ function EssentialsWordmark() {
         width={3146}
         height={1021}
         preload
-        className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+        className="h-14 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-16"
       />
     </Link>
   );
@@ -237,9 +290,9 @@ function EssentialsPlusWordmark({ onLight }: { onLight: boolean }) {
             width={3146}
             height={1021}
             preload
-            className="h-8 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-9"
+            className="h-11 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-12"
           />
-          <span className="text-2xl font-bold leading-none text-teal sm:text-3xl">+</span>
+          <span className="text-3xl font-bold leading-none text-teal sm:text-4xl">+</span>
         </span>
       ) : (
         <Image
@@ -248,7 +301,7 @@ function EssentialsPlusWordmark({ onLight }: { onLight: boolean }) {
           width={4325}
           height={1250}
           preload
-          className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+          className="h-12 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-14"
         />
       )}
     </Link>
@@ -269,14 +322,17 @@ function PortfolioOneWordmark() {
         width={4019}
         height={1250}
         preload
-        className="h-9 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-10"
+        className="h-12 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-14"
       />
     </Link>
   );
 }
 
-/** VZC Consult wordmark — the consult logo rendered dark for the light header. */
-function ConsultWordmark() {
+/**
+ * VZC Consult wordmark — dark while transparent over the light hero (onLight);
+ * flips to white once the solid dark bar appears on scroll so it stays visible.
+ */
+function ConsultWordmark({ onLight }: { onLight: boolean }) {
   return (
     <Link
       href="/vz-consult"
@@ -289,9 +345,26 @@ function ConsultWordmark() {
         width={335}
         height={183}
         preload
-        className="h-12 w-auto brightness-0 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+        className={cn(
+          "h-14 w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03] sm:h-16",
+          onLight ? "brightness-0" : "brightness-0 invert",
+        )}
       />
     </Link>
+  );
+}
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className={cn("h-4 w-4", className)} aria-hidden="true">
+      <path
+        d="M5 7.5 10 12.5l5-5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 

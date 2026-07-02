@@ -1,22 +1,31 @@
-export type ContactOption = { title: string; description: string };
+export type ContactIcon = "consult" | "demo" | "assessment" | "support";
+export type ContactOption = {
+  title: string;
+  description: string;
+  icon: ContactIcon;
+};
 
 /** The four "What can we help you with?" options. */
 export const CONTACT_OPTIONS: ContactOption[] = [
   {
     title: "Expert Consultation",
-    description: "Get personalised guidance from our ESG specialists",
+    description: "Get personalised guidance from our industry experts",
+    icon: "consult",
   },
   {
     title: "Demo Session",
     description: "See the platform in action with your data",
+    icon: "demo",
   },
   {
     title: "Free Assessment",
-    description: "Get a detailed analysis of your ESG needs",
+    description: "Unlock opportunities to optimise your assets",
+    icon: "assessment",
   },
   {
     title: "Implementation Support",
     description: "Full assistance with platform onboarding",
+    icon: "support",
   },
 ];
 

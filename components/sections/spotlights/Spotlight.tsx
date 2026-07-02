@@ -3,6 +3,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
+import { keepHyphens } from "@/lib/typography";
 
 export type SpotlightContent = {
   id: string;
@@ -64,7 +65,7 @@ export function Spotlight({
         )}
       >
         {paragraphs.map((p) => (
-          <p key={p}>{p}</p>
+          <p key={p}>{keepHyphens(p)}</p>
         ))}
       </div>
       <div className="mt-8">

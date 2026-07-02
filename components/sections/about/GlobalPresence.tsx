@@ -33,7 +33,7 @@ export function GlobalPresence() {
 
           {/* Stats */}
           <Reveal delay={120}>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div className="rounded-2xl bg-[#a7c4c2] p-7">
                 <span className="text-5xl font-bold leading-none text-ink">25+</span>
                 <p className="mt-3 text-base font-medium text-ink/80">

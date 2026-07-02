@@ -11,7 +11,7 @@ export const INSIGHTS: Insight[] = [
     title: "Awards",
     description:
       "Global award recognitions, industry achievements, and innovation milestones across ESG and building performance technology.",
-    href: "/insights#news",
+    href: "/awards",
     image: "/assets/home/insight-awards.png",
   },
   {

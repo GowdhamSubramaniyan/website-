@@ -11,7 +11,7 @@ export const ESSENTIALS: SpotlightContent = {
     src: "/assets/home/logos/product-essentials-teal.png",
     width: 3146,
     height: 1021,
-    className: "h-14 sm:h-16",
+    className: "h-16 sm:h-20",
   },
   heading: "AI-Powered ESG & Operational Reporting Built for SMEs",
   paragraphs: [
@@ -40,7 +40,7 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
     src: "/assets/home/logos/product-essentials-plus.png",
     width: 4325,
     height: 1250,
-    className: "h-14 sm:h-16",
+    className: "h-16 sm:h-20",
   },
   heading: "Advanced ESG & Operational Reporting for Growing Organisations",
   paragraphs: [
@@ -69,7 +69,7 @@ export const PORTFOLIO_ONE: SpotlightContent = {
     src: "/assets/home/logos/product-portfolio-one-teal.png",
     width: 4019,
     height: 1250,
-    className: "h-12 sm:h-14",
+    className: "h-16 sm:h-20",
   },
   heading: "Enhanced Building Performance Through Operational Intelligence",
   paragraphs: [
@@ -99,7 +99,7 @@ export const VZ_CONSULT: SpotlightContent = {
     src: "/assets/home/logos/product-vzc-consult.png",
     width: 335,
     height: 183,
-    className: "h-16 sm:h-20",
+    className: "h-20 sm:h-24",
   },
   heading: "Expert-Led Advisory & Program Delivery",
   paragraphs: [
@@ -107,7 +107,7 @@ export const VZ_CONSULT: SpotlightContent = {
   ],
   cta: {
     label: "Explore Advisory Services",
-    href: "https://visionzeroconsult.com/",
+    href: "/vz-consult",
     variant: "primary",
   },
   image: {

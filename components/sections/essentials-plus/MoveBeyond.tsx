@@ -25,8 +25,8 @@ export function MoveBeyond() {
           {/* Copy */}
           <Reveal>
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-teal sm:text-4xl md:text-5xl">
-              <span className="block">Move beyond basic</span>
-              <span className="block">ESG Reporting</span>
+              <span className="block">Move beyond</span>
+              <span className="block">Standard Reporting</span>
             </h2>
             <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-ink/80">
               <p>

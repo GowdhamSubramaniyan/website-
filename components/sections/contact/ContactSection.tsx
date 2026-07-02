@@ -5,6 +5,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
+import { postJSON } from "@/lib/api";
 import { OptionCard } from "./OptionCard";
 import { CONTACT_OPTIONS, COMPANY_SIZES } from "./contact.data";
 
@@ -36,6 +37,8 @@ export function ContactSection() {
   const [size, setSize] = useState<string>("");
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   function update(name: keyof Fields) {
     return (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,13 +57,44 @@ export function ContactSection() {
     return next;
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const next = validate();
     setErrors(next);
-    if (Object.keys(next).length === 0) {
-      // No backend wiring — acknowledge the submission.
+    if (Object.keys(next).length > 0) return;
+
+    // Honeypot — populated only by bots.
+    const honeypot = (e.currentTarget.elements.namedItem(
+      "company_website",
+    ) as HTMLInputElement | null)?.value;
+    if (honeypot) {
       setSubmitted(true);
+      return;
+    }
+
+    setSending(true);
+    setSubmitError("");
+    try {
+      await postJSON("/api/contact", {
+        source: option ? `Home — ${option}` : "Home — Contact",
+        name: `${fields.firstName} ${fields.lastName}`.trim(),
+        email: fields.workEmail,
+        message: fields.message,
+        fields: {
+          Phone: fields.phone,
+          Company: fields.company,
+          Industry: fields.industry,
+          "Company size": size,
+          "Enquiry type": option ?? "",
+        },
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setSending(false);
     }
   }
 
@@ -78,6 +112,7 @@ export function ContactSection() {
             key={opt.title}
             title={opt.title}
             description={opt.description}
+            icon={opt.icon}
             selected={option === opt.title}
             onSelect={() => setOption(opt.title)}
           />
@@ -96,6 +131,15 @@ export function ContactSection() {
         </div>
       ) : (
         <form noValidate onSubmit={handleSubmit} className="mt-12">
+          {/* Honeypot — hidden from users, filled by bots. */}
+          <input
+            type="text"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
           <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
             <Field
               label="First name"
@@ -182,10 +226,16 @@ export function ContactSection() {
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <Button type="submit" variant="dark" size="lg">
-              Submit Request
+            <Button type="submit" variant="dark" size="lg" disabled={sending}>
+              {sending ? "Sending…" : "Submit Request"}
             </Button>
-            <p className="text-sm text-teal">We&apos;ll respond within 24 hours.</p>
+            {submitError ? (
+              <p role="alert" className="text-sm text-red-600">
+                {submitError}
+              </p>
+            ) : (
+              <p className="text-sm text-teal">We&apos;ll respond within 24 hours.</p>
+            )}
           </div>
         </form>
       )}

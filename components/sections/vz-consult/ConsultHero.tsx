@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { hero } from "./vz-consult.data";
@@ -13,6 +14,13 @@ export function ConsultHero() {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(130%_130%_at_12%_0%,#f5faf6_0%,#e6f1ec_48%,#d3e7df_100%)] text-ink">
       <Container className="relative z-10 pb-16 pt-32 md:pb-24 md:pt-40">
+        <Link
+          href="/"
+          className="animate-fade-in-up mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-ink/60 transition-colors hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+        >
+          <span aria-hidden>&larr;</span>
+          Back to Home
+        </Link>
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           {/* Copy */}
           <div>

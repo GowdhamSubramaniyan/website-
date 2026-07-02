@@ -44,7 +44,7 @@ export function SmarterWay() {
       <Container>
         <Reveal>
           <h2 className="text-center text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">
-            A Smarter Way to Handle ESG Reporting
+            A Simple, Cost-Effective Way to Handle ESG Reporting
           </h2>
         </Reveal>
 
