@@ -80,28 +80,6 @@ export function USP() {
     <SectionWrapper background="ink">
       <div className="space-y-20 md:space-y-28">
         <UspBlock
-          video
-          videoYoutubeId="c-bXx1f9-wM"
-          headline={
-            <span className="text-lime">
-              Trusted by Organisations Preparing for What&apos;s Next
-            </span>
-          }
-          paragraphs={[
-            "As lenders, investors, governments, and supply chains demand greater transparency, businesses are under increasing pressure to demonstrate operational performance, emissions visibility, and reporting readiness.",
-            "Most organisations already hold the data they need. The challenge is turning fragmented information into clear operational intelligence and measurable commercial outcomes.",
-            "Vision Zero Connect helps organisations move beyond disconnected spreadsheets, manual reporting, and isolated ESG exercises by transforming building and operational data into actionable intelligence.",
-          ]}
-          cta={{ label: "Explore the Ecosystem", href: "#products" }}
-          image={{
-            src: "/assets/home/usp-video.png",
-            alt: "Watch the Vision Zero Connect overview",
-            width: 1920,
-            height: 1080,
-          }}
-        />
-
-        <UspBlock
           reverse
           portrait
           headline={

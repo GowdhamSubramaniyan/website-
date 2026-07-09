@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 import { hero } from "./awards.data";
 
 /**
@@ -27,30 +27,6 @@ export function AwardsHero() {
                 <p key={p}>{p}</p>
               ))}
             </div>
-            <div className="animate-fade-in-up mt-9 [animation-delay:360ms]">
-              <Button
-                href="#awards"
-                variant="dark"
-                size="lg"
-                className="font-semibold uppercase tracking-[0.08em]"
-              >
-                Scroll to Explore
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-4 w-4 shrink-0 animate-bounce"
-                >
-                  <path
-                    d="M10 4v12m0 0-5-5m5 5 5-5"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Button>
-            </div>
           </div>
 
           {/* Photo collage (single artwork) */}
@@ -67,6 +43,7 @@ export function AwardsHero() {
           </div>
         </div>
       </Container>
+      <ScrollCue />
     </section>
   );
 }

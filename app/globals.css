@@ -53,6 +53,8 @@
   --animate-hero-image: hero-image-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-hero-dash: hero-dash-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-scroll-wheel: scroll-wheel 1.7s ease-in-out infinite;
+  --animate-grid-pan: grid-pan 7s linear infinite;
 }
 
 @keyframes header-in {
@@ -107,6 +109,31 @@
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
+  }
+}
+
+/* Slowly panning grid — a subtle tech backdrop behind the hero content. */
+@keyframes grid-pan {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 44px 44px, 44px 44px;
+  }
+}
+
+/* Mouse scroll wheel — the dot drifts down and fades, hinting "scroll". */
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(9px);
+    opacity: 0;
   }
 }
 

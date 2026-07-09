@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 import { hero } from "./vz-consult.data";
 
 /**
@@ -21,7 +22,7 @@ export function ConsultHero() {
           <span aria-hidden>&larr;</span>
           Back to Home
         </Link>
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
           {/* Copy */}
           <div>
             <h1 className="animate-fade-in-up text-balance text-4xl font-bold leading-[1.1] tracking-tight text-teal sm:text-5xl md:text-display-lg">
@@ -32,7 +33,7 @@ export function ConsultHero() {
                 <p key={p}>{p}</p>
               ))}
             </div>
-            <div className="animate-fade-in-up mt-9 [animation-delay:280ms]">
+            <div className="animate-fade-in-up mt-9 flex flex-wrap items-center gap-4 [animation-delay:280ms]">
               <Button
                 href={hero.cta.href}
                 variant="dark"
@@ -41,23 +42,33 @@ export function ConsultHero() {
               >
                 {hero.cta.label}
               </Button>
+              <Link
+                href="#contact"
+                className="group/bd relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-pill border border-ink/30 px-9 py-4 text-base font-semibold uppercase tracking-[0.08em] text-ink transition-colors duration-300 hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 ease-out will-change-transform group-hover/bd:translate-x-0"
+                />
+                <span className="relative z-10">Book a Demo</span>
+              </Link>
             </div>
           </div>
 
-          {/* Photo (artwork already has rounded corners — no extra frame) */}
-          <div className="animate-fade-in-up [animation-delay:180ms]">
-            <Image
-              src={hero.image.src}
-              alt={hero.image.alt}
-              width={900}
-              height={820}
-              sizes="(min-width: 1024px) 34rem, 90vw"
-              preload
-              className="mx-auto h-auto w-full max-w-md lg:ml-auto lg:max-w-none"
-            />
+          {/* Video */}
+          <div className="animate-fade-in-up w-full [animation-delay:180ms] lg:ml-auto lg:max-w-[36rem]">
+            <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <VideoEmbed
+                youtubeId="LICdXvLuraw"
+                logo={{ src: "/assets/home/logos/product-vzc-consult.png", alt: "VZC Consult" }}
+                posterAlt="See VZC Consult in action"
+                sizes="(min-width: 1024px) 34rem, 90vw"
+              />
+            </div>
           </div>
         </div>
       </Container>
+      <ScrollCue />
     </section>
   );
 }

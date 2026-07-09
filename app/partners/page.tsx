@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
+import { SectionTimeline } from "@/components/ui/SectionTimeline";
 import {
   PartnerHero,
   PartnerNetwork,
@@ -18,15 +19,31 @@ export const metadata: Metadata = {
  * in place, with the Strategic Partnership Network and global presence sections
  * to follow.
  */
+const TIMELINE = [
+  { id: "tl-overview", label: "Overview" },
+  { id: "tl-network", label: "Network" },
+  { id: "tl-collaboration", label: "Collaboration" },
+  { id: "tl-reach", label: "Global Reach" },
+];
+
 export default function PartnersPage() {
   return (
     <>
       <Header theme="light" />
+      <SectionTimeline items={TIMELINE} />
       <main id="main">
-        <PartnerHero />
-        <PartnerNetwork />
-        <BuildingCollaboration />
-        <GlobalReach />
+        <div id="tl-overview">
+          <PartnerHero />
+        </div>
+        <div id="tl-network">
+          <PartnerNetwork />
+        </div>
+        <div id="tl-collaboration">
+          <BuildingCollaboration />
+        </div>
+        <div id="tl-reach">
+          <GlobalReach />
+        </div>
       </main>
       <Footer />
     </>

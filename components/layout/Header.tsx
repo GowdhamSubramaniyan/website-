@@ -176,7 +176,7 @@ export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
               </Link>
             );
           })}
-          <Button href="#contact" variant="ghost">
+          <Button href="/#contact" variant="ghost">
             Contact Us
           </Button>
         </nav>
@@ -237,7 +237,7 @@ export function Header({ brand = "vzc", theme }: HeaderProps = {}) {
               );
             })}
             <Button
-              href="#contact"
+              href="/#contact"
               variant="primary"
               className="mt-3 w-full"
               onClick={() => setMenuOpen(false)}

@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
+import { SectionTimeline } from "@/components/ui/SectionTimeline";
 import {
   EssentialsHero,
-  VideoWalkthrough,
   DontGetCaught,
   Features,
   SMEChallenges,
   Frameworks,
   Pricing,
-  Sectors,
   Insights,
   ContactSupport,
 } from "@/components/sections/essentials";
+
+const TIMELINE = [
+  { id: "overview", label: "Overview" },
+  { id: "features", label: "Features" },
+  { id: "readiness", label: "Get Ready" },
+  { id: "challenges", label: "Challenges" },
+  { id: "frameworks", label: "Frameworks" },
+  { id: "pricing", label: "Pricing" },
+  { id: "insights", label: "Insights" },
+  { id: "contact", label: "Contact" },
+];
 
 export const metadata: Metadata = {
   title: "Essentials — Vision Zero Connect",
@@ -29,15 +39,14 @@ export default function EssentialsPage() {
   return (
     <>
       <Header brand="essentials" />
+      <SectionTimeline items={TIMELINE} />
       <main id="main">
         <EssentialsHero />
-        <VideoWalkthrough />
         <Features />
         <DontGetCaught />
         <SMEChallenges />
         <Frameworks />
         <Pricing />
-        <Sectors />
         <Insights />
         <ContactSupport />
       </main>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 
 /**
  * Who We Serve hero — light mint backdrop with a people/context image bleeding
@@ -61,6 +62,7 @@ export function WhoWeServeHero() {
           </div>
         </div>
       </Container>
+      <ScrollCue />
     </section>
   );
 }

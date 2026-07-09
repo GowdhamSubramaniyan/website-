@@ -58,7 +58,7 @@ const SECTORS: Sector[] = [
  */
 export function Sectors() {
   return (
-    <section className="bg-[#eef1ef] py-16 md:py-24">
+    <section id="sectors" className="bg-[#eef1ef] py-16 md:py-24">
       <Container>
         <Reveal>
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">

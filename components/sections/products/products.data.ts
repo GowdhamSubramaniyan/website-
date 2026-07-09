@@ -7,6 +7,8 @@ export type Product = {
   logo: { src: string; width: number; height: number; className: string };
   description: string;
   cta: { label: string; href: string };
+  /** YouTube id for the inline "See in action" video (omit for none). */
+  videoId?: string;
   /** Downloadable flyer(s) — one file links directly, several open a menu. */
   flyer: { label: string; items: DownloadItem[] };
 };
@@ -24,6 +26,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Fast, affordable ESG and emissions reporting designed for SMEs requiring lender, procurement, or compliance readiness.",
     cta: { label: "See Essentials in Action", href: "/essentials#video" },
+    videoId: "MuRimRhNTPM",
     flyer: {
       label: "Essentials Flyer",
       items: [
@@ -31,11 +34,6 @@ export const PRODUCTS: Product[] = [
           label: "Essentials Flyer",
           href: "/assets/flyers/Essentials%20Flyer_260529.pdf",
           download: "Essentials-Flyer.pdf",
-        },
-        {
-          label: "Essentials Flyer (QHA)",
-          href: "/assets/flyers/Essentials%20Flyer_QHA_260529.pdf",
-          download: "Essentials-Flyer-QHA.pdf",
         },
       ],
     },
@@ -51,6 +49,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Expanded operational and emissions intelligence with Scope 3 visibility, transition planning, reduction modelling, and strategic reporting support.",
     cta: { label: "See Essentials+ in Action", href: "/essentials-plus#video" },
+    videoId: "aw2erPwC8Ks",
     flyer: {
       label: "Essentials+ Flyer",
       items: [
@@ -73,6 +72,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Enterprise-grade building performance and portfolio intelligence platform designed to optimise operational efficiency, asset performance, and sustainability outcomes across large portfolios.",
     cta: { label: "See Portfolio One in Action", href: "/portfolio-one#video" },
+    videoId: "ThzqYzIMrW0",
     flyer: {
       label: "Portfolio One Flyer",
       items: [

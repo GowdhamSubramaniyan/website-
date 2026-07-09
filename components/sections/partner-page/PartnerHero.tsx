@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { hero } from "./partner-page.data";
 
 /**
@@ -25,18 +24,6 @@ export function PartnerHero() {
               <p key={p}>{p}</p>
             ))}
           </div>
-          <div className="animate-fade-in-up mt-9 [animation-delay:360ms]">
-            <Button
-              href={hero.cta.href}
-              variant="primary"
-              size="lg"
-              withArrow
-              className="font-semibold uppercase tracking-[0.08em]"
-            >
-              {hero.cta.label}
-            </Button>
-          </div>
-
           {/* Globe — stacked below copy on mobile/tablet */}
           <div className="animate-fade-in-up mt-12 lg:hidden">
             <Image

@@ -18,7 +18,7 @@ const SUPPORTS = [
  */
 export function DontGetCaught() {
   return (
-    <section className="bg-[#eef1ef] py-16 md:py-24">
+    <section id="readiness" className="bg-[#eef1ef] py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Copy */}
@@ -60,7 +60,7 @@ export function DontGetCaught() {
 
             <div className="mt-10">
               <Button href="#pricing" variant="primary" size="lg">
-                Get Started Now at €700
+                Get Started Now
               </Button>
             </div>
           </Reveal>

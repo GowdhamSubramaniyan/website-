@@ -19,7 +19,7 @@ const REASONS = [
  */
 export function SMEChallenges() {
   return (
-    <section className="bg-[#eef1ef] py-16 md:py-24">
+    <section id="challenges" className="bg-[#eef1ef] py-16 md:py-24">
       <Container>
         <Reveal>
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">
@@ -70,7 +70,7 @@ export function SMEChallenges() {
             </ul>
             <div className="mt-8">
               <Button href="#pricing" variant="dark" size="lg">
-                Get Started Now at €700
+                Get Started Now
               </Button>
             </div>
           </Reveal>

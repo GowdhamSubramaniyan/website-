@@ -89,6 +89,7 @@ export function PortfolioDuo() {
       </Container>
 
       {/* --- Vision Zero Consult (dark) --- */}
+      <div id="tl-consult">
       <Container className="bg-grad-dark relative py-section-sm md:py-section lg:min-h-[40rem] lg:bg-none">
         <span id="vz-consult" className="absolute -top-20" aria-hidden />
         <Reveal>
@@ -138,6 +139,7 @@ export function PortfolioDuo() {
           </Reveal>
         </div>
       </Container>
+      </div>
     </section>
   );
 }

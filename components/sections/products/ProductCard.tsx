@@ -14,7 +14,8 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Card
       variant="dark"
-      className="h-full w-full gap-5 [background-image:linear-gradient(180deg,#050f0e_0%,#0e413d_100%)]"
+      padded={false}
+      className="h-full w-full gap-4 p-5 sm:p-6 [background-image:linear-gradient(180deg,#050f0e_0%,#0e413d_100%)]"
     >
       <div className="flex min-h-24 items-center">
         <Image
@@ -25,7 +26,7 @@ export function ProductCard({ product }: { product: Product }) {
           className={cn("w-auto", product.logo.className)}
         />
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-white/70 sm:text-base">
+      <p className="flex-1 text-sm leading-relaxed text-white/70">
         {keepHyphens(product.description)}
       </p>
       <div className="flex flex-wrap items-center gap-3">

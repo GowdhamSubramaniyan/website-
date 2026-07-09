@@ -1,5 +1,4 @@
 export { ConsultHero } from "./ConsultHero";
-export { ConsultVideo } from "./ConsultVideo";
 export { TrustedAdvisory } from "./TrustedAdvisory";
 export { WhatWeHelpWith } from "./WhatWeHelpWith";
 export { BackedByTech } from "./BackedByTech";

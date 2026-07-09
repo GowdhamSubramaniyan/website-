@@ -1,78 +1,72 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 
 /**
- * Top-of-page hero. Teal gradient (matching the design) with the headline + CTA
- * on the left and a large product-dashboard monitor that bleeds off the right
- * edge on desktop. Copy and visual animate in on load.
+ * Top-of-page hero. Teal gradient (matching the design) with the headline, value
+ * points, and CTA on the left and the branded corporate video on the right.
+ * Copy and visual animate in on load.
  */
 export function Hero() {
   return (
-    <section className="relative flex min-h-[85vh] items-center overflow-hidden text-white">
-      <Container className="relative z-10 pb-16 pt-28 md:pb-20 md:pt-32">
-        <div className="lg:w-[50%]">
-          <h1 className="animate-fade-in-up text-balance text-4xl font-semibold tracking-tight [animation-delay:120ms] sm:text-5xl md:text-display">
-            <GradientText variant="lime">
-              Real Asset Intelligence for a More Demanding Economy
-            </GradientText>
-          </h1>
-          <p className="animate-fade-in-up mt-5 max-w-xl text-base leading-relaxed text-white/80 [animation-delay:240ms] sm:text-lg">
-            Operational intelligence and ESG reporting designed to help
-            organisations improve asset performance, strengthen financing
-            readiness, and stay commercially competitive.
-          </p>
-          <ul className="animate-fade-in-up mt-6 grid max-w-xl gap-x-6 gap-y-2.5 [animation-delay:270ms] sm:grid-cols-2">
-            {[
-              "Reduce avoidable energy & utility cost",
-              "Audit-ready ESG & compliance reporting",
-              "Real-time portfolio performance",
-              "Financing-ready data & insights",
-            ].map((point) => (
-              <li
-                key={point}
-                className="flex items-start gap-2.5 text-sm text-white/90 sm:text-base"
-              >
-                <CheckIcon />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="animate-fade-in-up mt-8 [animation-delay:300ms]">
-            <Button href="#contact" variant="primary" withArrow>
-              Get in Touch
-            </Button>
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden text-white">
+      {/* Slowly panning grid backdrop */}
+      <div
+        aria-hidden
+        className="animate-grid-pan pointer-events-none absolute inset-0 z-0 opacity-[0.07] [background-image:linear-gradient(rgba(196,239,226,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(196,239,226,0.6)_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(125%_125%_at_50%_40%,#000_28%,transparent_78%)]"
+      />
+      {/* Deepen the top-right corner for a richer gradient */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(85%_85%_at_100%_0%,rgba(3,18,16,0.6)_0%,transparent_58%)]"
+      />
+      <Container className="relative z-10 pb-16 pt-32 md:pb-20 md:pt-40">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+          {/* Copy */}
+          <div className="max-w-xl">
+            <span className="animate-fade-in-up mb-7 block h-px w-14 bg-grad-lime [animation-delay:80ms]" />
+            <h1 className="animate-fade-in-up text-xl font-light leading-snug tracking-tight text-white/95 [animation-delay:120ms] sm:text-2xl md:text-[1.7rem] md:leading-[1.3]">
+Vision Zero Connect deliver outstanding, AI-driven software platforms to streamline{" "}
+              <GradientText variant="lime" className="mt-1 block font-semibold">
+                ESG Reporting and optimise Building performance.
+              </GradientText>
+            </h1>
+            <p className="animate-fade-in-up mt-6 max-w-md text-sm font-light leading-relaxed text-white/55 [animation-delay:200ms] sm:text-[0.95rem]">
+Influenced by our engineering experience, Vision Zero Connect platforms capture critical building performance data, which form the foundation of focussed reports, featuring actionable insights and strategies, alongside simple, but effective ESG reporting            </p>
+
+            <ul className="animate-fade-in-up mt-8 grid max-w-lg gap-x-8 gap-y-3 border-t border-white/10 pt-7 [animation-delay:240ms] sm:grid-cols-2">
+              {[
+                "Live data integrations and AI-assisted analytics",
+                "Audit-ready ESG & compliance reporting",
+                "Real-time portfolio performance analysis",
+                "Financing-ready data & strategy planning",
+              ].map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-2.5 text-[0.8rem] font-medium leading-snug tracking-wide text-white/80 sm:text-[0.85rem]"
+                >
+                  <CheckIcon />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          {/* Monitor — stacked below copy on mobile/tablet */}
-          <div className="animate-fade-in-up mt-12 [animation-delay:200ms] lg:hidden">
-            <Image
-              src="/assets/home/hero-dashboard.png"
-              alt="Vision Zero Connect operational intelligence dashboard"
-              width={1080}
-              height={1080}
-              preload
-              sizes="100vw"
-              className="h-auto w-full drop-shadow-2xl"
-            />
+
+          {/* Video */}
+          <div className="animate-fade-in-up w-full [animation-delay:200ms] lg:ml-auto lg:max-w-[34rem]">
+            <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/15">
+              <VideoEmbed
+                branded
+                youtubeId="c-bXx1f9-wM"
+                posterAlt="Watch the Vision Zero Connect overview"
+                sizes="(min-width: 1024px) 34rem, 90vw"
+              />
+            </div>
           </div>
         </div>
       </Container>
-
-      {/* Monitor — FIXED pixel size, anchored to the RIGHT EDGE of the viewport
-          and pushed partly off-screen so it reads as "cut off" by the frame.
-          Fixed px keeps it from scaling/shifting when the window is resized. */}
-      <div className="pointer-events-none absolute right-0 top-[63%] hidden -translate-y-1/2 lg:block">
-        <Image
-          src="/assets/home/hero-dashboard.png"
-          alt=""
-          width={1080}
-          height={1080}
-          preload
-          sizes="px"
-          className="animate-hero-image h-auto w-[480px] max-w-none translate-x-[20%] drop-shadow-2xl xl:w-[560px]"
-        />
-      </div>
+      <ScrollCue />
     </section>
   );
 }
@@ -81,7 +75,7 @@ function CheckIcon() {
   return (
     <svg
       viewBox="0 0 20 20"
-      className="mt-0.5 h-5 w-5 shrink-0 text-lime"
+      className="mt-0.5 h-4 w-4 shrink-0 text-lime"
       fill="currentColor"
       aria-hidden="true"
     >

@@ -25,7 +25,7 @@ export const hero = {
   /** Single-string version used for page metadata. */
   intro:
     "VZC Consult works with organisations navigating growing operational, reporting, and sustainability pressures across real assets and property portfolios. From disclosure readiness and data strategy through to operational performance planning and transition pathways, we help businesses move from fragmented information to clear, commercially aligned action.",
-  cta: { label: "Talk to Our Team", href: "#contact" } as Cta,
+  cta: { label: "Talk to Our Team", href: "/#contact" } as Cta,
   image: {
     src: "/assets/vz-consult/1.png",
     alt: "A VZC Consult advisor working on a laptop",
@@ -163,7 +163,7 @@ export const closing = {
   headline: "Book a Consultation",
   intro:
     "Whether you're responding to stakeholder expectations, preparing for disclosure requirements, or improving building performance visibility, VZC Consult can help your organisation move forward with confidence.",
-  cta: { label: "Talk to Our Team", href: "#contact" } as Cta,
+  cta: { label: "Talk to Our Team", href: "/#contact" } as Cta,
   image: {
     src: "/assets/vz-consult/6.png",
     alt: "A VZC Consult advisory team reviewing data on a laptop",

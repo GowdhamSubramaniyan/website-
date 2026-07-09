@@ -26,7 +26,7 @@ const FRAMEWORKS = [
 
 export function Frameworks() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section id="frameworks" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">

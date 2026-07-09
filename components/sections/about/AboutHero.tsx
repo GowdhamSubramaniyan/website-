@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 
 /**
  * About page hero — soft mint background, solid teal headline, the full intro
@@ -69,6 +70,7 @@ export function AboutHero() {
           </div>
         </div>
       </Container>
+      <ScrollCue />
     </section>
   );
 }

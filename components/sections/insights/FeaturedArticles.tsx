@@ -73,7 +73,7 @@ export function FeaturedArticles() {
                 <Reveal key={item.id} delay={Math.min(i, 3) * 80}>
                   <Link
                     href={item.link}
-                    className="group flex items-start gap-4 py-7 first:pt-0 focus-visible:outline-none sm:gap-5"
+                    className="group flex items-start gap-4 py-8 first:pt-0 focus-visible:outline-none sm:gap-5 sm:py-10"
                   >
                     <div className="relative h-[4.5rem] w-28 shrink-0 overflow-hidden rounded-lg sm:h-24 sm:w-36">
                       <Image
@@ -84,7 +84,7 @@ export function FeaturedArticles() {
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-col gap-2">
                       <h3 className="text-balance text-base font-bold leading-snug transition-colors group-hover:text-lime sm:text-lg">
                         {item.title}
                       </h3>

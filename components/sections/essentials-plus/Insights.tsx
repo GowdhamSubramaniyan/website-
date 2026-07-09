@@ -18,7 +18,7 @@ const INSIGHTS: Insight[] = [
     excerpt:
       "How small and medium-sized businesses can stay compliant, build trust, and save time using artificial intelligence…",
     image: "/assets/essentials/insight1.png",
-    href: "/#insights",
+    href: "/insights",
   },
   {
     tag: "Technology",
@@ -26,7 +26,7 @@ const INSIGHTS: Insight[] = [
     excerpt:
       "How artificial intelligence is transforming ESG risk management from reactive to truly predictive — especially for SMEs…",
     image: "/assets/essentials/insight2.png",
-    href: "/#insights",
+    href: "/insights",
   },
   {
     tag: "Technology",
@@ -34,7 +34,7 @@ const INSIGHTS: Insight[] = [
     excerpt:
       "From manual compliance to real-time, predictive, and strategic sustainability — powered by AI…",
     image: "/assets/essentials/insight3.png",
-    href: "/#insights",
+    href: "/insights",
   },
 ];
 
@@ -92,7 +92,7 @@ export function Insights() {
 
         <div className="mt-12 flex justify-center">
           <Link
-            href="/#insights"
+            href="/insights"
             className="inline-flex items-center gap-2 rounded-pill bg-ink px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
           >
             Explore More &rsaquo;

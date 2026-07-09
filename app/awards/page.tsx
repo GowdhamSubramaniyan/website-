@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
+import { SectionTimeline } from "@/components/ui/SectionTimeline";
 import {
   AwardsHero,
   AwardSpotlights,
@@ -19,15 +20,31 @@ export const metadata: Metadata = {
  * place (Prompts 1–2), with the award spotlights, progress, and presence
  * sections to follow.
  */
+const TIMELINE = [
+  { id: "tl-overview", label: "Overview" },
+  { id: "tl-awards", label: "Awards" },
+  { id: "tl-progress", label: "Progress" },
+  { id: "tl-presence", label: "Global" },
+];
+
 export default function AwardsPage() {
   return (
     <>
       <Header theme="light" />
+      <SectionTimeline items={TIMELINE} />
       <main id="main">
-        <AwardsHero />
-        <AwardSpotlights />
-        <DrivingProgress />
-        <AwardsPresence />
+        <div id="tl-overview">
+          <AwardsHero />
+        </div>
+        <div id="tl-awards">
+          <AwardSpotlights />
+        </div>
+        <div id="tl-progress">
+          <DrivingProgress />
+        </div>
+        <div id="tl-presence">
+          <AwardsPresence />
+        </div>
       </main>
       <Footer />
     </>

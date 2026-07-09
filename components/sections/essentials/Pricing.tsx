@@ -40,7 +40,7 @@ export function Pricing() {
             One Simple Annual Price for Complete ESG Reporting
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-lime sm:text-4xl md:text-5xl">
-            €700 per year. Essentials for SMEs.
+            700 per year. Essentials for SMEs.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/75">
             One fixed annual price with full access to the Essentials reporting
