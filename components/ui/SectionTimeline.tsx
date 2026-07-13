@@ -86,7 +86,7 @@ export function SectionTimeline({ items }: { items: TimelineItem[] }) {
         hideTimer.current = setTimeout(() => setShown(false), 1200);
       }}
       className={cn(
-        "fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 transition-all duration-500 ease-out xl:block",
+        "fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 transition-all duration-500 ease-out lg:block",
         shown
           ? "translate-x-0 opacity-100"
           : "pointer-events-none translate-x-6 opacity-0",
