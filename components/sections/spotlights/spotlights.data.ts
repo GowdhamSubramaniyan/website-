@@ -23,7 +23,7 @@ export const ESSENTIALS: SpotlightContent = {
     variant: "primary",
   },
   image: {
-    src: "/assets/home/spotlight-essentials.png",
+    src: "/assets/essentials/dashboard.png",
     alt: "Essentials ESG reporting dashboard",
     width: 1920,
     height: 1080,
@@ -52,7 +52,7 @@ export const ESSENTIALS_PLUS: SpotlightContent = {
     variant: "primary",
   },
   image: {
-    src: "/assets/home/spotlight-essentials.png",
+    src: "/assets/essentials/dashboard.png",
     alt: "Essentials+ operational intelligence dashboard",
     width: 1920,
     height: 1080,

@@ -89,7 +89,7 @@ export const presence = {
   intro:
     "From operational intelligence platforms to strategic advisory support, Vision Zero Connect works with organisations across commercial property, infrastructure, and real asset sectors to improve visibility, performance, and long-term operational outcomes.",
   stats: [
-    { value: "25+", label: "in-house industry experts" },
+    { value: "36+", label: "in-house industry experts" },
     { value: "5", label: "countries with offices" },
   ],
   map: {
