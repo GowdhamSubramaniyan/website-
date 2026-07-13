@@ -1,3 +1,5 @@
+import { isZohoCrmConfigured, createZohoCrmLead } from "@/lib/zoho-crm";
+
 const RESEND_EMAILS = "https://api.resend.com/emails";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -69,6 +71,16 @@ export async function POST(request: Request) {
       <p style="font-weight:600;margin:0 0 4px;">Message</p>
       <p style="white-space:pre-wrap;line-height:1.6;margin:0;">${escapeHtml(message)}</p>
     </div>`;
+
+  // Push the enquiry into Zoho CRM as a Lead. Best-effort — a CRM outage must
+  // not stop the email notification from going out.
+  if (isZohoCrmConfigured()) {
+    try {
+      await createZohoCrmLead({ name, email, message, source, fields });
+    } catch (err) {
+      console.error("[contact] Zoho CRM error", err);
+    }
+  }
 
   const res = await fetch(RESEND_EMAILS, {
     method: "POST",

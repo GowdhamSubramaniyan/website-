@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
+import { postJSON } from "@/lib/api";
 import { closing } from "./portfolio-one.data";
 
 type Fields = {
@@ -34,6 +35,9 @@ export function PortfolioCTA() {
   const [fields, setFields] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [honeypot, setHoneypot] = useState("");
 
   function update(name: keyof Fields) {
     return (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -41,7 +45,7 @@ export function PortfolioCTA() {
     };
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const next: typeof errors = {};
     if (!fields.email.trim()) next.email = "Required";
@@ -49,7 +53,27 @@ export function PortfolioCTA() {
     if (!fields.firstName.trim()) next.firstName = "Required";
     if (!fields.message.trim()) next.message = "Required";
     setErrors(next);
-    if (Object.keys(next).length === 0) setSubmitted(true);
+    if (Object.keys(next).length > 0) return;
+
+    setSending(true);
+    setSubmitError("");
+    try {
+      await postJSON("/api/contact", {
+        source: "Portfolio One — Contact",
+        name: `${fields.firstName} ${fields.lastName}`.trim(),
+        email: fields.email,
+        message: fields.message,
+        company_website: honeypot,
+        fields: { Phone: fields.phone },
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -132,14 +156,31 @@ export function PortfolioCTA() {
                   error={errors.message}
                   required
                 />
+                {/* Honeypot — hidden from users, bots fill it and get dropped */}
+                <input
+                  type="text"
+                  name="company_website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <Button
                   type="submit"
                   variant="primary"
                   size="lg"
                   className="font-semibold"
+                  disabled={sending}
                 >
-                  {closing.submitLabel}
+                  {sending ? "Sending…" : closing.submitLabel}
                 </Button>
+                {submitError && (
+                  <p role="alert" className="text-sm font-medium text-white">
+                    {submitError}
+                  </p>
+                )}
               </form>
             )}
           </div>
