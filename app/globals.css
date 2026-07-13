@@ -55,6 +55,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-scroll-wheel: scroll-wheel 1.7s ease-in-out infinite;
   --animate-grid-pan: grid-pan 7s linear infinite;
+  --animate-progress: progress 3s linear both;
 }
 
 @keyframes header-in {
@@ -109,6 +110,16 @@
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
+  }
+}
+
+/* Auto-advance progress bar — fills left→right over the interval. */
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 

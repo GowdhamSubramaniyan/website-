@@ -23,11 +23,16 @@ export function TwoUpCards() {
                 sizes="(min-width: 768px) 40rem, 100vw"
                 className="absolute inset-0 h-full w-full scale-110 object-cover"
               />
+              {/* Scrim — darkens the lower area so the text stays legible */}
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10"
+              />
               <div className="relative z-10">
                 <h3 className="text-balance text-2xl font-bold leading-tight text-lime sm:text-3xl">
                   {card.title}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed text-white/85">
+                <p className="mt-4 text-base leading-relaxed text-white">
                   {card.description}
                 </p>
               </div>

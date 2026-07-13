@@ -42,7 +42,7 @@ export function EssentialsHero() {
               >
                 Get Started Now
               </Link>
-              <Link
+              <a
                 href="#contact"
                 className="group/bd relative inline-flex shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-pill border border-white/70 px-7 py-4 text-sm font-semibold uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               >
@@ -51,7 +51,7 @@ export function EssentialsHero() {
                   className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 ease-out will-change-transform group-hover/bd:translate-x-0"
                 />
                 <span className="relative z-10">Book a Demo</span>
-              </Link>
+              </a>
             </div>
           </div>
 

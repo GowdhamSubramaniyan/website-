@@ -7,6 +7,8 @@ export type Product = {
   logo: { src: string; width: number; height: number; className: string };
   description: string;
   cta: { label: string; href: string };
+  /** Uniquely-named link through to the product's own page. */
+  page: { label: string; href: string };
   /** YouTube id for the inline "See in action" video (omit for none). */
   videoId?: string;
   /** Downloadable flyer(s) — one file links directly, several open a menu. */
@@ -26,6 +28,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Fast, affordable ESG and emissions reporting designed for SMEs requiring lender, procurement, or compliance readiness.",
     cta: { label: "See Essentials in Action", href: "/essentials#video" },
+    page: { label: "Explore Essentials", href: "/essentials" },
     videoId: "MuRimRhNTPM",
     flyer: {
       label: "Essentials Flyer",
@@ -49,6 +52,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Expanded operational and emissions intelligence with Scope 3 visibility, transition planning, reduction modelling, and strategic reporting support.",
     cta: { label: "See Essentials+ in Action", href: "/essentials-plus#video" },
+    page: { label: "Explore Essentials+", href: "/essentials-plus" },
     videoId: "aw2erPwC8Ks",
     flyer: {
       label: "Essentials+ Flyer",
@@ -72,6 +76,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Enterprise-grade building performance and portfolio intelligence platform designed to optimise operational efficiency, asset performance, and sustainability outcomes across large portfolios.",
     cta: { label: "See Portfolio One in Action", href: "/portfolio-one#video" },
+    page: { label: "Explore Portfolio One", href: "/portfolio-one" },
     videoId: "ThzqYzIMrW0",
     flyer: {
       label: "Portfolio One Flyer",
@@ -95,6 +100,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Strategic advisory services supporting organisations with strategy, implementation, transition planning, and complex reporting requirements.",
     cta: { label: "Compare Solutions", href: "https://visionzeroconsult.com/" },
+    page: { label: "Explore VZC Consult", href: "/vz-consult" },
     flyer: {
       label: "Consult Flyer",
       items: [

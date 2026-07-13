@@ -29,11 +29,11 @@ type UspBlockProps = {
 function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video, videoSrc, videoYoutubeId }: UspBlockProps) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <Reveal className={cn(reverse && "lg:order-2")}>
+      <Reveal className={cn(reverse && "lg:order-2 lg:-ml-6 xl:-ml-10")}>
         <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-display-sm">
           {headline}
         </h2>
-        <div className="mt-5 space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
+        <div className="mt-6 space-y-4 border-t border-white/10 pt-6 text-sm leading-relaxed text-white/70 sm:text-base">
           {paragraphs.map((p) => (
             <p key={p}>{keepHyphens(p)}</p>
           ))}
@@ -65,7 +65,9 @@ function UspBlock({ headline, paragraphs, cta, image, reverse, portrait, video, 
             sizes="(max-width: 1024px) 100vw, 50vw"
             className={cn(
               "w-full rounded-2xl object-cover shadow-2xl",
-              portrait ? "aspect-[4/5] h-auto" : "h-full",
+              portrait
+                ? "mx-auto aspect-[4/5] h-auto max-w-[20rem]"
+                : "h-full",
             )}
           />
         )}
@@ -84,11 +86,12 @@ export function USP() {
           portrait
           headline={
             <>
-              <span className="block text-xl font-bold text-white sm:text-2xl">
-                Most platforms stop at reporting,
+              <span className="block text-xl font-bold leading-snug text-lime sm:text-2xl md:text-3xl">
+                Vision Zero recognise the importance of each report
               </span>
-              <span className="mt-3 block text-lime">
-                and Vision Zero delivers measurable business value.
+              <span className="mt-2 block text-xl font-bold leading-snug text-white sm:text-2xl md:text-3xl">
+                That&rsquo;s why our unrivalled reporting functions deliver
+                measurable business value, as standard
               </span>
             </>
           }
@@ -96,7 +99,7 @@ export function USP() {
             "Most ESG platforms focus on disclosure. Vision Zero Connect integrates reporting with operational performance, asset optimisation, and financial outcomes.",
             "From emissions visibility and compliance readiness to energy optimisation, portfolio performance, financing alignment, and long-term asset strategy, Vision Zero Connect helps organisations turn data into measurable business value.",
           ]}
-          cta={{ label: "Select a Product", href: "#products" }}
+          cta={{ label: "Select a Product", href: "/#products" }}
           image={{
             src: "/assets/home/usp-team.png",
             alt: "Business team meeting outside a modern office",

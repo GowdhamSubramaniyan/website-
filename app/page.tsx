@@ -15,9 +15,9 @@ const TIMELINE = [
   { id: "tl-overview", label: "Overview" },
   { id: "tl-products", label: "Products" },
   { id: "tl-why", label: "Why VZC" },
-  { id: "tl-essentials", label: "Essentials" },
-  { id: "tl-portfolio", label: "Portfolio One" },
-  { id: "tl-consult", label: "Consult" },
+  { id: "tl-essentials", label: "Introduction to Essentials" },
+  { id: "tl-portfolio", label: "Introduction to Portfolio One" },
+  { id: "tl-consult", label: "Introduction to Consult" },
   { id: "tl-insights", label: "Insights" },
   { id: "tl-contact", label: "Contact" },
 ];

@@ -26,13 +26,13 @@ export function Hero() {
           {/* Copy */}
           <div className="max-w-xl">
             <span className="animate-fade-in-up mb-7 block h-px w-14 bg-grad-lime [animation-delay:80ms]" />
-            <h1 className="animate-fade-in-up text-xl font-light leading-snug tracking-tight text-white/95 [animation-delay:120ms] sm:text-2xl md:text-[1.7rem] md:leading-[1.3]">
+            <h1 className="animate-fade-in-up text-2xl font-semibold leading-snug tracking-tight text-white [animation-delay:120ms] sm:text-3xl md:text-[2rem] md:leading-[1.25]">
 Vision Zero Connect deliver outstanding, AI-driven software platforms to streamline{" "}
               <GradientText variant="lime" className="mt-1 block font-semibold">
-                ESG Reporting and optimise Building performance.
+                ESG Reporting and Optimise Building Performance.
               </GradientText>
             </h1>
-            <p className="animate-fade-in-up mt-6 max-w-md text-sm font-light leading-relaxed text-white/55 [animation-delay:200ms] sm:text-[0.95rem]">
+            <p className="animate-fade-in-up mt-6 max-w-md text-sm font-normal leading-relaxed text-white/65 [animation-delay:200ms] sm:text-[0.95rem]">
 Influenced by our engineering experience, Vision Zero Connect platforms capture critical building performance data, which form the foundation of focussed reports, featuring actionable insights and strategies, alongside simple, but effective ESG reporting            </p>
 
             <ul className="animate-fade-in-up mt-8 grid max-w-lg gap-x-8 gap-y-3 border-t border-white/10 pt-7 [animation-delay:240ms] sm:grid-cols-2">

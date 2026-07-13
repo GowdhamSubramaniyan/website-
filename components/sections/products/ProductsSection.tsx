@@ -13,16 +13,16 @@ import { PRODUCTS } from "./products.data";
 export function ProductsSection() {
   return (
     <SectionWrapper id="products" background="transparent" className="pt-8 md:pt-12">
-      <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+      <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
         {/* Left — intro copy */}
-        <Reveal>
-          <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-            Four Products. One Intelligence Engine.{" "}
-            <span className="text-lime">Powered by Navigate.</span>
+        <Reveal className="lg:pr-4">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+            Four Products
+            <span className="mt-1 block text-lime">One Intelligence Engine</span>
           </h2>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-            <span className="font-semibold text-white">NAVIGATE</span> is the
-            intelligence layer connecting the Vision Zero Connect ecosystem.
+            <span className="font-semibold text-lime">NAVIGATE</span> is the
+            intelligence engine connecting the Vision Zero Connect ecosystem.
           </p>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
             It transforms fragmented operational, utility, sustainability, and

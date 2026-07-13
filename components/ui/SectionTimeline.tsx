@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
 export type TimelineItem = { id: string; label: string };
 
 /** Row height in px — dots are evenly spaced by this so the rail math lines up. */
-const ROW = 38;
+const ROW = 48;
 
 /**
  * A fixed vertical "timeline" rail (desktop only) that tracks which section is
@@ -17,6 +17,32 @@ const ROW = 38;
  */
 export function SectionTimeline({ items }: { items: TimelineItem[] }) {
   const [active, setActive] = useState(items[0]?.id ?? "");
+  // Shown on load, tucks away after 2s; re-appears while scrolling / on hover.
+  const [shown, setShown] = useState(true);
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoveringRef = useRef(false);
+
+  useEffect(() => {
+    const scheduleHide = (delay: number) => {
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      hideTimer.current = setTimeout(() => {
+        if (!hoveringRef.current) setShown(false);
+      }, delay);
+    };
+
+    // Tuck in 2s after the page settles.
+    scheduleHide(2000);
+
+    const onScroll = () => {
+      setShown(true);
+      scheduleHide(1600);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,7 +76,21 @@ export function SectionTimeline({ items }: { items: TimelineItem[] }) {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
+      onMouseEnter={() => {
+        hoveringRef.current = true;
+        if (hideTimer.current) clearTimeout(hideTimer.current);
+        setShown(true);
+      }}
+      onMouseLeave={() => {
+        hoveringRef.current = false;
+        hideTimer.current = setTimeout(() => setShown(false), 1200);
+      }}
+      className={cn(
+        "fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 transition-all duration-500 ease-out xl:block",
+        shown
+          ? "translate-x-0 opacity-100"
+          : "pointer-events-none translate-x-6 opacity-0",
+      )}
     >
       <div className="relative flex flex-col">
         {/* Connecting rail (through the dot centres, near the right edge) */}
@@ -79,10 +119,10 @@ export function SectionTimeline({ items }: { items: TimelineItem[] }) {
             >
               <span
                 className={cn(
-                  "whitespace-nowrap rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold shadow-sm ring-1 ring-black/5 transition-all duration-300",
+                  "max-w-[8rem] rounded-2xl px-2.5 py-1 text-right text-xs font-semibold leading-tight backdrop-blur-sm transition-all duration-300",
                   isActive
-                    ? "text-teal opacity-100"
-                    : "text-ink/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100",
+                    ? "bg-teal text-white opacity-100 shadow-sm"
+                    : "bg-ink/30 text-white/80 opacity-40 group-hover:opacity-90",
                 )}
               >
                 {it.label}
@@ -91,8 +131,8 @@ export function SectionTimeline({ items }: { items: TimelineItem[] }) {
                 className={cn(
                   "h-2.5 w-2.5 shrink-0 rounded-full ring-1 transition-all duration-300",
                   isActive
-                    ? "scale-[1.5] bg-teal ring-teal"
-                    : "bg-ink/25 ring-white/60 group-hover:bg-teal/60",
+                    ? "scale-[1.6] bg-teal opacity-100 ring-teal"
+                    : "bg-white/60 opacity-40 ring-white/40 group-hover:opacity-90",
                 )}
               />
             </button>

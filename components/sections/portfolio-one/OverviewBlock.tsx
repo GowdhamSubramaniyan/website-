@@ -28,10 +28,10 @@ export function OverviewBlock() {
         />
       </div>
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
         {/* Media panel */}
         <Reveal>
-          <div className="overflow-hidden rounded-3xl border-2 border-white shadow-xl">
+          <div className="overflow-hidden rounded-3xl border-2 border-white shadow-xl lg:max-w-[30rem]">
             <VideoEmbed
               poster={overview.image.src}
               posterAlt={overview.image.alt}
@@ -42,7 +42,7 @@ export function OverviewBlock() {
 
         {/* Copy */}
         <Reveal delay={120}>
-          <h2 className="text-balance text-4xl font-bold tracking-tight text-lime sm:text-display-sm md:text-display">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-lime sm:text-4xl md:text-display-sm">
             {overview.headline}
           </h2>
           <div className="mt-7 space-y-5 text-lg leading-relaxed text-white/80">
