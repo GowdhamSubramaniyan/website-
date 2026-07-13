@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { overview } from "./portfolio-one.data";
 
 /**
@@ -28,14 +27,17 @@ export function OverviewBlock() {
         />
       </div>
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-12">
         {/* Media panel */}
-        <Reveal>
-          <div className="overflow-hidden rounded-3xl border-2 border-white shadow-xl lg:max-w-[30rem]">
-            <VideoEmbed
-              poster={overview.image.src}
-              posterAlt={overview.image.alt}
-              sizes="(min-width: 1024px) 36rem, 100vw"
+        <Reveal className="lg:h-full">
+          <div className="overflow-hidden rounded-3xl border-2 border-white shadow-xl lg:h-full">
+            <Image
+              src={overview.image.src}
+              alt={overview.image.alt}
+              width={1200}
+              height={900}
+              sizes="(min-width: 1024px) 40rem, 100vw"
+              className="aspect-video w-full object-cover lg:aspect-auto lg:h-full"
             />
           </div>
         </Reveal>

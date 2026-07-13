@@ -9,7 +9,7 @@ import { StatCard, type Stat } from "./StatCard";
  * shown as StatCards, plus a partner logo strip.
  */
 const STATS: Stat[] = [
-  { value: "25+", label: "In-house industry experts" },
+  { value: "36+", label: "In-house industry experts" },
   { value: "4", label: "Countries with offices" },
   { value: "35+", label: "Organisations served" },
   { value: "8", label: "Sectors covered" },

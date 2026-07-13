@@ -50,7 +50,7 @@ export function FeaturedArticles() {
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/5" />
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-7">
                 <span className="inline-flex w-fit items-center rounded-pill bg-black/55 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
                   {featured.tag ?? "Featured"}
@@ -68,12 +68,18 @@ export function FeaturedArticles() {
 
           {/* Supporting list */}
           <div className="flex flex-col">
-            <div className="flex flex-col divide-y divide-white/10">
+            <div className="flex flex-col">
               {supporting.map((item, i) => (
-                <Reveal key={item.id} delay={Math.min(i, 3) * 80}>
+                <Reveal
+                  key={item.id}
+                  delay={Math.min(i, 3) * 80}
+                  className={
+                    i > 0 ? "mt-6 border-t border-white/15 pt-6 sm:mt-7 sm:pt-7" : undefined
+                  }
+                >
                   <Link
                     href={item.link}
-                    className="group flex items-start gap-4 py-8 first:pt-0 focus-visible:outline-none sm:gap-5 sm:py-10"
+                    className="group flex items-start gap-4 focus-visible:outline-none sm:gap-5"
                   >
                     <div className="relative h-[4.5rem] w-28 shrink-0 overflow-hidden rounded-lg sm:h-24 sm:w-36">
                       <Image
@@ -84,11 +90,11 @@ export function FeaturedArticles() {
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <div className="flex flex-col gap-2">
-                      <h3 className="text-balance text-base font-bold leading-snug transition-colors group-hover:text-lime sm:text-lg">
+                    <div className="flex flex-col gap-2.5">
+                      <h3 className="text-balance text-base font-bold leading-relaxed transition-colors group-hover:text-lime sm:text-lg">
                         {item.title}
                       </h3>
-                      <p className="line-clamp-2 text-sm leading-relaxed text-white/70">
+                      <p className="line-clamp-2 text-sm leading-loose text-white/70">
                         {item.excerpt}
                       </p>
                       <ArticleMeta item={item} tone="dark" />

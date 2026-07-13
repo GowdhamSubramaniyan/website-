@@ -113,7 +113,7 @@ export const tech = {
   closing:
     "Creating a connected approach between strategy, technology, and operational performance.",
   image: {
-    src: "/assets/vz-consult/2.png",
+    src: "/assets/vz-consult/1.png",
     alt: "Commercial buildings at dusk",
   } as ImageRef,
 };
@@ -153,7 +153,7 @@ export const presence = {
     "Our experience across diverse property markets and regulatory environments allows us to support clients with strategies that are commercially grounded, scalable, and aligned with evolving industry expectations.",
   ],
   stats: [
-    { value: "25+", label: "in-house industry experts" },
+    { value: "36+", label: "in-house industry experts" },
     { value: "5", label: "offices in countries" },
   ] as Stat[],
 };

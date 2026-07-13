@@ -36,7 +36,7 @@ export const reach = {
   intro:
     "Together with our partners, Vision Zero Connect continues to support organisations across property, infrastructure, and operational environments through connected technology, advisory capability, and intelligent reporting solutions.",
   stats: [
-    { value: "25+", label: "in-house industry experts" },
+    { value: "36+", label: "in-house industry experts" },
     { value: "5", label: "countries with offices" },
   ],
   map: {
