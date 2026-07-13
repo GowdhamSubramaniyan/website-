@@ -25,7 +25,6 @@ export function Hero() {
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           {/* Copy */}
           <div className="max-w-xl">
-            <span className="animate-fade-in-up mb-7 block h-px w-14 bg-grad-lime [animation-delay:80ms]" />
             <h1 className="animate-fade-in-up text-2xl font-semibold leading-snug tracking-tight text-white [animation-delay:120ms] sm:text-3xl md:text-[2rem] md:leading-[1.25]">
 Vision Zero Connect deliver outstanding, AI-driven software platforms to streamline{" "}
               <GradientText variant="lime" className="mt-1 block font-semibold">
