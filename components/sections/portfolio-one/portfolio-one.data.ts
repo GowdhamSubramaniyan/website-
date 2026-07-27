@@ -12,6 +12,8 @@ export type Feature = {
   number: number;
   title: string;
   description: string;
+  /** Looping product demo video for this capability. */
+  video?: string;
 };
 
 export type Step = {
@@ -82,36 +84,42 @@ export const FEATURES: Feature[] = [
     title: "Live Data Integration",
     description:
       "Connect smart meters, BMS systems, and building technologies into one centralised operational platform with real-time visibility across your portfolio.",
+    video: "/assets/portfolio-one/videos/live-data-connectivity.mp4",
   },
   {
     number: 2,
     title: "Utility Manager",
     description:
       "Track electricity, gas, water, waste, and cost performance across buildings with advanced analytics and consumption monitoring.",
+    video: "/assets/portfolio-one/videos/utility-dashboard.mp4",
   },
   {
     number: 3,
     title: "BMS Manager",
     description:
       "Monitor live building system performance, identify anomalies, and automate alerts before issues impact operations or occupant comfort.",
+    video: "/assets/portfolio-one/videos/bms-dashboard.mp4",
   },
   {
     number: 4,
     title: "Portfolio Performance Register",
     description:
       "Benchmark and rank buildings against recognised industry frameworks to identify underperforming assets and prioritise action.",
+    video: "/assets/portfolio-one/videos/homepage-benchmarking.mp4",
   },
   {
     number: 5,
     title: "Automated Reporting",
     description:
       "Generate building-level and portfolio-level reports instantly using live operational data and configurable reporting outputs.",
+    video: "/assets/portfolio-one/videos/report-generation-output.mp4",
   },
   {
     number: 6,
     title: "Net Zero Tracking",
     description:
       "Monitor emissions performance and track progress against operational reduction targets and long-term Net Zero pathways.",
+    video: "/assets/portfolio-one/videos/carbon-emissions-pathway-planning.mp4",
   },
 ];
 

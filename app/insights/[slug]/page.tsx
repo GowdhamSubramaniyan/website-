@@ -106,15 +106,79 @@ export default async function InsightArticlePage({
           {/* Body */}
           <Container className="py-14 md:py-20">
             <div className="mx-auto max-w-2xl">
-              <p className="text-pretty text-lg leading-relaxed text-ink/80">
-                {item.excerpt}
-              </p>
-              <p className="mt-6 text-pretty text-base leading-relaxed text-ink/70">
-                The full article is on its way. In the meantime, explore how
-                Vision Zero Connect helps organisations turn operational data
-                into stronger asset performance, clearer reporting, and better
-                long-term returns.
-              </p>
+              {item.body && item.body.length > 0 ? (
+                <div className="space-y-6">
+                  {item.body.map((block, i) => {
+                    switch (block.kind) {
+                      case "h2":
+                        return (
+                          <h2
+                            key={i}
+                            className="pt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl"
+                          >
+                            {block.text}
+                          </h2>
+                        );
+                      case "h3":
+                        return (
+                          <h3
+                            key={i}
+                            className="pt-2 text-xl font-bold tracking-tight text-teal"
+                          >
+                            {block.text}
+                          </h3>
+                        );
+                      case "ul":
+                        return (
+                          <ul key={i} className="grid gap-2.5 pl-1">
+                            {block.items.map((li) => (
+                              <li
+                                key={li}
+                                className="flex items-start gap-3 text-base leading-relaxed text-ink/75"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal"
+                                />
+                                <span>{li}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      case "em":
+                        return (
+                          <p
+                            key={i}
+                            className="text-pretty text-lg font-medium italic leading-relaxed text-ink"
+                          >
+                            {block.text}
+                          </p>
+                        );
+                      default:
+                        return (
+                          <p
+                            key={i}
+                            className="text-pretty text-base leading-relaxed text-ink/80"
+                          >
+                            {block.text}
+                          </p>
+                        );
+                    }
+                  })}
+                </div>
+              ) : (
+                <>
+                  <p className="text-pretty text-lg leading-relaxed text-ink/80">
+                    {item.excerpt}
+                  </p>
+                  <p className="mt-6 text-pretty text-base leading-relaxed text-ink/70">
+                    The full article is on its way. In the meantime, explore how
+                    Vision Zero Connect helps organisations turn operational data
+                    into stronger asset performance, clearer reporting, and better
+                    long-term returns.
+                  </p>
+                </>
+              )}
 
               <div className="mt-10 flex flex-wrap gap-4 border-t border-grey pt-8">
                 <Button href="/#contact" variant="dark" withArrow>
