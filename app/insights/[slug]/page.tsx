@@ -106,15 +106,172 @@ export default async function InsightArticlePage({
           {/* Body */}
           <Container className="py-14 md:py-20">
             <div className="mx-auto max-w-2xl">
-              <p className="text-pretty text-lg leading-relaxed text-ink/80">
-                {item.excerpt}
-              </p>
-              <p className="mt-6 text-pretty text-base leading-relaxed text-ink/70">
-                The full article is on its way. In the meantime, explore how
-                Vision Zero Connect helps organisations turn operational data
-                into stronger asset performance, clearer reporting, and better
-                long-term returns.
-              </p>
+              {item.body && item.body.length > 0 ? (
+                <div className="space-y-6">
+                  {item.body.map((block, i) => {
+                    switch (block.kind) {
+                      case "h2":
+                        return (
+                          <h2
+                            key={i}
+                            className="pt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl"
+                          >
+                            {block.text}
+                          </h2>
+                        );
+                      case "h3":
+                        return (
+                          <h3
+                            key={i}
+                            className="pt-2 text-xl font-bold tracking-tight text-teal"
+                          >
+                            {block.text}
+                          </h3>
+                        );
+                      case "ul":
+                        return (
+                          <ul key={i} className="grid gap-2.5 pl-1">
+                            {block.items.map((li) => (
+                              <li
+                                key={li}
+                                className="flex items-start gap-3 text-base leading-relaxed text-ink/75"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal"
+                                />
+                                <span>{li}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      case "em":
+                        return (
+                          <p
+                            key={i}
+                            className="text-pretty text-lg font-medium italic leading-relaxed text-ink"
+                          >
+                            {block.text}
+                          </p>
+                        );
+                      case "highlight":
+                        return (
+                          <div
+                            key={i}
+                            className="my-10 rounded-[22px] bg-[#006261] px-6 py-12 text-center sm:px-12 lg:-mx-20"
+                          >
+                            <p className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+                              {block.text}
+                            </p>
+                          </div>
+                        );
+                      case "outcomes":
+                        return (
+                          <div key={i} className="my-10 lg:-mx-20">
+                            <h3 className="mb-8 text-center text-xl font-semibold leading-snug text-[#17352c] sm:text-2xl">
+                              {block.heading}
+                            </h3>
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                              {block.items.map((it, idx) => (
+                                <div
+                                  key={it}
+                                  className="rounded-[18px] border border-[#dde7e3] bg-white p-6 shadow-[0_12px_30px_rgba(0,98,97,0.06)] transition-transform duration-200 hover:-translate-y-1"
+                                >
+                                  <span className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#006261] text-xs font-bold text-white">
+                                    {String(idx + 1).padStart(2, "0")}
+                                  </span>
+                                  <p className="text-base font-bold leading-snug text-[#17352c]">
+                                    {it}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      case "quote":
+                        return (
+                          <div
+                            key={i}
+                            className="my-12 rounded-3xl bg-[#17352c] px-6 py-14 text-center sm:px-12 lg:-mx-20"
+                          >
+                            <p className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                              {block.heading}
+                            </p>
+                            {block.text && (
+                              <p className="mt-4 text-lg font-medium leading-relaxed text-[#d8ecea] sm:text-2xl">
+                                {block.text}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      case "final":
+                        return (
+                          <div
+                            key={i}
+                            className="my-12 rounded-3xl bg-[#006261] px-6 py-14 text-center sm:px-12 lg:-mx-20"
+                          >
+                            {block.lines.map((line, idx) =>
+                              line.big ? (
+                                <p
+                                  key={idx}
+                                  className="mx-auto max-w-2xl text-2xl font-bold leading-tight text-white sm:text-4xl [&:not(:last-child)]:mb-7"
+                                >
+                                  {line.text}
+                                </p>
+                              ) : (
+                                <p key={idx} className="mb-4 text-base text-[#d7ecea]">
+                                  {line.text}
+                                </p>
+                              ),
+                            )}
+                          </div>
+                        );
+                      case "cta":
+                        return (
+                          <div key={i} className="my-12 lg:-mx-20">
+                            <div className="flex flex-col items-start justify-between gap-6 rounded-[22px] bg-[#17352c] px-8 py-11 sm:flex-row sm:items-center">
+                              <div className="max-w-xl">
+                                <p className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+                                  {block.heading}
+                                </p>
+                                <p className="mt-3 text-base leading-relaxed text-[#d7ecea]">
+                                  {block.text}
+                                </p>
+                              </div>
+                              <a
+                                href={block.href}
+                                className="inline-flex shrink-0 items-center justify-center rounded-xl bg-white px-6 py-4 text-base font-bold text-[#006261] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#17352c]"
+                              >
+                                {block.label}
+                              </a>
+                            </div>
+                          </div>
+                        );
+                      default:
+                        return (
+                          <p
+                            key={i}
+                            className="text-pretty text-base leading-relaxed text-ink/80"
+                          >
+                            {block.text}
+                          </p>
+                        );
+                    }
+                  })}
+                </div>
+              ) : (
+                <>
+                  <p className="text-pretty text-lg leading-relaxed text-ink/80">
+                    {item.excerpt}
+                  </p>
+                  <p className="mt-6 text-pretty text-base leading-relaxed text-ink/70">
+                    The full article is on its way. In the meantime, explore how
+                    Vision Zero Connect helps organisations turn operational data
+                    into stronger asset performance, clearer reporting, and better
+                    long-term returns.
+                  </p>
+                </>
+              )}
 
               <div className="mt-10 flex flex-wrap gap-4 border-t border-grey pt-8">
                 <Button href="/#contact" variant="dark" withArrow>

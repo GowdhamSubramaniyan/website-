@@ -1,43 +1,38 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Step = {
   title: string;
   description: string;
-  image: string;
-  alt: string;
+  video: string;
 };
 
-// Each step screenshot already has its numbered badge baked in by the design.
+// Each step shows the matching product feature video (autoplay, muted, looping).
 const STEPS: Step[] = [
   {
     title: "Upload Utility Bills & Business Data",
     description:
       "Upload utility bills and operational business data. The Essentials AI Engine automatically extracts and processes the information for you.",
-    image: "/assets/essentials/step1.png",
-    alt: "Upload utility bills screen",
+    video: "/assets/essentials/videos/ai-utility-bill-extraction.mp4",
   },
   {
     title: "Track ESG & Operational Performance",
     description:
       "Monitor ESG metrics, emissions, and operational insights through a live dashboard designed for visibility and faster reporting.",
-    image: "/assets/essentials/step2.png",
-    alt: "ESG health score dashboard",
+    video: "/assets/essentials/videos/real-time-esg-dashboards.mp4",
   },
   {
     title: "Generate Professional ESG Reports",
     description:
       "Export professional lender-ready, procurement-ready, and investor-ready ESG reports in PDF or PowerPoint format within minutes.",
-    image: "/assets/essentials/step3.png",
-    alt: "Report configuration screen",
+    video: "/assets/essentials/videos/professional-esg-reports.mp4",
   },
 ];
 
 /**
- * A Smarter Way to Handle ESG Reporting (Prompt 3) — light grey band, centered
- * teal heading, and three numbered steps rendered from an array. The number
- * badges are part of the screenshots themselves.
+ * A Simple, Cost-Effective Way to Handle ESG Reporting (Prompt 3) — light grey
+ * band, centered teal heading, and three numbered steps. Each step plays its
+ * matching product feature video on loop, in the order of the workflow.
  */
 export function SmarterWay() {
   return (
@@ -53,14 +48,20 @@ export function SmarterWay() {
           {STEPS.map((step, i) => (
             <Reveal key={step.title} delay={i * 100}>
               <div className="flex flex-col items-center text-center">
-                <Image
-                  src={step.image}
-                  alt={step.alt}
-                  width={800}
-                  height={1000}
-                  sizes="(min-width: 1024px) 22rem, 90vw"
-                  className="h-auto w-full"
-                />
+                <div className="relative w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/5">
+                  <span className="absolute left-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white shadow-md">
+                    {i + 1}
+                  </span>
+                  <video
+                    src={step.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="block w-full"
+                  />
+                </div>
                 <h3 className="mt-6 text-xl font-bold text-ink">{step.title}</h3>
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink/75">
                   {step.description}
