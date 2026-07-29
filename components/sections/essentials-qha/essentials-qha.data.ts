@@ -16,69 +16,76 @@ export const ESSENTIALS_INCLUDES = [
       "Measure and report emissions across your operations and supply chain.",
   },
   {
-    title: "Projected baseline report",
+    title: "AI-guided data input",
     description:
-      "Establish a baseline aligned to lender and regulator expectations.",
+      "Follow a simple, guided process to enter your operational data.",
   },
   {
     title: "Audit-ready data and traceability",
     description:
-      "Clean records and supporting evidence behind every figure you submit.",
+      "Maintain clear records and supporting information for every calculation.",
   },
   {
     title: "Regulatory updates",
-    description:
-      "Your reporting stays aligned to ESG frameworks as they evolve.",
+    description: "Keep your reporting aligned as ESG requirements change.",
   },
   {
     title: "One-click report generation",
-    description:
-      "Produce your report in PDF, PowerPoint and Excel formats instantly.",
+    description: "Export your results in PDF, PowerPoint and Excel formats.",
   },
 ] as const;
 
 /** Short bullet points shown on the dark price card. */
 export const PRICE_CARD_POINTS = [
   "Scope 1, 2 and 3 reporting",
-  "Guided, AI-assisted online process",
-  "Audit-ready compliance report",
-  "Analyst-level export formats",
+  "Guided online process",
+  "Audit-ready outputs",
+  "Multiple report formats",
 ] as const;
 
-/** Essentials+ — what the expanded platform unlocks. */
+/**
+ * Essentials+ — what the expanded platform unlocks. Ordered to fill a two-column
+ * grid row-by-row so the visual columns match the design.
+ */
 export const ESSENTIALS_PLUS_UNLOCKS = [
-  "Full Scope 3 and professional benchmarking",
-  "Net zero transition planning",
-  "Supplier emissions risk analysis",
-  "Decarbonisation economics",
-  "Reduction pathway modelling",
-  "ESG advisory support",
-  "Dedicated account manager",
+  "Full Scope 3 and product-level reporting.",
+  "Net zero transition planning.",
+  "Supplier emissions risk analysis.",
+  "Decarbonisation economics.",
+  "Reduction pathway modelling.",
+  "24/7 phone support.",
+  "Dedicated account manager.",
 ] as const;
 
-/** Portfolio One — what building-performance operators get. */
+/**
+ * Portfolio One — what building-performance operators get. Ordered to fill a
+ * two-column grid row-by-row so the visual columns match the design.
+ */
 export const PORTFOLIO_ONE_PROVIDES = [
-  "Asset monitoring through automated live data from meters and BMS",
-  "Instant data-driven alert system",
-  "Significant reductions in avoidable energy and utility costs",
-  "Benchmarking across hotels and recognised industry frameworks",
-  "Business cases for smart upgrades",
-  "Built-in ESG and compliance readiness",
-  "A dedicated Building Performance Specialist",
-  "Adaptable to any hotel or accommodation environment",
+  "Asset monitoring and management through automated live data integration via meters / BMS.",
+  "Significant reductions in avoidable energy and utility spend.",
+  "Instant data alert system.",
+  "Benchmarking across hotels and recognised industry frameworks.",
+  "Business cases for asset upgrades.",
+  "Built-in ESG and compliance readiness.",
+  "A dedicated Building Performance Specialist.",
+  "Adaptability to any hotel or accommodation environment.",
 ] as const;
 
-/** Strategic Advisory Team — hands-on services beyond reporting. */
+/**
+ * Strategic Advisory Team — hands-on services beyond reporting. Ordered to fill a
+ * three-column grid row-by-row so the numbered cards read 01–09 as in the design.
+ */
 export const ADVISORY_SERVICES = [
-  "ESG, Sustainability Consultancy and Business Cases",
-  "Finance structuring",
-  "Energy efficiency and retrofit programs",
+  "ESG, Sustainability Consultancy and Advisory Services, Business Cases.",
   "Asset Improvement Planning",
-  "Financial and regulatory compliance",
-  "Asset replacement, remediation and project management",
-  "Institutional capital experience",
-  "Web and building assessments",
-  "Operational decarbonisation programs and Net Zero planning",
+  "Institutional capital experience.",
+  "Finance structuring.",
+  "Financial and regulatory compliance.",
+  "Risk assessment.",
+  "Energy efficiency and reduction programs.",
+  "Asset replacement and renewables product design and project management.",
+  "Operational decarbonisation programs and Net Zero Planning.",
 ] as const;
 
 /** "Why QHA members choose Essentials" — four value pillars. */
@@ -86,48 +93,45 @@ export const WHY_QHA = [
   {
     title: "AI-driven automation",
     description:
-      "Automated ESG reporting with an intelligent, guided platform.",
-    icon: "spark" as const,
+      "Automate ESG reporting with an intelligent, guided platform.",
+    icon: "gear" as const,
   },
   {
     title: "One report, everywhere",
     description:
-      "One report you can reuse across lender, insurer and framework requests.",
-    icon: "layers" as const,
+      "Generate a single report that can be used across multiple reporting requirements.",
+    icon: "doc" as const,
   },
   {
     title: "Real-time insights",
     description:
-      "Live dashboards let you monitor performance as data is added.",
-    icon: "pulse" as const,
+      "Access live dashboards and monitor your ESG performance as data is added.",
+    icon: "bars" as const,
   },
   {
     title: "Professional outputs",
-    description:
-      "Investor-ready formats built for lenders and stakeholders.",
-    icon: "doc" as const,
+    description: "Generate presentation-ready reports in seconds.",
+    icon: "check" as const,
   },
 ] as const;
 
 /** The three-step reporting flow. */
 export const SIMPLE_STEPS = [
   {
-    step: "01",
+    step: "1",
     title: "Data Input",
-    description:
-      "Drag and drop your utility bills — our AI extracts the data automatically.",
+    description: "Drag and drop your utility bills. Our AI extracts key data.",
   },
   {
-    step: "02",
+    step: "2",
     title: "Review Performance",
-    description:
-      "Review live dashboards and understand your ESG position instantly.",
+    description: "Real-time dashboard shows your ESG position instantly.",
   },
   {
-    step: "03",
+    step: "3",
     title: "Report",
     description:
-      "Generate a lender-ready PDF or PowerPoint in one click and share it securely.",
+      "Generate lender-ready PDF or PowerPoint reports with your branding in seconds.",
   },
 ] as const;
 
@@ -135,5 +139,7 @@ export const SIMPLE_STEPS = [
 export const QHA_CONTACT = {
   website: "www.visionzeroconnect.com",
   email: "info@visionzeroconnect.com",
-  regions: "Australia · UK · Europe · Hong Kong",
+  contactEmail: "jon@visionzeroconnect.com",
+  phone: "+61 409 766 700",
+  regions: "Australia • UK • Europe • Hong Kong • USA",
 } as const;
