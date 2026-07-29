@@ -1,32 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import { FEATURES } from "./features.data";
 
-const CYCLE_MS = 5000;
-
 /**
  * A Simple, Cost-Effective Way to Handle ESG Reporting — an interactive showcase
- * on a white band. A browser-style window on the left cross-fades the active
- * feature's visual (swap the placeholders for GIFs), while the feature list on
- * the right expands the active item. Auto-advances; click a feature to jump.
+ * on a white band. A browser-style window on the left plays the active feature's
+ * video, advancing to the next feature when the video finishes; the feature list
+ * on the right expands the active item. Click a feature to jump.
  */
 export function Features() {
   const [active, setActive] = useState(0);
 
-  // Advance a few seconds after the last change (manual clicks reset the timer).
-  useEffect(() => {
-    const id = setTimeout(
-      () => setActive((i) => (i + 1) % FEATURES.length),
-      CYCLE_MS,
-    );
-    return () => clearTimeout(id);
-  }, [active]);
+  const next = () => setActive((i) => (i + 1) % FEATURES.length);
 
   return (
     <section id="features" className="bg-white py-16 text-ink md:py-24">
@@ -43,25 +33,19 @@ export function Features() {
         </Reveal>
 
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-          {/* Snapshot showcase */}
+          {/* Snapshot showcase — plays the active feature's video on loop */}
           <Reveal>
-            <div className="relative mx-auto aspect-[903/420] w-full max-w-2xl overflow-hidden rounded-2xl border border-grey bg-white shadow-xl lg:max-w-none">
-              {FEATURES.map((feature, i) => (
-                <Image
-                  key={feature.number}
-                  src={feature.media}
-                  alt={feature.title}
-                  fill
-                  unoptimized
-                  sizes="(min-width: 1024px) 42rem, 92vw"
-                  className={cn(
-                    "object-cover transition-all duration-700 ease-out",
-                    i === active
-                      ? "scale-100 opacity-100"
-                      : "scale-105 opacity-0",
-                  )}
-                />
-              ))}
+            <div className="relative mx-auto aspect-[1920/894] w-full max-w-3xl overflow-hidden rounded-2xl border border-grey bg-black shadow-xl lg:max-w-none">
+              <video
+                key={FEATURES[active].number}
+                src={FEATURES[active].video}
+                autoPlay
+                muted
+                playsInline
+                preload="metadata"
+                onEnded={next}
+                className="h-full w-full object-cover"
+              />
             </div>
           </Reveal>
 
