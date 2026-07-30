@@ -22,12 +22,12 @@ export const metadata: Metadata = {
 
 /**
  * Essentials for QHA Members — a standalone landing page for the Queensland
- * Hotels Association. Reachable only via a direct link (see `robots` above); it
- * is intentionally NOT added to the Header/Footer navigation. Composes the QHA
- * offer top-to-bottom: hero → compliance report → Essentials+ → Portfolio One →
- * advisory → why QHA → 3 steps → contact.
+ * Hotels Association, served at /qha. Reachable only via a direct link (see
+ * `robots` above); it is intentionally NOT added to the Header/Footer
+ * navigation. Composes the QHA offer top-to-bottom: hero → compliance report →
+ * Essentials+ → Portfolio One → advisory → why QHA → 3 steps → contact.
  */
-export default function EssentialsQhaPage() {
+export default function QhaPage() {
   return (
     <>
       <Header brand="essentials" />

@@ -88,7 +88,7 @@ export function QhaHero() {
           spill below the hero to overlap the section beneath it. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute hidden lg:left-[54%] lg:top-[10rem] lg:block xl:left-[55%] xl:top-[12rem]"
+        className="pointer-events-none absolute hidden lg:left-[38%] lg:top-[5rem] lg:block xl:left-[40%] xl:top-[6.5rem]"
       >
         <Image
           src={DASHBOARD_SRC}
@@ -96,8 +96,8 @@ export function QhaHero() {
           width={1920}
           height={1080}
           priority
-          sizes="90vw"
-          className="animate-hero-image h-auto w-[90vw] max-w-none drop-shadow-2xl xl:w-[82vw]"
+          sizes="86rem"
+          className="animate-hero-image h-auto w-[76rem] max-w-none drop-shadow-2xl xl:w-[86rem]"
         />
       </div>
     </section>

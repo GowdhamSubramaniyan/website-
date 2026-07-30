@@ -136,9 +136,9 @@ export const PARTNERS: Partner[] = [
   },
   {
     region: "Malta",
-    name: "PULSE",
-    logo: `${LOGO}/1115.png`,
+    name: "Pulse Consult",
+    logo: `${LOGO}/pluse.jpg`,
     description:
-      "Strategic student engagement partner supporting representation, leadership development, and educational initiatives across Malta.",
+      "Construction consultancy specialising in project management, quantity surveying, project controls, and advisory services that deliver better outcomes across complex developments.",
   },
 ];
