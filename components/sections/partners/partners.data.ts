@@ -1,4 +1,4 @@
-export type Partner = { name: string; logo: string };
+export type Partner = { name: string; logo: string; imgClassName?: string };
 
 /** Partner network logos. */
 export const PARTNERS: Partner[] = [
@@ -11,6 +11,10 @@ export const PARTNERS: Partner[] = [
   { name: "Alaya Consulting", logo: "/assets/home/partner-alaya.png" },
   { name: "GO", logo: "/assets/home/partner-go.png" },
   { name: "ComeOn Group", logo: "/assets/home/partner-comeon.png" },
-  { name: "PULSE — Social Democratic Students", logo: "/assets/home/partner-pulse.png" },
+  {
+    name: "Pulse Consult",
+    logo: "/assets/home/partner-pulse-consult.png",
+    imgClassName: "h-12 w-auto object-contain sm:h-14",
+  },
   { name: "PANTA", logo: "/assets/home/partner-panta.png" },
 ];

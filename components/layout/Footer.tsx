@@ -113,7 +113,7 @@ export function Footer() {
                       alt={partner.name}
                       width={250}
                       height={100}
-                      className="h-8 w-auto object-contain sm:h-9"
+                      className={partner.imgClassName ?? "h-8 w-auto object-contain sm:h-9"}
                     />
                   </li>
                 ))}
