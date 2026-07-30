@@ -77,8 +77,8 @@ export function QhaContact() {
             {/* TODO: replace with the official QHA logo once provided
                 (drop the file in public/assets/ and swap this block for an <Image>). */}
             <div className="flex flex-col items-center leading-none text-ink">
-              <span className="text-4xl font-black tracking-tight">QHA</span>
-              <span className="mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-ink/60">
+              <span className="text-5xl font-black tracking-tight sm:text-6xl">QHA</span>
+              <span className="mt-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-ink/60 sm:text-xs">
                 Queensland Hotels Association
               </span>
             </div>
@@ -87,7 +87,7 @@ export function QhaContact() {
               alt="Vision Zero Connect"
               width={670}
               height={367}
-              className="h-16 w-auto sm:h-20"
+              className="h-24 w-auto sm:h-28"
             />
           </div>
         </Reveal>

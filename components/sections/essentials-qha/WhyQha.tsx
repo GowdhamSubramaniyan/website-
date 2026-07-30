@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { GradientText } from "@/components/ui/GradientText";
 import { WHY_QHA } from "./essentials-qha.data";
 
 const ICONS: Record<(typeof WHY_QHA)[number]["icon"], ReactNode> = {
@@ -49,10 +48,10 @@ export function WhyQha() {
   return (
     <section className="bg-white py-16 md:py-24">
       <Container>
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">
+        <Reveal className="text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl lg:whitespace-nowrap lg:text-5xl">
             Why QHA Members Choose{" "}
-            <GradientText variant="teal">Essentials</GradientText>
+            <span className="text-teal">Essentials</span>
           </h2>
         </Reveal>
 

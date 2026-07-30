@@ -56,7 +56,7 @@ export function ComplianceReport() {
               emissions report.
             </p>
 
-            <p className="mt-6 rounded-r-lg border-l-4 border-teal bg-teal/5 px-4 py-3 text-sm font-semibold text-ink sm:text-base">
+            <p className="mt-6 rounded-xl border border-teal/15 bg-teal/5 px-5 py-4 text-sm font-semibold text-ink sm:text-base">
               It&rsquo;s the easiest way for pubs and hotels to meet mandatory
               reporting requirements this year.
             </p>
@@ -127,7 +127,7 @@ export function ComplianceReport() {
                   alt="Essentials"
                   width={3146}
                   height={1021}
-                  className="h-9 w-auto"
+                  className="h-14 w-auto"
                 />
                 <a
                   href="#contact"
