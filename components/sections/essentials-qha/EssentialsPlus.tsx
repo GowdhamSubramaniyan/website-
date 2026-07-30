@@ -11,7 +11,7 @@ import { ESSENTIALS_PLUS_UNLOCKS } from "./essentials-qha.data";
  */
 export function EssentialsPlus() {
   return (
-    <section className="relative overflow-hidden bg-grad-teal-band py-16 text-white md:py-24">
+    <section className="relative overflow-hidden bg-[radial-gradient(120%_120%_at_50%_65%,#3d7568_0%,#316659_45%,#264d44_100%)] py-16 text-white md:py-24">
       <Container className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <Image
@@ -19,7 +19,7 @@ export function EssentialsPlus() {
             alt="Essentials+"
             width={4325}
             height={1250}
-            className="mx-auto h-11 w-auto sm:h-12"
+            className="mx-auto h-14 w-auto sm:h-16"
           />
           <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
             For Operators Who Want Full ESG Readiness
