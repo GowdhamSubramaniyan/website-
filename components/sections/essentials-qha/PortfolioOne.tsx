@@ -15,11 +15,11 @@ export function PortfolioOne() {
       <Container>
         <Reveal className="mx-auto max-w-3xl text-center">
           <Image
-            src="/assets/home/logos/product-portfolio-one-teal.png"
+            src="/assets/portfolio-one/product-portfolio-one.png"
             alt="Portfolio One"
             width={4019}
             height={1250}
-            className="mx-auto h-9 w-auto sm:h-10"
+            className="mx-auto h-12 w-auto sm:h-16"
           />
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Smarter Building Performance for Operators with Big Energy Bills
@@ -43,7 +43,7 @@ export function PortfolioOne() {
                 {PORTFOLIO_ONE_PROVIDES.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 rounded-xl bg-mint px-4 py-3.5 text-sm font-semibold text-ink"
+                    className="flex items-start gap-3 rounded-xl border border-grey/60 bg-[#f2f5f4] px-4 py-3.5 text-sm font-semibold text-ink"
                   >
                     <CheckIcon />
                     <span>{item}</span>

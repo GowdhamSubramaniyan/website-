@@ -83,11 +83,12 @@ export function QhaHero() {
       </Container>
 
       {/* Dashboard — large screens: absolute and oversized, starting just right
-          of centre so roughly half the card bleeds off the right edge, and
-          spilling below the hero to overlap the section beneath it. */}
+          of centre so roughly half the card bleeds off the right edge. Anchored
+          by its top so it sits clear of the header, while its height lets it
+          spill below the hero to overlap the section beneath it. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute hidden lg:bottom-[-4rem] lg:left-[54%] lg:block xl:bottom-[-5rem] xl:left-[55%]"
+        className="pointer-events-none absolute hidden lg:left-[54%] lg:top-[10rem] lg:block xl:left-[55%] xl:top-[12rem]"
       >
         <Image
           src={DASHBOARD_SRC}

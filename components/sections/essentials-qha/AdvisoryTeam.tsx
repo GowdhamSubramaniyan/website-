@@ -18,7 +18,7 @@ export function AdvisoryTeam() {
             alt="VZC Consult"
             width={335}
             height={183}
-            className="mx-auto h-14 w-auto brightness-0 invert sm:h-16"
+            className="mx-auto h-20 w-auto brightness-0 invert sm:h-24"
           />
           <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Strategic Advisory Team
@@ -35,9 +35,9 @@ export function AdvisoryTeam() {
               {ADVISORY_SERVICES.map((service, i) => (
                 <li
                   key={service}
-                  className="flex items-start gap-3 rounded-xl bg-mint px-4 py-4 text-sm font-semibold text-ink"
+                  className="flex items-start gap-3 rounded-xl border border-grey/60 bg-[#f2f5f4] px-4 py-4 text-sm font-semibold text-ink"
                 >
-                  <span className="grid h-6 w-7 shrink-0 place-items-center rounded-md bg-teal/10 text-xs font-bold text-teal">
+                  <span className="grid h-7 w-8 shrink-0 place-items-center rounded-md border border-teal/15 bg-[#d8e8e6] text-xs font-bold text-teal">
                     0{i + 1}
                   </span>
                   <span>{service}</span>
