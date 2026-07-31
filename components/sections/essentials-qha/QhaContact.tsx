@@ -74,14 +74,13 @@ export function QhaContact() {
         {/* Co-branded logos */}
         <Reveal className="mt-14">
           <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16">
-            {/* TODO: replace with the official QHA logo once provided
-                (drop the file in public/assets/ and swap this block for an <Image>). */}
-            <div className="flex flex-col items-center leading-none text-ink">
-              <span className="text-5xl font-black tracking-tight sm:text-6xl">QHA</span>
-              <span className="mt-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-ink/60 sm:text-xs">
-                Queensland Hotels Association
-              </span>
-            </div>
+            <Image
+              src="/assets/qha-logo.png"
+              alt="Queensland Hotels Association"
+              width={380}
+              height={210}
+              className="h-20 w-auto sm:h-24"
+            />
             <Image
               src="/vzc-logo.png"
               alt="Vision Zero Connect"

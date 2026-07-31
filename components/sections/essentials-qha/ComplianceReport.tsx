@@ -104,7 +104,7 @@ export function ComplianceReport() {
               <p className="mt-4 flex items-start text-white">
                 <span className="mt-2 text-2xl font-bold sm:text-3xl">$</span>
                 <span className="text-5xl font-bold leading-none tracking-tight sm:text-6xl">
-                  2,200
+                  1,200
                 </span>
               </p>
               <p className="mt-4 text-sm leading-relaxed text-white/75">

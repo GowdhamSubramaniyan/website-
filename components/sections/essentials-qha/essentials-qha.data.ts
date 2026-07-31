@@ -6,7 +6,7 @@
  */
 
 /** Annual price for the Essentials compliance report (Australian dollars). */
-export const QHA_PRICE = "A$2,200";
+export const QHA_PRICE = "A$1,200";
 
 /** "Essentials includes" — the compliance report feature list. */
 export const ESSENTIALS_INCLUDES = [
