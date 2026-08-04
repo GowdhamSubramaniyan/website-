@@ -13,8 +13,8 @@ export const PARTNERS: Partner[] = [
   { name: "ComeOn Group", logo: "/assets/home/partner-comeon.png" },
   {
     name: "Pulse Consult",
-    logo: "/assets/home/partner-pulse-consult.png",
-    imgClassName: "h-12 w-auto object-contain sm:h-14",
+    logo: "/assets/partners/Partner%20Page/pluse.jpg",
+    imgClassName: "h-7 w-auto object-contain sm:h-8",
   },
   { name: "PANTA", logo: "/assets/home/partner-panta.png" },
 ];
