@@ -50,7 +50,6 @@ export type ArticleBlock =
 
 /** Featured Articles — one featured + supporting list. */
 export const ARTICLES: InsightItem[] = [
-  /* --- Articles temporarily hidden from Insights. Uncomment to restore. ---
   {
     id: "the-future-of-esg-reporting-in-commercial-real-estate",
     title: "The Future of ESG Reporting in Commercial Real Estate",
@@ -395,6 +394,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
+  /* --- Rising Energy Costs & Beyond Compliance hidden. Uncomment to restore. ---
   {
     id: "rising-energy-costs-in-australia-and-across-the-world",
     title: "Rising Energy Costs in Australia and Across the World",
@@ -1146,56 +1146,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  --- End of temporarily hidden articles. --- */
-  {
-    id: "scope-expands-is-your-building-on-the-list",
-    title: "The Scope Expands: Is Your Building Now on the List?",
-    excerpt:
-      "If you own or manage a building in Hong Kong, the definition of “compliance” just got a lot broader…",
-    category: "article",
-    date: "13/01/2026",
-    readTime: "5 min read",
-    author: "Peter Dampier",
-    image: "/assets/insights/hong-kong-harbour.png",
-    link: "/insights/scope-expands-is-your-building-on-the-list",
-  },
-  {
-    id: "beeo-2025-new-5-year-audit-cycle",
-    title: "BEEO 2025: New 5-Year Audit Cycle",
-    excerpt:
-      "In the world of building management, a decade is a lifetime. Ten years ago, smart sensors were considered a luxury…",
-    category: "article",
-    date: "13/01/2026",
-    readTime: "5 min read",
-    author: "Peter Dampier",
-    image: "/assets/insights/boardroom-laptop.png",
-    link: "/insights/beeo-2025-new-5-year-audit-cycle",
-  },
-  {
-    id: "beeo-2025-amendments-mandatory-data-disclosure",
-    title: "BEEO 2025 Amendments: What Mandatory Data Disclosure Means…",
-    excerpt:
-      "For decades, building energy performance in Hong Kong was largely a private affair…",
-    category: "article",
-    date: "13/01/2026",
-    readTime: "5 min read",
-    author: "Peter Dampier",
-    image: "/assets/insights/charts-presentation.png",
-    link: "/insights/beeo-2025-amendments-mandatory-data-disclosure",
-  },
-  {
-    id: "turning-campuses-into-living-labs",
-    title:
-      "Turning Campuses into Living Labs: How Real-Time Data Prepares Students for…",
-    excerpt:
-      "Five years ago, sustainability in higher education was often relegated to environmental science departments or niche electives…",
-    category: "article",
-    date: "13/01/2026",
-    readTime: "5 min read",
-    author: "Peter Dampier",
-    image: "/assets/insights/strategy-meeting.png",
-    link: "/insights/turning-campuses-into-living-labs",
-  },
+  --- Rising Energy Costs & Beyond Compliance end. --- */
 ];
 
 /** In The News — media appearances, recognitions, milestones. */
