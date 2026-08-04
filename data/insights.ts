@@ -50,7 +50,6 @@ export type ArticleBlock =
 
 /** Featured Articles — one featured + supporting list. */
 export const ARTICLES: InsightItem[] = [
-  /* --- Articles temporarily hidden from Insights. Uncomment to restore. ---
   {
     id: "the-future-of-esg-reporting-in-commercial-real-estate",
     title: "The Future of ESG Reporting in Commercial Real Estate",
@@ -395,6 +394,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
+  /* --- Rising Energy Costs & Beyond Compliance hidden. Uncomment to restore. ---
   {
     id: "rising-energy-costs-in-australia-and-across-the-world",
     title: "Rising Energy Costs in Australia and Across the World",
@@ -1146,7 +1146,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  --- End of temporarily hidden articles. --- */
+  --- Rising Energy Costs & Beyond Compliance end. --- */
   {
     id: "scope-expands-is-your-building-on-the-list",
     title: "The Scope Expands: Is Your Building Now on the List?",
