@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/ui/Reveal";
+import { cn } from "@/lib/cn";
 import { PARTNERS } from "./partners.data";
 
 /** "Global Partner Network" — intro copy + colour partner logos over a dotted map. */
@@ -45,7 +46,10 @@ export function Partners() {
                   alt={partner.name}
                   width={250}
                   height={100}
-                  className="h-14 w-auto object-contain sm:h-16"
+                  className={cn(
+                    "w-auto max-w-full object-contain",
+                    partner.imgClassName ?? "h-14 sm:h-16",
+                  )}
                 />
               </li>
             ))}

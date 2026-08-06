@@ -141,4 +141,20 @@ export const PARTNERS: Partner[] = [
     description:
       "Construction consultancy specialising in project management, quantity surveying, project controls, and advisory services that deliver better outcomes across complex developments.",
   },
+  {
+    region: "Malta",
+    name: "ARQ",
+    logo: "/assets/home/partner-arq.png",
+    description:
+      "Strategic advisory and corporate services partner supporting governance, risk, and compliance initiatives across Malta and Europe.",
+    logoClassName: "max-h-10",
+  },
+  {
+    region: "Malta",
+    name: "L-Università ta' Malta",
+    logo: "/assets/home/partner-university-malta.png",
+    description:
+      "Academic and research partner supporting applied research, innovation, and industry capability development across Malta.",
+    logoClassName: "max-h-14",
+  },
 ];
