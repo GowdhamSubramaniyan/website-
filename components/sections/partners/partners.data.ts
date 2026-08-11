@@ -1,4 +1,9 @@
-export type Partner = { name: string; logo: string; imgClassName?: string };
+export type Partner = {
+  name: string;
+  logo: string;
+  /** Optional override for the logo height (default `h-14 sm:h-16`). */
+  imgClassName?: string;
+};
 
 /** Partner network logos. */
 export const PARTNERS: Partner[] = [
@@ -14,7 +19,18 @@ export const PARTNERS: Partner[] = [
   {
     name: "Pulse Consult",
     logo: "/assets/partners/Partner%20Page/pluse.jpg",
-    imgClassName: "h-7 w-auto object-contain sm:h-8",
+    imgClassName: "h-7 sm:h-8",
   },
   { name: "PANTA", logo: "/assets/home/partner-panta.png" },
+  {
+    // Wide 4.8:1 wordmark — trimmed height keeps it optically level with the rest.
+    name: "ARQ",
+    logo: "/assets/home/partner-arq.png",
+    imgClassName: "h-8 sm:h-9",
+  },
+  {
+    name: "L-Università ta' Malta",
+    logo: "/assets/home/partner-university-malta.png",
+    imgClassName: "h-12 sm:h-14",
+  },
 ];

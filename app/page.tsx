@@ -1,4 +1,4 @@
-import { Header, Footer } from "@/components/layout";
+import { Header, Footer, NewsletterPopup } from "@/components/layout";
 import { SectionTimeline } from "@/components/ui/SectionTimeline";
 import {
   Hero,
@@ -59,6 +59,8 @@ export default function HomePage() {
         <GlobalFootprint />
       </main>
       <Footer />
+      {/* Home page only, desktop exit intent — see NewsletterPopup */}
+      <NewsletterPopup />
     </>
   );
 }

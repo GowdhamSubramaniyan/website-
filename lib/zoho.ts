@@ -58,14 +58,30 @@ async function getAccessToken(): Promise<string> {
   return cache.token;
 }
 
-/** Add an email to the configured Zoho Campaigns list. Throws on failure. */
-export async function subscribeToZohoCampaigns(email: string): Promise<void> {
+/**
+ * Add a contact to the configured Zoho Campaigns list. Throws on failure.
+ *
+ * `name` is optional and split on the first space into Zoho Campaigns' standard
+ * "First Name" / "Last Name" fields — a single-word name fills First Name only.
+ */
+export async function subscribeToZohoCampaigns(
+  email: string,
+  name?: string,
+): Promise<void> {
   const token = await getAccessToken();
+
+  const contactinfo: Record<string, string> = { "Contact Email": email };
+  const trimmed = name?.trim();
+  if (trimmed) {
+    const gap = trimmed.indexOf(" ");
+    contactinfo["First Name"] = gap === -1 ? trimmed : trimmed.slice(0, gap);
+    if (gap !== -1) contactinfo["Last Name"] = trimmed.slice(gap + 1).trim();
+  }
 
   const body = new URLSearchParams({
     resfmt: "JSON",
     listkey: process.env.ZOHO_LIST_KEY ?? "",
-    contactinfo: JSON.stringify({ "Contact Email": email }),
+    contactinfo: JSON.stringify(contactinfo),
   });
 
   const res = await fetch(`https://campaigns.zoho.${dc()}/api/v1.1/json/listsubscribe`, {

@@ -394,7 +394,6 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  /* --- Rising Energy Costs & Beyond Compliance hidden. Uncomment to restore. ---
   {
     id: "rising-energy-costs-in-australia-and-across-the-world",
     title: "Rising Energy Costs in Australia and Across the World",
@@ -404,7 +403,7 @@ export const ARTICLES: InsightItem[] = [
     date: "28/07/2026",
     readTime: "11 min read",
     author: "Vision Zero Connect",
-    image: "/assets/insights/green-tower.png",
+    image: "/assets/articles/images/article-2.png",
     link: "/insights/rising-energy-costs-in-australia-and-across-the-world",
     body: [
       {
@@ -878,6 +877,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
+  /* --- Beyond Compliance hidden. Uncomment to restore. ---
   {
     id: "beyond-compliance-turning-esg-data-into-financial-performance",
     title: "Beyond Compliance: Turning ESG Data into Financial Performance",
@@ -1146,7 +1146,7 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  --- Rising Energy Costs & Beyond Compliance end. --- */
+  --- Beyond Compliance end. --- */
 ];
 
 /** In The News — media appearances, recognitions, milestones. */

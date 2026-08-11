@@ -2,11 +2,23 @@ import { isZohoConfigured, subscribeToZohoCampaigns, InvalidEmailError } from "@
 
 const RESEND_EMAILS = "https://api.resend.com/emails";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/** Guards against a bot posting a novel into the name field. */
+const NAME_MAX = 100;
+
+/** Both values land in an HTML email body, so escape before interpolating. */
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 /**
- * Newsletter signup. Adds the email to Zoho Campaigns when configured; otherwise
- * falls back to a Resend Audience, or emails the team if neither is set up.
- * Expects JSON: { email }.
+ * Newsletter signup. Adds the contact to Zoho Campaigns when configured;
+ * otherwise falls back to a Resend Audience, or emails the team if neither is
+ * set up. Expects JSON: { email, name? } — the popup sends a name, the footer
+ * form doesn't.
  */
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -26,10 +38,14 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
+  // Optional — only the popup collects it.
+  const name =
+    typeof body.name === "string" ? body.name.trim().slice(0, NAME_MAX) : "";
+
   // Preferred path: Zoho Campaigns.
   if (isZohoConfigured()) {
     try {
-      await subscribeToZohoCampaigns(email);
+      await subscribeToZohoCampaigns(email, name);
       return Response.json({ ok: true });
     } catch (err) {
       if (err instanceof InvalidEmailError) {
@@ -57,7 +73,16 @@ export async function POST(request: Request) {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, unsubscribed: false }),
+      body: JSON.stringify({
+        email,
+        unsubscribed: false,
+        ...(name
+          ? {
+              first_name: name.split(" ")[0],
+              last_name: name.split(" ").slice(1).join(" ") || undefined,
+            }
+          : {}),
+      }),
     });
     // 409 = already subscribed — treat as success.
     if (!res.ok && res.status !== 409) {
@@ -80,10 +105,9 @@ export async function POST(request: Request) {
           to: [to],
           reply_to: email,
           subject: "New newsletter signup",
-          html: `<p style="font-family:Arial,Helvetica,sans-serif;">New newsletter subscriber: <strong>${email.replace(
-            /</g,
-            "&lt;",
-          )}</strong></p>`,
+          html: `<p style="font-family:Arial,Helvetica,sans-serif;">New newsletter subscriber: <strong>${escapeHtml(
+            email,
+          )}</strong>${name ? ` (${escapeHtml(name)})` : ""}</p>`,
         }),
       });
     }

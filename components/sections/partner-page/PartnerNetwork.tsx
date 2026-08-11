@@ -37,7 +37,7 @@ export function PartnerNetwork() {
                     height={120}
                     sizes="(min-width: 1024px) 22rem, 90vw"
                     className={cn(
-                      "w-auto object-contain",
+                      "w-auto max-w-full object-contain",
                       partner.logoClassName ?? "max-h-16",
                     )}
                   />
