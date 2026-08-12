@@ -16,7 +16,7 @@ export function AboutHero() {
           {/* Copy */}
           <div>
             <span className="animate-fade-in-up block text-base font-semibold text-ink">
-              About Vision Zero Connect.
+              About Vision Zero Connect.      
             </span>
             <h1 className="animate-fade-in-up mt-6 text-balance text-5xl font-bold leading-[1.05] tracking-tight text-teal [animation-delay:120ms] sm:text-6xl md:text-7xl">
               <span className="block">Real Assets.</span>
