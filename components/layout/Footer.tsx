@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/cn";
 import { PARTNERS } from "@/components/sections/partners/partners.data";
 import { Logo } from "./Logo";
 import { NewsletterForm } from "./NewsletterForm";
@@ -113,7 +114,12 @@ export function Footer() {
                       alt={partner.name}
                       width={250}
                       height={100}
-                      className={partner.imgClassName ?? "h-8 w-auto object-contain sm:h-9"}
+                      // Compose rather than replace: a height override must not
+                      // drop w-auto/object-contain, or the logo gets stretched.
+                      className={cn(
+                        "w-auto max-w-full object-contain",
+                        partner.imgClassName ?? "h-8 sm:h-9",
+                      )}
                     />
                   </li>
                 ))}

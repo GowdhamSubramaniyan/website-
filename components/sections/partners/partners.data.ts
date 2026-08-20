@@ -1,7 +1,8 @@
 export type Partner = {
   name: string;
   logo: string;
-  /** Optional override for the logo height (default `h-14 sm:h-16`). */
+  /** Optional height override (footer default `h-8 sm:h-9`). Height only — the
+   *  renderer supplies w-auto/object-contain. */
   imgClassName?: string;
 };
 
@@ -15,22 +16,15 @@ export const PARTNERS: Partner[] = [
   { name: "Think ESG", logo: "/assets/home/partner-think-esg.png" },
   { name: "Alaya Consulting", logo: "/assets/home/partner-alaya.png" },
   { name: "GO", logo: "/assets/home/partner-go.png" },
-  { name: "ComeOn Group", logo: "/assets/home/partner-comeon.png" },
   {
     name: "Pulse Consult",
     logo: "/assets/partners/Partner%20Page/pluse.jpg",
     imgClassName: "h-7 sm:h-8",
   },
   { name: "PANTA", logo: "/assets/home/partner-panta.png" },
-  {
-    // Wide 4.8:1 wordmark — trimmed height keeps it optically level with the rest.
-    name: "ARQ",
-    logo: "/assets/home/partner-arq.png",
-    imgClassName: "h-8 sm:h-9",
-  },
+  { name: "ARQ", logo: "/assets/home/partner-arq.png" },
   {
     name: "L-Università ta' Malta",
     logo: "/assets/home/partner-university-malta.png",
-    imgClassName: "h-12 sm:h-14",
   },
 ];

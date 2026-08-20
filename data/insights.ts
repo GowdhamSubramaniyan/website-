@@ -1164,17 +1164,16 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  /* --- Beyond Compliance hidden. Uncomment to restore. ---
   {
     id: "beyond-compliance-turning-esg-data-into-financial-performance",
     title: "Beyond Compliance: Turning ESG Data into Financial Performance",
     excerpt:
       "How leading organisations turn ESG data into financial performance: lower costs, stronger valuations, better financing, and a credible transition position.",
     category: "article",
-    date: "28/07/2026",
+    date: "18/08/2026",
     readTime: "10 min read",
     author: "Vision Zero Connect",
-    image: "/assets/insights/charts-presentation.png",
+    image: "/assets/articles/images/article-3.png",
     link: "/insights/beyond-compliance-turning-esg-data-into-financial-performance",
     body: [
       {
@@ -1433,7 +1432,6 @@ export const ARTICLES: InsightItem[] = [
       },
     ],
   },
-  --- Beyond Compliance end. --- */
 ];
 
 /** In The News — media appearances, recognitions, milestones. */
