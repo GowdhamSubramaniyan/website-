@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Operational intelligence and ESG reporting that turns real asset data into measurable commercial outcomes.",
   verification: {
     // Renders <meta name="google-site-verification" ...> for Search Console.
-    google: "welmW663gxq-Ej8vSsLx2DRSIKfNF4ZDxg1Hb2nMxsg",
+    google: "JBQM1KfzhmltO6waLoy0-ehfTCq7wkVos-DHTXzlyQg",
   },
 };
 
