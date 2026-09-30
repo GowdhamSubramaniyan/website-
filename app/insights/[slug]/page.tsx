@@ -247,6 +247,28 @@ export default async function InsightArticlePage({
                             </div>
                           </div>
                         );
+                      case "sources":
+                        return (
+                          <div key={i} className="pt-6">
+                            <h3 className="text-base font-bold tracking-tight text-ink">
+                              {block.heading}
+                            </h3>
+                            <ul className="mt-3 grid gap-2">
+                              {block.items.map((src) => (
+                                <li key={src.href}>
+                                  <a
+                                    href={src.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm leading-relaxed text-teal underline underline-offset-2 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+                                  >
+                                    {src.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
                       default:
                         return (
                           <p

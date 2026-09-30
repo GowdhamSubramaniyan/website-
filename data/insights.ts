@@ -46,7 +46,13 @@ export type ArticleBlock =
   /** Teal closing block alternating small labels and big statements. */
   | { kind: "final"; lines: { text: string; big?: boolean }[] }
   /** Dark call-to-action band with a heading, supporting line, and button. */
-  | { kind: "cta"; heading: string; text: string; href: string; label: string };
+  | { kind: "cta"; heading: string; text: string; href: string; label: string }
+  /** Citation list closing an article — rendered as external links. */
+  | {
+      kind: "sources";
+      heading: string;
+      items: { label: string; href: string }[];
+    };
 
 /** Featured Articles — one featured + supporting list. */
 export const ARTICLES: InsightItem[] = [
@@ -1429,6 +1435,439 @@ export const ARTICLES: InsightItem[] = [
         text: "Book a demonstration to see how Vision Zero Connect turns your operational and ESG data into measurable financial performance.",
         href: "/#contact",
         label: "Book a Demo",
+      },
+    ],
+  },
+  {
+    id: "how-can-hotels-reduce-energy-costs",
+    title: "How Can Hotels Reduce Energy Costs?",
+    excerpt:
+      "Building intelligence can help hotel operators identify avoidable energy consumption, improve building performance and control operating costs without compromising the guest experience.",
+    category: "article",
+    date: "30/09/2026",
+    readTime: "8 min read",
+    author: "Vision Zero Connect",
+    image: "/assets/articles/images/vzc-x-hospitality.png",
+    link: "/insights/how-can-hotels-reduce-energy-costs",
+    body: [
+      {
+        kind: "h3",
+        text: "Building intelligence can help hotel operators identify avoidable energy consumption, improve building performance and control operating costs without compromising the guest experience.",
+      },
+      {
+        kind: "p",
+        text: "Hotels can reduce energy costs by gaining better visibility into how and when their buildings consume energy, then using that information to identify inefficient equipment, unnecessary operating hours and differences in performance across properties.",
+      },
+      {
+        kind: "p",
+        text: "For hotel operators, this matters because utilities represent a significant recurring expense in buildings that operate around the clock.",
+      },
+      {
+        kind: "p",
+        text: "CBRE Hotels Research estimated that U.S. hotel utility costs reached $2,478 per available room annually in 2024, or $9.68 per occupied room. Resorts averaged considerably more at $4,933 per available room.",
+      },
+      {
+        kind: "p",
+        text: "At the same time, pressure on hotel profitability continues. CBRE’s 2025 Global Hotel Outlook expected hotel margins to decline for a third consecutive year as cost increases continued to outpace top-line growth.",
+      },
+      {
+        kind: "quote",
+        heading:
+          "Controlling avoidable building costs is therefore not simply an environmental objective.",
+        text: "It is a profitability issue.",
+      },
+
+      { kind: "h2", text: "Why Do Hotels Consume So Much Energy?" },
+      { kind: "p", text: "Hotels are complex operating environments." },
+      {
+        kind: "p",
+        text: "Unlike many commercial buildings with predictable periods of activity, hotels operate continuously. Guest rooms need to remain comfortable. Kitchens and refrigeration systems must function reliably. Hot water needs to be available throughout the day. Lighting, lifts, ventilation, laundry facilities, pools, spas and conference spaces can all add to consumption.",
+      },
+      {
+        kind: "p",
+        text: "The challenge is that a utility bill only tells an operator how much energy the property consumed and what it cost.",
+      },
+      { kind: "highlight", text: "It does not necessarily explain why." },
+      {
+        kind: "p",
+        text: "If electricity consumption increases, was occupancy higher? Did weather conditions increase cooling demand? Was equipment operating outside expected hours? Has an HVAC system become less efficient? Are building controls no longer optimised?",
+      },
+      {
+        kind: "p",
+        text: "Without sufficient operational visibility, identifying the cause can be difficult.",
+      },
+      {
+        kind: "p",
+        text: "This matters because inefficiencies do not always appear as major equipment failures.",
+      },
+      {
+        kind: "p",
+        text: "An HVAC system can gradually require more energy to maintain the same temperature. Heating or cooling can operate unnecessarily in unoccupied areas. Equipment schedules may no longer match actual hotel operations. Building controls can change over time without anyone recognising their cumulative effect on consumption.",
+      },
+      { kind: "p", text: "Individually, these issues may appear small." },
+      {
+        kind: "p",
+        text: "Across hundreds of rooms or a portfolio of hotels, they can become expensive.",
+      },
+
+      { kind: "h2", text: "How Much Are Utilities Costing Hotels?" },
+      {
+        kind: "p",
+        text: "CBRE’s analysis of 3,674 U.S. hotels provides useful context.",
+      },
+      {
+        kind: "p",
+        text: "Hotel utility costs were estimated to increase by 1.4% in 2024, following a 4.1% compound annual growth rate between 2019 and 2023.",
+      },
+      { kind: "p", text: "The impact also varies considerably by hotel type." },
+      {
+        kind: "p",
+        text: "Limited-service hotels were estimated to spend $1,446 per available room on utilities in 2024, while extended-stay properties averaged $1,580. Although these properties spent less in absolute terms, utilities represented approximately 4% of their revenue.",
+      },
+      {
+        kind: "p",
+        text: "Resorts spent substantially more at $4,933 per available room, although their higher room rates and wider revenue sources meant utilities represented approximately 2.9% of revenue.",
+      },
+      {
+        kind: "p",
+        text: "The figures demonstrate why there is no single energy benchmark that works for every hotel.",
+      },
+      {
+        kind: "p",
+        text: "Property type, occupancy, climate, amenities and operating model all affect consumption.",
+      },
+      {
+        kind: "p",
+        text: "That makes context particularly important when assessing hotel energy performance.",
+      },
+      {
+        kind: "em",
+        text: "Source: CBRE Hotels Research, Sustainability Practices Help Control Hotel Utility Costs, 2025.",
+      },
+
+      {
+        kind: "h2",
+        text: "How Does Building Intelligence Help Reduce Energy Costs?",
+      },
+      { kind: "p", text: "Most hotels already generate useful building information." },
+      {
+        kind: "p",
+        text: "Smart meters record consumption. Building Management Systems monitor equipment and environmental conditions. Utility providers generate usage data. Maintenance teams record asset performance and interventions.",
+      },
+      {
+        kind: "p",
+        text: "The problem is often that this information sits in different places.",
+      },
+      {
+        kind: "p",
+        text: "Facilities teams may understand individual systems while finance teams see the resulting expenditure. Senior management may receive monthly reports but have limited visibility into what caused costs to change.",
+      },
+      { kind: "p", text: "Building intelligence brings those perspectives together." },
+      { kind: "p", text: "Instead of only asking:" },
+      { kind: "em", text: "“How much energy did we use?”" },
+      { kind: "p", text: "operators can start asking:" },
+      {
+        kind: "em",
+        text: "“Where did we use it, when did consumption change and what caused the difference?”",
+      },
+      {
+        kind: "p",
+        text: "That creates opportunities to identify avoidable consumption earlier.",
+      },
+      {
+        kind: "p",
+        text: "For example, an unusual increase in overnight electricity usage could indicate equipment operating when demand should be lower. A property consuming substantially more energy than comparable hotels may warrant investigation into HVAC performance, operating schedules or building controls.",
+      },
+      { kind: "p", text: "The data does not automatically solve the problem." },
+      { kind: "highlight", text: "It tells teams where to look." },
+
+      {
+        kind: "h2",
+        text: "Can Hotels Reduce Energy Costs Without Major Capital Investment?",
+      },
+      {
+        kind: "p",
+        text: "Not every energy-saving opportunity requires replacing equipment or undertaking a major refurbishment.",
+      },
+      {
+        kind: "p",
+        text: "Before committing capital, hotel operators can examine whether existing assets are being operated effectively.",
+      },
+      {
+        kind: "p",
+        text: "Heating and cooling systems may run longer than necessary. Lighting schedules may not reflect occupancy. Equipment may remain active during periods of lower demand. Building controls may have been changed over time without being reviewed against actual operating requirements.",
+      },
+      {
+        kind: "p",
+        text: "CBRE notes that resort and convention hotels often use centralised mechanical, electrical and plumbing systems controlled through building automation systems. These can be adjusted according to occupancy and facility-use patterns to improve energy efficiency.",
+      },
+      { kind: "p", text: "This is an important distinction." },
+      { kind: "p", text: "The first question does not always need to be:" },
+      { kind: "em", text: "“What equipment should we replace?”" },
+      { kind: "p", text: "It can be:" },
+      {
+        kind: "em",
+        text: "“Are we getting the best performance from what we already have?”",
+      },
+      {
+        kind: "p",
+        text: "Where larger investment is necessary, operational data can then strengthen the business case.",
+      },
+
+      { kind: "h2", text: "What Can Energy-Efficient Hotel Systems Save?" },
+      {
+        kind: "p",
+        text: "The financial impact can be significant, although results depend heavily on the property.",
+      },
+      {
+        kind: "p",
+        text: "CBRE compared several similar select-service hotels within the same municipality.",
+      },
+      {
+        kind: "p",
+        text: "One approximately 150-room hotel built with a variable refrigerant flow heating and cooling system and solar panels recorded utility costs of $3.40 per occupied room.",
+      },
+      {
+        kind: "p",
+        text: "A similarly sized older hotel had utility expenditure more than $4 higher per occupied room. Across approximately 50,000 occupied rooms, that represented a difference of more than $200,000 in annual utility expenditure.",
+      },
+      {
+        kind: "p",
+        text: "CBRE also compared the property with a newer hotel without the same energy-efficient features and still found a meaningful difference in utility expenditure.",
+      },
+      {
+        kind: "p",
+        text: "This is one example rather than a universal savings estimate. Hotel age, construction, climate, amenities, occupancy and operating practices all affect performance.",
+      },
+      {
+        kind: "p",
+        text: "But it demonstrates why understanding building performance matters financially.",
+      },
+      {
+        kind: "p",
+        text: "When operators have reliable baseline data, they can assess whether an investment is improving performance rather than relying solely on projected savings.",
+      },
+      { kind: "em", text: "Source: CBRE, Sustainability in Hotels." },
+
+      { kind: "h2", text: "Why Is Portfolio Benchmarking So Valuable?" },
+      {
+        kind: "p",
+        text: "For hotel groups, some of the strongest insights come from comparing properties.",
+      },
+      {
+        kind: "p",
+        text: "One hotel can tell management whether its energy consumption increased.",
+      },
+      { kind: "highlight", text: "A portfolio provides context." },
+      {
+        kind: "p",
+        text: "If several comparable properties operate under similar conditions but one consistently consumes substantially more energy per occupied room, management has somewhere meaningful to investigate.",
+      },
+      {
+        kind: "p",
+        text: "Further analysis may reveal differences in HVAC performance, equipment efficiency, building controls or operating practices.",
+      },
+      { kind: "p", text: "High-performing properties can also provide useful lessons." },
+      {
+        kind: "p",
+        text: "If one hotel achieves consistently lower consumption without compromising operations or guest comfort, teams can investigate whether its practices can be applied elsewhere.",
+      },
+      {
+        kind: "p",
+        text: "This turns benchmarking into a continuous improvement process.",
+      },
+      {
+        kind: "p",
+        text: "Instead of treating every property independently, hotel groups can use portfolio information to identify exceptions, investigate the reasons behind them and replicate successful practices.",
+      },
+
+      {
+        kind: "h2",
+        text: "How Can Energy Data Improve Maintenance and Investment Decisions?",
+      },
+      {
+        kind: "p",
+        text: "Energy performance can also provide useful information about the condition of hotel assets.",
+      },
+      {
+        kind: "p",
+        text: "An HVAC system may continue maintaining the required temperature while gradually consuming more energy to do so. Refrigeration equipment may still function but operate for increasingly long periods. Maintenance requirements may increase as equipment ages.",
+      },
+      { kind: "p", text: "These patterns can provide an early reason to investigate." },
+      {
+        kind: "p",
+        text: "For facilities teams, this supports a more informed approach to maintenance.",
+      },
+      {
+        kind: "p",
+        text: "For finance and asset-management teams, it can support lifecycle and capital planning.",
+      },
+      {
+        kind: "p",
+        text: "Hotel businesses regularly need to choose between competing investments: guest-room refurbishments, HVAC replacement, kitchen equipment, lighting, renewable energy and wider property improvements.",
+      },
+      { kind: "p", text: "Capital is rarely unlimited." },
+      {
+        kind: "p",
+        text: "Building-performance information can help decision-makers identify where inefficiencies are occurring, understand how assets are performing over time and establish a baseline before approving investment.",
+      },
+      {
+        kind: "p",
+        text: "After an upgrade, the same data can be used to assess whether expected improvements actually occurred.",
+      },
+      {
+        kind: "outcomes",
+        heading:
+          "Building intelligence therefore connects three decisions that are often treated separately:",
+        items: [
+          "How the building operates today",
+          "What needs attention",
+          "Where capital should go next",
+        ],
+      },
+
+      {
+        kind: "h2",
+        text: "Smart Hotels Need Better Decisions, Not More Technology",
+      },
+      {
+        kind: "p",
+        text: "The term “smart hotel” can imply that adding more technology automatically creates a more efficient property.",
+      },
+      { kind: "highlight", text: "It does not." },
+      {
+        kind: "p",
+        text: "A dashboard cannot reduce energy consumption on its own. A smart meter does not correct an inefficient operating schedule. A Building Management System cannot improve performance if nobody acts on what the information reveals.",
+      },
+      {
+        kind: "p",
+        text: "Technology becomes valuable when it gives the right people useful information at the right time.",
+      },
+      {
+        kind: "ul",
+        items: [
+          "Facilities teams provide knowledge of building systems.",
+          "Finance teams understand the impact of changing costs.",
+          "Operations teams provide context around occupancy and how the hotel is being used.",
+          "Asset managers understand longer-term investment priorities.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Bringing those perspectives together is what turns building data into business intelligence.",
+      },
+      {
+        kind: "quote",
+        heading:
+          "A genuinely smart hotel is therefore not necessarily the property with the most connected devices.",
+        text: "It is the property that uses its building information most effectively.",
+      },
+
+      {
+        kind: "h2",
+        text: "How Portfolio One Supports Smarter Hotel Operations",
+      },
+      {
+        kind: "p",
+        text: "Vision Zero Connect’s Portfolio One helps hotel owners, operators and asset managers bring building, energy and operational information into a central environment.",
+      },
+      {
+        kind: "p",
+        text: "By connecting information from sources such as smart meters, utility feeds and Building Management Systems, hotel teams can gain greater visibility into how individual properties and wider portfolios are performing.",
+      },
+      {
+        kind: "p",
+        text: "This can help operators identify unusual consumption patterns, compare properties and highlight areas that warrant investigation.",
+      },
+      {
+        kind: "p",
+        text: "For multi-property hospitality groups, portfolio benchmarking can help identify why similar hotels perform differently and where successful operating practices may be replicated.",
+      },
+      {
+        kind: "p",
+        text: "Building-performance information can also support investment decisions by providing a clearer baseline before efficiency projects, equipment replacements or other improvements are approved.",
+      },
+      {
+        kind: "p",
+        text: "The objective is not to give hotel teams another dashboard to manage.",
+      },
+      {
+        kind: "p",
+        text: "It is to make existing building information more useful to the people responsible for controlling costs and improving performance.",
+      },
+
+      { kind: "h2", text: "The Business Case for Smarter Hotels" },
+      {
+        kind: "p",
+        text: "For hotel owners and operators, reducing energy costs does not mean compromising the guest experience.",
+      },
+      {
+        kind: "p",
+        text: "It means identifying consumption that adds cost without adding value.",
+      },
+      {
+        kind: "p",
+        text: "Better building visibility can help operators identify inefficient equipment, unnecessary operating hours and differences in performance between properties.",
+      },
+      {
+        kind: "p",
+        text: "It can support maintenance teams before inefficiencies become larger problems.",
+      },
+      {
+        kind: "p",
+        text: "It can give finance and asset-management teams better evidence when deciding where limited capital should be invested.",
+      },
+      {
+        kind: "p",
+        text: "And across a portfolio, it can reveal opportunities that may remain invisible when each hotel is considered independently.",
+      },
+      {
+        kind: "p",
+        text: "With operating costs continuing to put pressure on hotel margins, the ability to understand how buildings consume energy is becoming increasingly commercially important.",
+      },
+      {
+        kind: "final",
+        lines: [
+          { text: "The smarter hotel is not simply the most connected hotel." },
+          {
+            text: "It is the hotel that understands how its building performs and acts on what the data reveals.",
+            big: true,
+          },
+        ],
+      },
+      {
+        kind: "p",
+        text: "Vision Zero Connect’s Portfolio One helps hospitality organisations turn building, utility and operational data into practical intelligence, giving hotel teams greater visibility into performance and supporting better decisions around energy, maintenance and investment.",
+      },
+      {
+        kind: "cta",
+        heading: "Ready to see how your hotels are really performing?",
+        text: "Book a demonstration to see how Portfolio One turns building and utility data into measurable savings.",
+        href: "/#contact",
+        label: "Book a Demo",
+      },
+      {
+        kind: "sources",
+        heading: "Sources",
+        items: [
+          {
+            label:
+              "CBRE Hotels Research, Sustainability Practices Help Control Hotel Utility Costs",
+            href: "https://www.cbre.com/insights/articles/sustainability-practices-help-control-hotel-utility-costs",
+          },
+          {
+            label: "CBRE Hotels Research, Gaining Control of Utility Costs",
+            href: "https://www.cbre.com/insights/briefs/12980368955",
+          },
+          {
+            label: "CBRE, Sustainability in Hotels",
+            href: "https://www.cbre.com/insights/briefs/sustainability-in-hotels",
+          },
+          {
+            label: "CBRE, 2025 Global Hotel Outlook",
+            href: "https://www.cbre.com/insights/reports/16368744271",
+          },
+        ],
       },
     ],
   },
