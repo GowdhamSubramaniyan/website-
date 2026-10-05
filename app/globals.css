@@ -19,6 +19,12 @@
   --color-mint: #f9fff5; /* soft section tint */
   --color-deep: #2c4b56; /* dark slate-teal — footer surface (from design) */
 
+  /* --- Sentri (sister brand, used only in the home page Sentri section) --- */
+  --color-sentri: #fa292d; /* Sentri red */
+  --color-sentri-ink: #0e1a2b; /* Sentri navy text */
+  --color-sentri-navy: #112743; /* Sentri Commercial card surface */
+  --color-sentri-surface: #f7f8fa; /* Sentri section background */
+
   /* --- Semantic --- */
   --color-background: #ffffff;
   --color-foreground: #191a19;

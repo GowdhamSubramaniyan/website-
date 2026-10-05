@@ -12,6 +12,7 @@ const SOLUTIONS = [
   { label: "Essentials+", href: "/essentials-plus" },
   { label: "Portfolio One", href: "/portfolio-one" },
   { label: "VZC Consult", href: "/vz-consult" },
+  { label: "Sentri", href: "/sentri" },
 ];
 
 const RESOURCES = [

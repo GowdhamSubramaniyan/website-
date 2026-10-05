@@ -11,3 +11,4 @@ export { InsightsSection } from "./insights/InsightsSection";
 export { InsightCard } from "./insights/InsightCard";
 export { ContactSection } from "./contact/ContactSection";
 export { GlobalFootprint } from "./footprint/GlobalFootprint";
+export { SentriSection } from "./sentri/SentriSection";

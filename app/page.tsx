@@ -9,6 +9,7 @@ import {
   InsightsSection,
   ContactSection,
   GlobalFootprint,
+  SentriSection,
 } from "@/components/sections";
 
 const TIMELINE = [
@@ -18,6 +19,7 @@ const TIMELINE = [
   { id: "tl-essentials", label: "Introduction to Essentials" },
   { id: "tl-portfolio", label: "Introduction to Portfolio One" },
   { id: "tl-consult", label: "Introduction to Consult" },
+  { id: "tl-sentri", label: "Introduction to Sentri" },
   { id: "tl-insights", label: "Insights" },
   { id: "tl-contact", label: "Contact" },
 ];
@@ -49,6 +51,9 @@ export default function HomePage() {
         </div>
         <div id="tl-portfolio">
           <PortfolioDuo />
+        </div>
+        <div id="tl-sentri">
+          <SentriSection />
         </div>
         <div id="tl-insights">
           <InsightsSection />

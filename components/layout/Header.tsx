@@ -9,13 +9,14 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { Logo } from "./Logo";
 
-// The four products — shown as the "Our Solutions" dropdown so each links
+// The products — shown as the "Our Solutions" dropdown so each links
 // directly to its page (works from any page, unlike the old #products anchor).
 const SOLUTIONS_LINKS = [
   { label: "Essentials", href: "/essentials" },
   { label: "Essentials+", href: "/essentials-plus" },
   { label: "Portfolio One", href: "/portfolio-one" },
   { label: "VZC Consult", href: "/vz-consult" },
+  { label: "Sentri", href: "/sentri" },
 ] as const;
 
 // Navigation matches the design (zipteam.my.canva.site … home page).
